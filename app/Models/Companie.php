@@ -12,7 +12,7 @@ class Companies extends Model
     protected $table = 'companies';
 
     protected $fillable = [
-        'titxle',
+        'title',
         'contract',
         'more',
         'location',

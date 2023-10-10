@@ -11,13 +11,6 @@ class Applications extends Model
 
     protected $table = 'applications';
 
-    protected $fillable = [
-        'lastname',
-        'name',
-        'email',
-        'password',
-    ];
-
     public function job(): BelongsTo
     {
         return $this->belongsTo(Job::class);
