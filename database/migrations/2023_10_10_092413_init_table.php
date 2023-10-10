@@ -32,11 +32,10 @@ return new class extends Migration
         Schema::create('applications', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('job_id');
-            $table->bigInteger('mailsent');
+            $table->unsignedBigInteger('jobs_id');
             $table->timestamps();
 
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('jobs_id')->references('id')->on('jobs');
         });
 
