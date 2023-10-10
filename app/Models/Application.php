@@ -10,10 +10,7 @@ class Application extends Model
     use HasFactory;
 
     protected $table = 'applications';
-
-    protected $fillable = [
-    ];
-
+  
     public function job(): BelongsTo
     {
         return $this->belongsTo(Job::class);
