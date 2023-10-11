@@ -31,7 +31,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function application(): HasMany
+    public function applications(): HasMany
     {
         return $this->hasMany(Application::class);
     }

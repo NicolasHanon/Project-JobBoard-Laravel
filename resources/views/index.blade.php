@@ -7,5 +7,8 @@
 </head>
 <body>
     <p>Salut</p>
+    @foreach ($jobs as $job)
+        <h4>{{ $job->title }}</h4>
+    @endforeach
 </body>
 </html>

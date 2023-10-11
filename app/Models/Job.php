@@ -18,7 +18,7 @@ class Job extends Model
         'location',
     ];
 
-    public function compagnies(): BelongsTo
+    public function compagnie(): BelongsTo
     {
         return $this->belongsTo(Compagnies::class);
     }
