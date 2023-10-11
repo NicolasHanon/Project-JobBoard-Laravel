@@ -11,9 +11,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
+    <div class="head">
         <p>JobBoard</p>
-    </nav>
+        <img class="menu" onClick="showNav()" src="{{ URL::asset('svg/menu.svg') }}">
+        <nav class="nav-drill">
+            <div>
+                <img class="option" src="{{ URL::asset('svg/home.svg') }}">
+                <p class="optiontext">Home</p>
+            </div>
+            <div>
+                <img class="option" src="{{ URL::asset('svg/add.svg') }}">
+                <p class="optiontext">Post an ad</p>
+            </div>
+            <div>
+                <img class="option" src="{{ URL::asset('svg/admin.svg') }}">
+                <p class="optiontext">Admin panel</p>
+            </div>
+            <div>
+                <img class="option" src="{{ URL::asset('svg/profile.svg') }}">
+                <p class="optiontext">Profile</p>
+            </div>
+            <div>
+                <img class="option" src="{{ URL::asset('svg/logout.svg') }}">
+                <p class="optiontext">Log Out</p>
+            </div>
+        </nav>
+    </div>
     <div class="content_container">
         <main>
             <p>Job1</p>
