@@ -6,20 +6,63 @@ body {
     display: flex;
     flex-direction: column;
 
-    nav {
+    .head {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         overflow: hidden;
         background-color: white;
         border-bottom: 2px solid black;
-        height: 10vh;
-    }
+        height: 8%;
 
-    .sticky {
-        position: fixed;
-        top: 0;
-        width: 100%;
+        .menu {
+            z-index: 2;
+            width: 50px;
+        }
+
+        .menu, p {
+            margin: 10px;
+        }
+
+        .option {
+            width: 25px;
+            margin-left: 10px;
+        }
+
+        .nav {
+            &-drill {
+                padding-top: 100px;
+                display: flex;
+                position: fixed;
+                flex-direction: column;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                height: 100vh;
+                background-color: white;
+                overflow-y: auto;
+                overflow-x: hidden;
+                -webkit-overflow-scrolling: touch;
+                transition: 450ms;
+                border-left: 4px solid black;
+
+                @media screen and (max-width: 635px) {
+                    width: 100vw;
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 0;
+                    background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
+                    background-size: 1800% 100%;
+                    animation: gradient 15s linear infinite;
+                }
+                @media screen and (min-width: 635px) and (max-width: 980px) {
+                    width: 30vw;
+                }
+                @media screen and (min-width: 980px) {
+                    width: 20vw;
+                }
+            }
+        }
     }
 
     .content_container {
@@ -63,7 +106,7 @@ body {
                 justify-content: center;
                 background-color: white;
                 width: 80%;
-                height: 80%;
+                height: 60vh;
                 border: 3px solid black;
             }
         }
@@ -73,4 +116,33 @@ body {
 @keyframes gradient {
     0% { background-position: 200% 50%; }
     100% { background-position: -100% 50%; }
+}
+
+.nav-drill {
+	transform: translateX(100%);
+    div {
+        display: flex; 
+        transition: all ease-in-out 200ms;
+        @media screen and (max-width: 635px) {
+            transform: scale(1.5);
+        }
+        &:hover {
+            transition: all ease-in-out 200ms;
+            @media screen and (max-width: 635px) {
+                transform: scale(1.7);
+            }
+            @media screen and (min-width: 635px) {
+                transform: scale(1.1) translateX(10px);
+            }
+        }   
+    }
+}
+.nav-is-toggled {
+	.nav-drill {
+		transform: translateX(0);
+	}
+	&::after {
+		opacity: 1;
+		visibility: visible;
+	}
 }
