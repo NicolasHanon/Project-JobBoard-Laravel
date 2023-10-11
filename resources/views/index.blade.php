@@ -16,33 +16,14 @@
     </nav>
     <div class="content_container">
         <main>
-            <p>Job1</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job2</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job3</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job4</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job-2</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job-1</p>
+            @foreach ($data as $job)
+                <p>{{ $job->title }} - {{ $job->name }}</p>
+                <div style="border: 0.5px solid black; width: 25vw;"></div>
+            @endforeach
         </main>
         <aside>
             <div class="content">
-                <p>Content</p>
+                <p>{{ $data }}</p>
             </div>
         </aside>
     </div>

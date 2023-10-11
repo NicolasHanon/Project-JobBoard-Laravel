@@ -21,4 +21,4 @@ Route::get('/login', function () {
  
 Route::get('/user/{id}', [UserController::class, 'show']);
 
-Route::get('/', [IndexController::class, 'show']);
+Route::get('/index', [IndexController::class, 'index']);
