@@ -29,19 +29,30 @@ body .container {
   height: fit-content;
   border: 4px solid black;
 }
-@media screen and (max-width: 535px) {
+@media screen and (max-width: 849px) {
   body .container {
     width: 80%;
   }
 }
-@media screen and (min-width: 535px) {
+@media screen and (min-width: 850px) {
   body .container {
-    width: 60%;
+    width: 80%;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 body .container p {
-  font-size: 2em;
-  transition: all ease-in-out 100ms;
+  transition: all ease-in-out 200ms;
+}
+@media screen and (max-width: 849px) {
+  body .container p {
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 850px) {
+  body .container p {
+    font-size: 2em;
+  }
 }
 body .container .form_container {
   display: flex;
@@ -52,10 +63,37 @@ body .container .form_container {
 body .container .form_container div {
   display: flex;
   gap: 10px;
+  padding: 10px;
+}
+@media screen and (max-width: 849px) {
+  body .container .form_container div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 850px) {
+  body .container .form_container div {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+  }
+}
+body .container .form_container div input, body .container .form_container div select {
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: white;
+}
+body .container .form_container div input:focus, body .container .form_container div select:focus {
+  outline: none;
 }
 body .container .form_container textarea {
-  width: 80%;
+  width: 42vw;
   height: 20vh;
+  resize: none;
 }
 body .container button {
   background-color: white;

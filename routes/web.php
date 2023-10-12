@@ -15,10 +15,14 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/', function () {
+    return view('form');
 });
- 
-Route::get('/user/{id}', [UserController::class, 'show']);
 
-Route::get('/', [IndexController::class, 'show']);
+// Route::get('/login', function () {
+//     return view('login');
+// });
+ 
+// Route::get('/user/{id}', [UserController::class, 'show']);
+
+// Route::get('/', [IndexController::class, 'show']);
