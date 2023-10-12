@@ -1,5 +1,5 @@
 function showNav() {
-  document.body.classList.toggle('nav-is-toggled');
+  document.body.classList.toggle('burger-is-toggled');
 }
 
 //data.id, data.companies_id, data.title, data.contract, data.more, data.location, data.name
@@ -14,3 +14,16 @@ jobs.forEach(
     desc.innerHTML = data[0].name;
   })
 }));
+
+let jobss = document.querySelectorAll(".job");
+for (const job of jobss) {
+  job.addEventListener("click", (e) => {
+    if (window.innerWidth < 850)
+      document.body.classList.toggle('content-is-toggled');
+  });
+}
+
+document.querySelector(".rightarrow").addEventListener("click", (e) => {
+  if (window.innerWidth < 850)
+    document.body.classList.toggle('content-is-toggled');
+});

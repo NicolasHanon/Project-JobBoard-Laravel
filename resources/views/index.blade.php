@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="head">
+    <div class="nav">
         <p>JobBoard</p>
         <img class="menu" onClick="showNav()" src="{{ URL::asset('svg/menu.svg') }}">
-        <nav class="nav-drill">
+        <nav class="burger-drill">
             <div>
                 <img class="option" src="{{ URL::asset('svg/home.svg') }}">
                 <p class="optiontext">Home</p>
@@ -37,17 +37,22 @@
             </div>
         </nav>
     </div>
-    <div class="content_container">
+    <div class="job_container">
         <main>
             @foreach ($data as $job)
                 <p class="job" data-id="{{ $job->id }}">{{ $job->title }} - {{ $job->name }}</p>
-                <div style="border: 0.5px solid black; width: 25vw;"></div>
+                <div class="separator"></div>
                 <input id="input" type="hidden" value="{{ $job->id }}">
             @endforeach
         </main>
-        <aside>
+        <aside class="content-drill">
+            <img class="rightarrow" src="{{ URL::asset('svg/rightarrow.svg') }}">
             <div class="content">
-                <p></p>
+                <p>Content</p>
+                <form>
+                    <textarea placeholder="Why we should hire you ?"></textarea>
+                    <input type="submit" value="Apply">
+                </form>
             </div>
         </aside>
     </div>
