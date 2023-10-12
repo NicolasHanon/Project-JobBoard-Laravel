@@ -124,7 +124,7 @@ body .job_container main .job {
   }
   body .job_container main .job:hover {
     transition: all ease-in-out 200ms;
-    transform: scale(1.7);
+    transform: scale(1.6);
   }
 }
 @media screen and (min-width: 850px) {
@@ -133,7 +133,8 @@ body .job_container main .job {
   }
   body .job_container main .job:hover {
     transition: all ease-in-out 200ms;
-    transform: scale(1.2);
+    transform: scale(1.1);
+    cursor: pointer;
   }
 }
 @media screen and (max-width: 849px) {

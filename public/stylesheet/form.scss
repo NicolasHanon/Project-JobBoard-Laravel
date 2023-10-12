@@ -87,18 +87,19 @@ body {
                 height: 20vh;
                 resize: none;
             }
-        }
 
-        button {
-            background-color: white;
-            border-radius: 5px;
-            margin: 20px 0 20px 0;
-            transition: all ease-in-out 200ms;
-
-            &:hover {
-                background-color: #90cf8e;
-                color: white;
-                transform: scale(1.1);
+            button {
+                background-color: white;
+                border-radius: 5px;
+                margin: 20px 0 20px 0;
+                transition: all ease-in-out 200ms;
+    
+                &:hover {
+                    background-color: #90cf8e;
+                    color: white;
+                    transform: scale(1.1);
+                    cursor: pointer;
+                }
             }
         }
     }

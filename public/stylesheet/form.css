@@ -95,16 +95,17 @@ body .container .form_container textarea {
   height: 20vh;
   resize: none;
 }
-body .container button {
+body .container .form_container button {
   background-color: white;
   border-radius: 5px;
   margin: 20px 0 20px 0;
   transition: all ease-in-out 200ms;
 }
-body .container button:hover {
+body .container .form_container button:hover {
   background-color: #90cf8e;
   color: white;
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 @keyframes gradient {

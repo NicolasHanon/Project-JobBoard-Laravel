@@ -69,6 +69,7 @@ body .login_container button:hover {
   background-color: #90cf8e;
   color: white;
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 @keyframes gradient {
