@@ -13,29 +13,11 @@
 <body>
     <div class="job_container">
         <main>
-            <p class="job">Job1</p>
-            <div class="separator"></div>
-            <p class="job">Job2</p>
-            <div class="separator"></div>
-            <p class="job">Job3</p>
-            <div class="separator"></div>
-            <p class="job">Job4</p>
-            <div class="separator"></div>
-            <p class="job">Job</p>
-            <div class="separator"></div>
-            <p class="job">Job</p>
-            <div class="separator"></div>
-            <p class="job">Job</p>
-            <div class="separator"></div>
-            <p class="job">Job</p>
-            <div class="separator"></div>
-            <p class="job">Job</p>
-            <div class="separator"></div>
-            <p class="job">Job</p>
-            <div class="separator"></div>
-            <p class="job">Job-2</p>
-            <div class="separator"></div>
-            <p class="job">Job-1</p>
+            @foreach ($data as $job)
+                <p class="job" data-id="{{ $job->id }}">{{ $job->title }} - {{ $job->name }}</p>
+                <div class="separator"></div>
+                <input id="input" type="hidden" value="{{ $job->id }}">
+            @endforeach
         </main>
         <aside class="content-drill">
             <img class="rightarrow" src="{{ URL::asset('svg/rightarrow.svg') }}">
