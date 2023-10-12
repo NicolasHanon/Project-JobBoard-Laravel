@@ -17,11 +17,11 @@
         <nav class="burger-drill">
             <div>
                 <img class="option" src="{{ URL::asset('svg/home.svg') }}">
-                <p class="optiontext">Home</p>
+                <a href="/index"><p class="optiontext">Home</p></a>
             </div>
             <div>
                 <img class="option" src="{{ URL::asset('svg/add.svg') }}">
-                <p class="optiontext">Post an ad</p>
+                <a href="/newjob"><p class="optiontext">Post an ad</p></a>
             </div>
             <div>
                 <img class="option" src="{{ URL::asset('svg/admin.svg') }}">
@@ -33,7 +33,7 @@
             </div>
             <div>
                 <img class="option" src="{{ URL::asset('svg/logout.svg') }}">
-                <p class="optiontext">Log Out</p>
+                <a href="/login"><p class="optiontext">Log Out</p></a>
             </div>
         </nav>
     </div>
@@ -50,7 +50,7 @@
             <div class="content">
                 <p>Content</p>
                 <form>
-                    <textarea placeholder="Why we should hire you ?"></textarea>
+                    <textarea placeholder="Why should we hire you ?"></textarea>
                     <input type="submit" value="Apply">
                 </form>
             </div>
