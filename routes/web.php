@@ -16,7 +16,7 @@ use App\Http\Controllers\IndexController;
 */
 
 Route::get('/login', function () {
-    return view('login');
+  return view('login');
 });
  
 Route::get('/user/{id}', [UserController::class, 'show']);

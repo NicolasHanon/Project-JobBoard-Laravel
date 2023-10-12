@@ -28,16 +28,22 @@ body {
         height: fit-content;
         border: 4px solid black;
 
-        @media screen and (max-width: 535px) {
+        @media screen and (max-width: 849px) {
             width: 80%;
         }
-        @media screen and (min-width: 535px) {
-            width: 60%;
+        @media screen and (min-width: 850px) {
+            width: 80%;
+            height: fit-content;
         }
 
         p {
-            font-size: 2em;
-            transition: all ease-in-out 100ms;
+            transition: all ease-in-out 200ms;
+            @media screen and (max-width: 849px) {
+                font-size: 1.5em;
+            }
+            @media screen and (min-width: 850px) {
+                font-size: 2em;
+            }
         }
 
         .form_container {
@@ -49,11 +55,37 @@ body {
             div {
                 display: flex;
                 gap: 10px;
+                padding: 10px;
+
+                @media screen and (max-width: 849px) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    padding: 10px;
+                }
+                @media screen and (min-width: 850px) {
+                    display: flex;
+                    gap: 10px;
+                    padding: 10px;
+                }
+
+                input, select {
+                    border: none;
+                    border-bottom: 1px solid black;
+                    background-color: white;
+    
+                    &:focus {
+                        outline: none;
+                    }
+                }
             }
 
             textarea {
-                width: 80%;
+                width: 42vw;
                 height: 20vh;
+                resize: none;
             }
         }
 

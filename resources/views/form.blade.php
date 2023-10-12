@@ -15,9 +15,9 @@
         <p>Create a job advert</p>
         <form class="form_container">
             <div>
-                <label for="title"><b>Job Title</b></label>
+                <label for="title">Job Title</label>
                 <input type="text" name="title" required>
-                <label for="contract"><b>Contract Type</b></label>
+                <label for="contract">Contract Type</label>
                 <select name="contract" required>
                     <option value="" selected disabled hidden>-- Choose here --</option>
                     <option value="Full-time">Full-time</option>
@@ -27,10 +27,10 @@
                     <option value="Internship">Internship</option>
                 </select>
             </div>
-            <label for="description"><b>Description of the position</b></label>
+            <label for="description">Description of the position</label>
             <textarea name="description"></textarea>
             <div>
-                <label for="location"><b>Location</b></label>
+                <label for="location">Location</label>
                 <input type="text" name="location" required>
             </div>
             <button type="submit">Send ad</button>
