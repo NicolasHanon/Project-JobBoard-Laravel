@@ -304,6 +304,10 @@ body .job_container .content-drill .content form input:hover {
     transform: scale(1.1) translateX(10px);
   }
 }
+.burger-drill div .optiontext {
+  text-decoration: none;
+  color: black;
+}
 
 .burger-is-toggled .burger-drill {
   transform: translateX(0);

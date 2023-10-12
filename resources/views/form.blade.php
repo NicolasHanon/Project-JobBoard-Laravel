@@ -33,7 +33,7 @@
                 <label for="location">Location</label>
                 <input type="text" name="location" required>
             </div>
-            <button type="submit">Send ad</button>
+            <button type="submit">Post ad</button>
         </form>
 </div>
 </body>
