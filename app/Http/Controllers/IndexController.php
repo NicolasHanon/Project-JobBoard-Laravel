@@ -37,12 +37,12 @@ class IndexController extends Controller
      */
     public function show($id)
     {       
-        $data = DB::table('jobs')
-                ->join('companies', 'jobs.companies_id', '=', 'companies.id')
-                ->select('jobs.*', 'companies.name')
-                ->where('id', '=', $id)
-                ->get();
-        return $data;
+        $job = DB::table('jobs')
+        ->join('companies', 'jobs.companies_id', '=', 'companies.id')
+        ->select('jobs.*', 'companies.name')
+        ->where('jobs.id', '=', $id)
+        ->get();
+        return response()->json($job);
     }
 
     /**

@@ -40,13 +40,14 @@
     <div class="content_container">
         <main>
             @foreach ($data as $job)
-                <p>{{ $job->title }} - {{ $job->name }}</p>
+                <p class="job" data-id="{{ $job->id }}">{{ $job->title }} - {{ $job->name }}</p>
                 <div style="border: 0.5px solid black; width: 25vw;"></div>
+                <input id="input" type="hidden" value="{{ $job->id }}">
             @endforeach
         </main>
         <aside>
             <div class="content">
-                <p>{{ $data }}</p>
+                <p></p>
             </div>
         </aside>
     </div>

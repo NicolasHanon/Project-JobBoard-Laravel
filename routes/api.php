@@ -17,8 +17,6 @@ use App\Http\Controllers\IndexController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
-
-Route::get('/index', [IndexController::class, 'index']);
+});   
 
 Route::get('/index/{id}', [IndexController::class, 'show'])->whereNumber('id');
