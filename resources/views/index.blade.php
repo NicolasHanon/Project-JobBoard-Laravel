@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="head">
+    <div class="nav">
         <p>JobBoard</p>
         <img class="menu" onClick="showNav()" src="{{ URL::asset('svg/menu.svg') }}">
-        <nav class="nav-drill">
+        <nav class="burger-drill">
             <div>
                 <img class="option" src="{{ URL::asset('svg/home.svg') }}">
                 <p class="optiontext">Home</p>
@@ -37,35 +37,40 @@
             </div>
         </nav>
     </div>
-    <div class="content_container">
+    <div class="job_container">
         <main>
-            <p>Job1</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job2</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job3</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job4</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job-2</p>
-            <div style="border: 0.5px solid black; width: 25vw;"></div>
-            <p>Job-1</p>
+            <p class="job">Job1</p>
+            <div class="separator"></div>
+            <p class="job">Job2</p>
+            <div class="separator"></div>
+            <p class="job">Job3</p>
+            <div class="separator"></div>
+            <p class="job">Job4</p>
+            <div class="separator"></div>
+            <p class="job">Job</p>
+            <div class="separator"></div>
+            <p class="job">Job</p>
+            <div class="separator"></div>
+            <p class="job">Job</p>
+            <div class="separator"></div>
+            <p class="job">Job</p>
+            <div class="separator"></div>
+            <p class="job">Job</p>
+            <div class="separator"></div>
+            <p class="job">Job</p>
+            <div class="separator"></div>
+            <p class="job">Job-2</p>
+            <div class="separator"></div>
+            <p class="job">Job-1</p>
         </main>
-        <aside>
+        <aside class="content-drill">
+            <img class="rightarrow" src="{{ URL::asset('svg/rightarrow.svg') }}">
             <div class="content">
                 <p>Content</p>
+                <form>
+                    <textarea placeholder="Why we should hire you ?"></textarea>
+                    <input type="submit" value="Apply">
+                </form>
             </div>
         </aside>
     </div>
