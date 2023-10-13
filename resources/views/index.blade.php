@@ -32,7 +32,11 @@
                 <p class="optiontext">Profile</p>
             </div>
             <div>
-                <img class="option" src="{{ URL::asset('svg/logout.svg') }}">
+                <img class="option" src="{{ URL::asset('svg/signin.svg') }}">
+                <p class="optiontext">Sign in</p>
+            </div>
+            <div>
+                <img class="option" src="{{ URL::asset('svg/signout.svg') }}">
                 <a href="/login"><p class="optiontext">Log Out</p></a>
             </div>
         </nav>

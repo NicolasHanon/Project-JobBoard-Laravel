@@ -33,10 +33,8 @@
                 <label for="location">Location</label>
                 <input type="text" name="location" required>
             </div>
-            <button type="submit">Post ad</button>
+            <button type="submit">Post job</button>
         </form>
 </div>
 </body>
 </html>
-
-<!-- <script src="{{ asset('js/form.js')}}"></script> -->
