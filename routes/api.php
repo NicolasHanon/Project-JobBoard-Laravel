@@ -23,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('/index/{id}', [IndexController::class, 'show'])->whereNumber('id');
 
 Route::post('/newjob/add', [JobController::class, "store"]);
+
+Route::post('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id');

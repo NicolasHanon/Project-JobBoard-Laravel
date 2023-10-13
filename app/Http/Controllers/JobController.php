@@ -26,7 +26,7 @@ class JobController extends Controller
         }
         catch(\Illuminate\Database\QueryException $e) {
             return response()->json([
-                'message' => 'marche po'], 500);
+                'message' => 'ça marche pas'], 500);
         }
     }
 
@@ -49,8 +49,16 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Job $job)
+    public function destroy($id)
     {
-        //
+        try{
+            $job = Job::findOrFail($id);
+            $job->delete();
+            return response()->json($job, 201);
+        }
+        catch(\Illuminate\Database\QueryException $e) { // je sais pas si c est la bonne erreur
+            return response()->json([
+                'message' => 'ça marche pas'], 500);
+        }
     }
 }
