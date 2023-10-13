@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });   
 
 Route::get('/index/{id}', [IndexController::class, 'show'])->whereNumber('id');
+
+Route::post('/newjob/add', [JobController::class, "store"]);

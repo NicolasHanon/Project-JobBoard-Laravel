@@ -17,6 +17,7 @@ class Job extends Model
         'more',
         'location',
         'salary',
+        'companies_id',
     ];
 
     public function compagnie(): BelongsTo
