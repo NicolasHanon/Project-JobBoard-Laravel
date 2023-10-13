@@ -32,7 +32,11 @@
                 <p class="optiontext">Profile</p>
             </div>
             <div>
-                <img class="option" src="{{ URL::asset('svg/logout.svg') }}">
+                <img class="option" src="{{ URL::asset('svg/signin.svg') }}">
+                <p class="optiontext">Sign in</p>
+            </div>
+            <div>
+                <img class="option" src="{{ URL::asset('svg/signout.svg') }}">
                 <a href="/login"><p class="optiontext">Log Out</p></a>
             </div>
         </nav>
@@ -64,7 +68,6 @@
                     <p class="joblabel">Job description : </p>
                     <p class="jobdescription jobdata"></p>
                 </div>
-
                 <div>
                     <p class="joblabel">Job location : </p>
                     <p class="joblocation jobdata"></p>
