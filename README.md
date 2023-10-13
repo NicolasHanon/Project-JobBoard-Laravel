@@ -2,9 +2,7 @@
 
 ## Installation
 
-Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/5.4/installation#installation)
-
-Alternative installation is possible without local dependencies relying on [Docker](#docker). 
+Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/10.x/installation)
 
 Clone the repository
 
@@ -34,21 +32,24 @@ Start the local development server
 
     php artisan serve
 
-You can now access the server at http://localhost:8000
+You can now access the server at [http://localhost:8000/](http://localhost:8000/)
+
+    /newjob
+    /login
+    /index
     
 The api can be accessed at [http://localhost:8000/api](http://localhost:8000/api).
 
+    /api/index/{id}/
+    /api/newjob/add
+
 # Code overview
-
-## Dependencies
-
-- [jwt-auth](https://github.com/tymondesigns/jwt-auth) - For authentication using JSON Web Tokens
-- [laravel-cors](https://github.com/barryvdh/laravel-cors) - For handling Cross-Origin Resource Sharing (CORS)
 
 ## Folders
 
 - `app` - Contains all the Eloquent models
 - `app/Http/Controllers/Api` - Contains all the api controllers
+- `resources/views` - Contains all the views
 - `database/factories` - Contains the model factory for all the models
 - `database/migrations` - Contains all the database migrations
 - `database/seeds` - Contains the database seeder
