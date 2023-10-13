@@ -11,11 +11,11 @@
     <title>Login</title>
 </head>
 <body>
-    <form class="login_container">
+    <form class="login_container" action="{{ route('auth.login') }}" method="post">
         <p>Sign In</p>
         <div class="input_container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" name="uname" required>
+            <label for="email"><b>Email</b></label>
+            <input type="email" name="email" required>
             <label for="psw"><b>Password</b></label>
             <input id="password" type="password" name="psw" required>
             <label>Show Password</label>
