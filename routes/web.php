@@ -17,14 +17,20 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/loginquimarche', function () {
-    return view('login');
+    return view('signin');
 });
 
 Route::get('/newjob', function () {
-    return view('form');
+    return view('addjob');
 });
 
-Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/register', function () {
+    return view('signup');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
 
 Route::get('/index', [IndexController::class, 'index']);
 
