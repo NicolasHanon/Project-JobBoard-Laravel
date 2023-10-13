@@ -29,6 +29,12 @@ body .nav .menu {
   z-index: 3;
   width: 50px;
 }
+@media screen and (max-width: 849px) {
+  body .nav .menu {
+    background-color: white;
+    border: 2px solid black;
+  }
+}
 body .nav .menu, body .nav p {
   margin: 10px;
 }
@@ -151,13 +157,13 @@ body .job_container main .job span {
 }
 body .job_container .content-drill {
   transition: all ease-in-out 200ms;
+  overflow: auto;
+  height: 100%;
 }
 @media screen and (max-width: 849px) {
   body .job_container .content-drill {
-    background-color: rgb(124, 180, 124);
     transform: translateX(100%);
     display: flex;
-    align-items: center;
     justify-content: center;
     background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
     background-size: 1800% 100%;
@@ -168,7 +174,6 @@ body .job_container .content-drill {
     z-index: 1;
     top: 0;
     right: 0;
-    overflow-y: auto;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     transition: 450ms;
@@ -177,9 +182,7 @@ body .job_container .content-drill {
 }
 @media screen and (min-width: 850px) {
   body .job_container .content-drill {
-    background-color: rgb(124, 180, 124);
     display: flex;
-    align-items: center;
     justify-content: center;
     background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
     background-size: 1800% 100%;
@@ -205,54 +208,49 @@ body .job_container .content-drill {
 body .job_container .content-drill .content {
   display: flex;
   flex-direction: column;
-  position: relative;
   background-color: white;
   width: 80%;
-  height: 80vh;
   border: 3px solid black;
   gap: 2px;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 10px;
+  overflow: hidden;
+}
+@media screen and (max-width: 849px) {
+  body .job_container .content-drill .content {
+    margin: 60px 20px 20px 20px;
+  }
+}
+@media screen and (min-width: 850px) {
+  body .job_container .content-drill .content {
+    margin: 20px;
+  }
 }
 body .job_container .content-drill .content .jobdata {
   font-family: "Kanit", sans-serif;
-  font-size: 1.2em;
   margin-left: 10px;
+  font-size: 1em;
 }
 body .job_container .content-drill .content .joblabel {
-  margin-left: 10px;
-  font-size: 1.2em;
   font-family: "Dela Gothic One", cursive;
+  margin-left: 10px;
+  font-size: 1em;
 }
 body .job_container .content-drill .content div {
   display: flex;
   flex-wrap: wrap;
 }
-body .job_container .content-drill .content .apply {
-  font-family: "Dela Gothic One", cursive;
-  margin: 10px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background-color: white;
-  border-radius: 5px;
-  transition: all ease-in-out 200ms;
-}
-body .job_container .content-drill .content .apply:hover {
-  background-color: #90cf8e;
-  color: white;
-  transform: scale(1.1);
-}
 body .job_container .content-drill .content form {
-  margin: 10px;
-  position: absolute;
+  margin: 10px auto 10px auto;
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  bottom: 0;
+  width: 90%;
 }
 body .job_container .content-drill .content form textarea {
   font-family: "Kanit", sans-serif;
-  width: 35vw;
-  height: 5vh;
+  width: 80%;
+  height: 50%;
   resize: none;
   outline: none;
 }
