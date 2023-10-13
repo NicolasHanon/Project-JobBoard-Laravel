@@ -11,7 +11,7 @@
     <title>Login</title>
 </head>
 <body>
-    <form class="login_container" action="{{ route('auth.login') }}" method="post">
+    <form class="login_container" method="post">
         <p>Sign In</p>
         <div class="input_container">
             <label for="email"><b>Email</b></label>
