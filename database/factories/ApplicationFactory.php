@@ -19,6 +19,7 @@ class ApplicationFactory extends Factory
         return [
             'user_id' => fake()->numberBetween(1,5),
             'jobs_id' => fake()->numberBetween(1,10),
+            'message' => fake()->text(),
         ];
     }
 }

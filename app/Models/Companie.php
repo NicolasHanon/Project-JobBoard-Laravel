@@ -16,6 +16,7 @@ class Companie extends Model
         'contract',
         'more',
         'location',
+        'message',
     ];
 
     public function jobs(): HasMany

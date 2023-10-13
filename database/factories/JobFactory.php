@@ -22,6 +22,7 @@ class JobFactory extends Factory
             'contract' => fake()->randomElement($array = array('Alternance', 'CDI', 'CDD', 'Stage')),
             'more' => fake()->text($maxNbChars = 100),
             'location' => fake()->city(),
+            'salary' => fake()->numberBetween(10000, 50000),
         ];
     }
 }
