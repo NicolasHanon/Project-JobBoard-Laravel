@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,7 @@ use App\Http\Controllers\IndexController;
 |
 */
 
-Route::get('/login', function () {
+Route::get('/loginquimarche', function () {
     return view('login');
 });
 
@@ -23,10 +24,8 @@ Route::get('/newjob', function () {
     return view('form');
 });
 
-Route::get('/login', function() {
-    return view('login');
-});
-
 Route::get('/user/{id}', [UserController::class, 'show']);
 
 Route::get('/index', [IndexController::class, 'index']);
+
+Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route  
