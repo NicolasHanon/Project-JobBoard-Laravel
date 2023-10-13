@@ -92,6 +92,8 @@ body .job_container {
 }
 body .job_container main {
   transition: all ease-in-out 200ms;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 @media screen and (max-width: 849px) {
   body .job_container main {
@@ -115,27 +117,25 @@ body .job_container main {
     overflow-y: scroll;
   }
 }
+body .job_container main::-webkit-scrollbar {
+  display: none;
+}
 body .job_container main .job {
   transition: all ease-in-out 200ms;
+  text-align: center;
 }
 @media screen and (max-width: 849px) {
   body .job_container main .job {
-    transform: scale(1.5);
-  }
-  body .job_container main .job:hover {
-    transition: all ease-in-out 200ms;
-    transform: scale(1.6);
+    font-size: 1em;
   }
 }
-@media screen and (min-width: 850px) {
-  body .job_container main .job {
-    transform: scale(1);
-  }
-  body .job_container main .job:hover {
-    transition: all ease-in-out 200ms;
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+body .job_container main .job:hover {
+  transition: all ease-in-out 200ms;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+body .job_container main .job span {
+  font-family: "Kanit", sans-serif;
 }
 @media screen and (max-width: 849px) {
   body .job_container main .separator {
@@ -202,29 +202,29 @@ body .job_container .content-drill {
     display: none;
   }
 }
-@media screen and (max-width: 849px) {
-  body .job_container .content-drill .content {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    width: 80%;
-    height: 80vh;
-    border: 3px solid black;
-  }
+body .job_container .content-drill .content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: white;
+  width: 80%;
+  height: 80vh;
+  border: 3px solid black;
+  gap: 2px;
 }
-@media screen and (min-width: 850px) {
-  body .job_container .content-drill .content {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    width: 80%;
-    height: 80vh;
-    border: 3px solid black;
-  }
+body .job_container .content-drill .content .jobdata {
+  font-family: "Kanit", sans-serif;
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+body .job_container .content-drill .content .joblabel {
+  margin-left: 10px;
+  font-size: 1.2em;
+  font-family: "Dela Gothic One", cursive;
+}
+body .job_container .content-drill .content div {
+  display: flex;
+  flex-wrap: wrap;
 }
 body .job_container .content-drill .content .apply {
   font-family: "Dela Gothic One", cursive;
