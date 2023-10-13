@@ -29,3 +29,4 @@ Route::get('/user/{id}', [UserController::class, 'show']);
 Route::get('/index', [IndexController::class, 'index']);
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route  
+Route::post('/login', [AuthController::class, 'doLogin']);

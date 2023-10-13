@@ -12,6 +12,9 @@
 </head>
 <body>
     <form class="login_container" action="{{ route('auth.login') }}" method="post">
+
+    @csrf
+
         <p>Sign In</p>
         <div class="input_container">
             <label for="email"><b>Email</b></label>
