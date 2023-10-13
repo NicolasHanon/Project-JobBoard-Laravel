@@ -64,7 +64,6 @@
                     <p class="joblabel">Job description : </p>
                     <p class="jobdescription jobdata"></p>
                 </div>
-
                 <div>
                     <p class="joblabel">Job location : </p>
                     <p class="joblocation jobdata"></p>
