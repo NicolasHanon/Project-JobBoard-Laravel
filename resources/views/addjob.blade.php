@@ -14,22 +14,26 @@
     <div class="container">
         <p>Create a job advert</p>
         <form class="form_container">
-            <div>
-                <label for="title">Job Title</label>
-                <input type="text" name="title" required>
-                <label for="contract">Contract Type</label>
-                <select name="contract" required>
-                    <option value="" selected disabled hidden>-- Choose here --</option>
-                    <option value="Full-time">Full-time</option>
-                    <option value="Part-time">Part-time</option>
-                    <option value="Freelance">Freelance</option>
-                    <option value="Apprenticeship">Apprenticeship</option>
-                    <option value="Internship">Internship</option>
-                </select>
+            <div class="morespace">
+                <div class="container_children">
+                    <label for="title">Job Title</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div class="container_children">
+                    <label for="contract">Contract Type</label>
+                    <select name="contract" required>
+                        <option value="" selected disabled hidden>-- Choose here --</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Freelance">Freelance</option>
+                        <option value="Apprenticeship">Apprenticeship</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
             </div>
             <label for="description">Description of the position</label>
             <textarea name="description"></textarea>
-            <div>
+            <div class="morespace">
                 <label for="location">Location</label>
                 <input type="text" name="location" required>
             </div>

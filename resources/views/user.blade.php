@@ -14,25 +14,37 @@
     <div class="container">
         <p>Manage my profile</p>
         <form class="form_container">
-            <div>
-                <label for="name">Name is</label>
-                <input type="text" name="name" required>
-                <label for="lastname">Last name is</label>
-                <input type="text" name="lastname" required>
+            <div class="morespace">
+                <div class="container_children">
+                    <label for="name">Name is</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="container_children">
+                    <label for="lastname">Last name is</label>
+                    <input type="text" name="lastname" required>
+                </div>
             </div>
-            <div>
-                <label for="email">Email is</label>
-                <input type="email" name="email" required>
-                <label for="phone">Phone is</label>
-                <input type="tel" name="phone" required>
+            <div class="morespace">
+                <div class="container_children">
+                    <label for="email">Email is</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="container_children">
+                    <label for="phone">Phone is</label>
+                    <input type="tel" name="phone" required>
+                </div>
             </div>
             <label for="about">About me</label>
             <textarea name="about"></textarea>
-            <div>
-                <label for="oldpassword">Previous password</label>
-                <input type="password" name="oldpassword" required>
-                <label for="newpassword">New password</label>
-                <input type="password" name="newpassword" required>
+            <div class="morespace">
+                <div class="container_children">
+                    <label for="oldpassword">Previous password</label>
+                    <input type="password" name="oldpassword" required>
+                </div>
+                <div class="container_children">
+                    <label for="newpassword">New password</label>
+                    <input type="password" name="newpassword" required>
+                </div>
             </div>
             <button type="submit">Save changes</button>
         </form>

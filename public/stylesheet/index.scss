@@ -29,6 +29,7 @@ body {
             @media screen and (max-width: 849px) {
                 background-color: white;
                 border: 2px solid black;
+                border-radius: 50%;
             }
         }
 
@@ -192,7 +193,7 @@ body {
                 @media screen and (min-width: 850px) {
                     display: none;
                 }
-            }
+            }  
 
             .content {
                 display: flex;
@@ -205,7 +206,7 @@ body {
                 padding: 10px;
                 overflow: hidden;
                 @media screen and (max-width: 849px) {
-                    margin: 60px 20px 20px 20px;
+                    margin: 70px 20px 20px 20px;
                 }
                 @media screen and (min-width: 850px) {
                     margin: 20px;
@@ -233,6 +234,7 @@ body {
                     display: flex;
                     justify-content: space-around;
                     width: 90%;
+                    gap: 10px;
 
                     textarea {
                         font-family: 'Kanit', sans-serif;
@@ -281,7 +283,7 @@ body {
                 transform: scale(1.7);
             }
             @media screen and (min-width: 850px) {
-                transform: scale(1.1) translateX(10px);
+                transform: scale(1.1) translateX(20px);
             }
         }
         
