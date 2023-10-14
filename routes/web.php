@@ -16,16 +16,23 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/loginquimarche', function () {
-    return view('login');
+Route::get('/', function () {
+    return view('user');
 });
 
 Route::get('/newjob', function () {
-    return view('form');
+    return view('addjob');
 });
 
-Route::get('/user/{id}', [UserController::class, 'show']);
+Route::get('/register', function () {
+    return view('signup');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
 
 Route::get('/index', [IndexController::class, 'index']);
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route  
+Route::post('/login', [AuthController::class, 'doLogin']);
