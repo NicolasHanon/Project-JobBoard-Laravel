@@ -1,5 +1,16 @@
-let jobs = document.querySelectorAll(".job");
+window.addEventListener('DOMContentLoaded', (event) => {
+  fetch(`http://localhost:8000/api/index/${1}`)
+    .then(response => { return response.json();})
+    .then(data => {
+      document.querySelector(".jobtitle").innerHTML = data[0].title; 
+      document.querySelector(".jobcontract").innerHTML = data[0].contract;
+      document.querySelector(".jobcompany").innerHTML = data[0].name;
+      document.querySelector(".jobdescription").innerHTML = data[0].more;
+      document.querySelector(".joblocation").innerHTML = data[0].location;
+    });
+});
 
+let jobs = document.querySelectorAll(".job");
 for (const job of jobs) {
   job.addEventListener("click", (e) => {
     fetch(`http://localhost:8000/api/index/${e.srcElement.dataset.id}`)
