@@ -43,6 +43,7 @@
     </div>
     <div class="job_container">
         <main>
+            <div class="separator"></div>
             @foreach ($data as $job)
                 <p class="job" data-id="{{ $job->id }}"><span data-id="{{ $job->id }}">{{ $job->title }} - </span>{{ $job->name }}</p>
                 <div class="separator"></div>

@@ -1,18 +1,18 @@
 body {
   font-family: "Dela Gothic One", cursive;
+  flex-direction: column;
   font-size: 1em;
-  margin: 0;
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  margin: 0;
 }
 body .nav {
-  display: flex;
+  border-bottom: 2px solid black;
   justify-content: space-between;
+  background-color: white;
   align-items: center;
   overflow: hidden;
-  background-color: white;
-  border-bottom: 2px solid black;
+  display: flex;
   height: 8%;
 }
 @media screen and (max-width: 849px) {
@@ -26,8 +26,8 @@ body .nav {
   }
 }
 body .nav .menu {
-  z-index: 3;
   width: 50px;
+  z-index: 3;
 }
 @media screen and (max-width: 849px) {
   body .nav .menu {
@@ -40,34 +40,34 @@ body .nav .menu, body .nav p {
   margin: 10px;
 }
 body .nav .option {
-  width: 25px;
   margin-left: 10px;
+  width: 25px;
 }
 body .nav .burger-drill {
-  padding-top: 100px;
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  z-index: 2;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  background-color: white;
-  overflow-y: auto;
-  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  transition: 450ms;
   border-left: 4px solid black;
+  background-color: white;
+  flex-direction: column;
+  padding-top: 100px;
+  overflow-x: hidden;
+  transition: 450ms;
+  overflow-y: auto;
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  z-index: 2;
+  right: 0;
+  top: 0;
 }
 @media screen and (max-width: 849px) {
   body .nav .burger-drill {
-    width: 100vw;
+    background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
+    animation: gradient 15s linear infinite;
+    background-size: 1800% 100%;
     justify-content: center;
     align-items: center;
     padding-top: 0;
-    background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
-    background-size: 1800% 100%;
-    animation: gradient 15s linear infinite;
+    width: 100vw;
   }
 }
 @media screen and (min-width: 850px) and (max-width: 980px) {
@@ -82,46 +82,31 @@ body .nav .burger-drill {
 }
 body .job_container {
   transition: all ease-in-out 200ms;
-}
-@media screen and (max-width: 849px) {
-  body .job_container {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-  }
-}
-@media screen and (min-width: 850px) {
-  body .job_container {
-    display: flex;
-    flex: 1;
-    overflow: hidden;
-  }
+  overflow: hidden;
+  display: flex;
+  flex: 1;
 }
 body .job_container main {
-  transition: all ease-in-out 200ms;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+  transition: all ease-in-out 200ms;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  display: flex;
+  margin: auto;
 }
 @media screen and (max-width: 849px) {
   body .job_container main {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 100vw;
     gap: 15px;
-    overflow-y: scroll;
   }
 }
 @media screen and (min-width: 850px) {
   body .job_container main {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 40%;
     gap: 10px;
-    overflow-y: scroll;
   }
 }
 body .job_container main::-webkit-scrollbar {
@@ -157,48 +142,38 @@ body .job_container main .job span {
   }
 }
 body .job_container .content-drill {
+  background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
+  animation: gradient 15s linear infinite;
   transition: all ease-in-out 200ms;
+  border-left: 4px solid black;
+  background-size: 1800% 100%;
+  justify-content: center;
   overflow: auto;
+  display: flex;
   height: 100%;
 }
 @media screen and (max-width: 849px) {
   body .job_container .content-drill {
     transform: translateX(100%);
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
-    background-size: 1800% 100%;
-    animation: gradient 15s linear infinite;
-    width: 100%;
-    height: 100vh;
+    transition: 450ms;
     position: fixed;
     z-index: 1;
-    top: 0;
     right: 0;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-    transition: 450ms;
-    border-left: 4px solid black;
+    top: 0;
   }
 }
 @media screen and (min-width: 850px) {
   body .job_container .content-drill {
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
-    background-size: 1800% 100%;
-    animation: gradient 15s linear infinite;
     width: 60%;
-    border-left: 4px solid black;
   }
 }
 @media screen and (max-width: 849px) {
   body .job_container .content-drill .rightarrow {
-    width: 50px;
     position: absolute;
     margin: 10px;
-    top: 0;
+    width: 50px;
     left: 0;
+    top: 0;
   }
 }
 @media screen and (min-width: 850px) {
@@ -207,20 +182,20 @@ body .job_container .content-drill {
   }
 }
 body .job_container .content-drill .content {
-  display: flex;
-  flex-direction: column;
   background-color: white;
-  width: 80%;
   border: 3px solid black;
-  gap: 2px;
+  flex-direction: column;
   height: -moz-fit-content;
   height: fit-content;
-  padding: 10px;
   overflow: hidden;
+  display: flex;
+  padding: 10px;
+  width: 80%;
+  gap: 2px;
 }
 @media screen and (max-width: 849px) {
   body .job_container .content-drill .content {
-    margin: 70px 20px 20px 20px;
+    margin: 80px 0 20px 0;
   }
 }
 @media screen and (min-width: 850px) {
@@ -239,36 +214,36 @@ body .job_container .content-drill .content .joblabel {
   font-size: 1em;
 }
 body .job_container .content-drill .content div {
-  display: flex;
   flex-wrap: wrap;
+  display: flex;
 }
 body .job_container .content-drill .content form {
+  justify-content: space-around;
   margin: 10px auto 10px auto;
   display: flex;
-  justify-content: space-around;
   width: 90%;
   gap: 10px;
 }
 body .job_container .content-drill .content form textarea {
   font-family: "Kanit", sans-serif;
+  outline: none;
   width: 80%;
   height: 50%;
   resize: none;
-  outline: none;
 }
 body .job_container .content-drill .content form input {
   font-family: "Dela Gothic One", cursive;
-  background-color: white;
-  border-radius: 5px;
   transition: all ease-in-out 200ms;
+  background-color: white;
   height: -moz-fit-content;
   height: fit-content;
+  border-radius: 5px;
   align-self: center;
 }
 body .job_container .content-drill .content form input:hover {
   background-color: #90cf8e;
-  color: white;
   transform: scale(1.1);
+  color: white;
 }
 
 @keyframes gradient {
@@ -283,8 +258,8 @@ body .job_container .content-drill .content form input:hover {
   transform: translateX(100%);
 }
 .burger-drill div {
-  display: flex;
   transition: all ease-in-out 200ms;
+  display: flex;
 }
 @media screen and (max-width: 849px) {
   .burger-drill div {
@@ -313,14 +288,14 @@ body .job_container .content-drill .content form input:hover {
   transform: translateX(0);
 }
 .burger-is-toggled::after {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
 }
 
 .content-is-toggled .content-drill {
   transform: translateX(0) !important;
 }
 .content-is-toggled::after {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
 }/*# sourceMappingURL=index.css.map */
