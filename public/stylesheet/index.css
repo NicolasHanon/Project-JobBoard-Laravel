@@ -95,7 +95,7 @@ body .job_container main {
   align-items: center;
   overflow-y: scroll;
   display: flex;
-  margin: 10px;
+  margin: auto;
 }
 @media screen and (max-width: 849px) {
   body .job_container main {

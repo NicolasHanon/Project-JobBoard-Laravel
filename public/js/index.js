@@ -1,4 +1,14 @@
+let maxSize = document.querySelector('main').offsetHeight;
+
 window.addEventListener('DOMContentLoaded', (event) => {
+
+  function adjustMargin() {
+    document.querySelector('main').style.margin = (window.innerHeight - document.querySelector('.nav').offsetHeight > maxSize) ? 'auto' : '20px';
+  }
+
+  adjustMargin();
+  window.addEventListener('resize', adjustMargin);
+
   fetch(`http://localhost:8000/api/index/${1}`)
     .then(response => { return response.json();})
     .then(data => {

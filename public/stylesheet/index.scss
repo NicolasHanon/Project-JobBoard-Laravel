@@ -93,7 +93,7 @@ body {
             align-items: center;
             overflow-y: scroll;
             display: flex;
-            margin: 10px;
+            margin: auto;
             
             @media screen and (max-width: 849px) {
                 width: 100vw;
@@ -109,7 +109,7 @@ body {
             &::-webkit-scrollbar {
                 display: none;
             }
-
+        
             .job {
                 transition: all ease-in-out 200ms;
                 text-align: center;
