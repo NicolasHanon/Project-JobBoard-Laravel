@@ -10,7 +10,7 @@ input, select {
 }
 
 body {
-  background: linear-gradient(130deg, #e4fde1 9%, #c6edc3 23%, #a7dca5 36%, #90cf8e 50%, #a7dca5 68%, #c6edc3 81%, #e4fde1 92%);
+  background: linear-gradient(130deg, #e1ecf7 7%, #aecbeb 18%, #83b0e1 31%, #71a5de 46%, #83b0e1 60%, #aecbeb 75%, #e1ecf7 92%);
   animation: gradient 15s linear infinite;
   background-size: 1800% 100%;
   justify-content: center;
@@ -113,7 +113,7 @@ body .container .form_container button {
   transition: all ease-in-out 200ms;
 }
 body .container .form_container button:hover {
-  background-color: #90cf8e;
+  background-color: #EAC4D5;
   color: white;
   transform: scale(1.1);
   cursor: pointer;

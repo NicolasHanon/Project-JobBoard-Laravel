@@ -16,6 +16,7 @@ app/storage/
 # Laravel 5 & Lumen specific
 public/storage
 public/hot
+public/.DS_Store
 
 # Laravel 5 & Lumen specific with changed public path
 public_html/storage
@@ -26,7 +27,8 @@ storage/*.key
 Homestead.yaml
 Homestead.json
 /.vagrant
-.phpunit.result.cache
+.phpunit.result.cach
+.DS_Store
 
 ### VisualStudioCode ###
 .vscode/*
