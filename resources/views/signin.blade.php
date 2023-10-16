@@ -11,6 +11,7 @@
     <title>Login</title>
 </head>
 <body>
+    @include("shared.nav")
     <div class="container">
         <p>Sign In</p>
 

@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="nav">
+    <div class="nav">
         <p>JobBoard</p>
         <img class="menu" onClick="showNav()" src="{{ URL::asset('svg/menu.svg') }}">
         <nav class="burger-drill">
