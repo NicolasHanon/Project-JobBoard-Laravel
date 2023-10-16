@@ -23,8 +23,8 @@ Run the database migrations (**Set the database connection in .env before migrat
 
 Seed the Database (in that order)
 
-    php artisan db:seed --class=UserSeeder
     php artisan db:seed --class=RoleSeeder
+    php artisan db:seed --class=UserSeeder
     php artisan db:seed --class=CompanieSeeder
     php artisan db:seed --class=JobSeeder
     php artisan db:seed --class=ApplicationSeeder
