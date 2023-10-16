@@ -21,11 +21,11 @@
         </div>
         <div>
             <img class="option" src="{{ URL::asset('svg/signin.svg') }}">
-            <a href="/login"><p class="optiontext">Sign in</p></a>
+            <p class="optiontext">Sign in</p>
         </div>
         <div>
             <img class="option" src="{{ URL::asset('svg/signout.svg') }}">
-            <a href="/logout"><p class="optiontext">Log Out</p></a>
+            <a href="/login"><p class="optiontext">Log Out</p></a>
         </div>
     </nav>
 </div>

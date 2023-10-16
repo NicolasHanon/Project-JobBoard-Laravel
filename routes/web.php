@@ -32,6 +32,10 @@ Route::get('/user', function () {
     return view('user');
 });
 
+Route::get('/admin', function () {
+    return view('admin');
+});
+
 Route::get('/index', [IndexController::class, 'index'])->name('index');
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route
