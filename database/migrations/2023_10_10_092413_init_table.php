@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('contract');
             $table->text('more');
             $table->string('location');
+            $table->string('salary');
             $table->timestamps();
 
             $table->foreign('companies_id')->references('id')->on('companies');
