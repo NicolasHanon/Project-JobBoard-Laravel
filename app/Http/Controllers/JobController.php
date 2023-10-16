@@ -22,7 +22,7 @@ class JobController extends Controller
     {
         try{
             $jobs = Job::create($request->all());
-            return response()->json($jobs, 201);
+            return response()->json($request, 201);
         }
         catch(\Illuminate\Database\QueryException $e) {
             return response()->json([
