@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use App\Models\Job;
 use App\Models\Companie;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class IndexController extends Controller
@@ -17,10 +20,18 @@ class IndexController extends Controller
      */
     public function index()
     {
+        // User::create([
+        //     'lastname' => 'Garde',
+        //     'name' => 'John',
+        //     'email' => 'john@doe.fr',
+        //     'password' => Hash::make('0000'),
+        //     'roleId' => 1
+        // ]);
         $data = DB::table('jobs')
                     ->join('companies', 'jobs.companies_id', '=', 'companies.id')
                     ->select('jobs.*', 'companies.name')
                     ->get();
+        dd(Auth::user());
         return view('index', compact('data'));
     }
 

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('contract');
             $table->text('more');
             $table->string('location');
+            $table->string('salary');
             $table->timestamps();
 
             $table->foreign('companies_id')->references('id')->on('companies');
@@ -33,16 +34,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('jobs_id');
+            $table->text('message');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('jobs_id')->references('id')->on('jobs');
-        });
-
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('rolename');
-            $table->timestamps();
         });
     }
 

@@ -34,5 +34,6 @@ Route::get('/user', function () {
 
 Route::get('/index', [IndexController::class, 'index'])->name('index');
 
-Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route  
+Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route
+Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::post('/login', [AuthController::class, 'doLogin']);

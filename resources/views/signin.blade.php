@@ -20,15 +20,15 @@
         @csrf
 
             <label for="email"><b>Email</b></label>
-            <input type="email" name="email" required>
-            <label for="psw"><b>Password</b></label>
+            <input type="email" name="email" value="john@doe.fr" required>
+            <label for="password"><b>Password</b></label>
             <div>
-                <input id="password" type="password" name="psw" required>
+                <input id="password" type="password" value="0000" name="password" required>
                 <img class="showpassword" id="showpassword" src="{{ URL::asset('svg/showpassword.svg') }}">
             </div>
             <button type="submit">Login</button>
         </form>
-</div>
+    </div>
 </body>
 </html>
 
