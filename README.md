@@ -14,6 +14,7 @@ Switch to the repo folder
 
 Install all the dependencies using composer
 
+    composer update
     composer install
 
 Run the database migrations (**Set the database connection in .env before migrating**)
@@ -27,6 +28,10 @@ Seed the Database (in that order)
     php artisan db:seed --class=CompanieSeeder
     php artisan db:seed --class=JobSeeder
     php artisan db:seed --class=ApplicationSeeder
+
+Generate app key before starting the local development server
+
+    php artisan key:generate
 
 Start the local development server
 
