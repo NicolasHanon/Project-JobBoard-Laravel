@@ -1,0 +1,97 @@
+.nav {
+  justify-content: flex-end;
+  align-items: center;
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 8%;
+  top: 0;
+}
+.nav .menu {
+  width: 50px;
+  z-index: 3;
+  background-color: #B8E0D2;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 35px;
+}
+.nav .menu, .nav p {
+  margin: 10px;
+}
+.nav .option {
+  margin-left: 10px;
+  width: 25px;
+}
+.nav .burger-drill {
+  -webkit-overflow-scrolling: touch;
+  border-left: 4px solid black;
+  background-color: #EAC4D5;
+  flex-direction: column;
+  padding-top: 100px;
+  overflow-x: hidden;
+  transition: 450ms;
+  overflow-y: auto;
+  position: fixed;
+  display: flex;
+  height: 100vh;
+  z-index: 2;
+  right: 0;
+  top: 0;
+}
+@media screen and (max-width: 849px) {
+  .nav .burger-drill {
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+    width: 100vw;
+  }
+}
+@media screen and (min-width: 850px) and (max-width: 980px) {
+  .nav .burger-drill {
+    width: 35vw;
+  }
+}
+@media screen and (min-width: 980px) {
+  .nav .burger-drill {
+    width: 25vw;
+  }
+}
+
+.burger-drill {
+  transform: translateX(100%);
+}
+.burger-drill div {
+  transition: all ease-in-out 200ms;
+  display: flex;
+}
+@media screen and (max-width: 849px) {
+  .burger-drill div {
+    transform: scale(1.5);
+  }
+}
+.burger-drill div:hover {
+  transition: all ease-in-out 200ms;
+}
+@media screen and (max-width: 850px) {
+  .burger-drill div:hover {
+    transform: scale(1.7);
+  }
+}
+@media screen and (min-width: 850px) {
+  .burger-drill div:hover {
+    transform: scale(1.1) translateX(20px);
+  }
+}
+.burger-drill div a {
+  text-decoration: none;
+  color: black;
+}
+
+.burger-is-toggled .burger-drill {
+  transform: translateX(0);
+}
+.burger-is-toggled::after {
+  visibility: visible;
+  opacity: 1;
+}/*# sourceMappingURL=nav.css.map */

@@ -11,6 +11,7 @@
     <title>Login</title>
 </head>
 <body>
+    @include("shared.nav")
     <div class="container">
         <p>Manage my profile</p>
         <form class="form_container">
@@ -39,11 +40,13 @@
             <div class="morespace">
                 <div class="container_children">
                     <label for="oldpassword">Previous password</label>
-                    <input type="password" name="oldpassword" required>
+                    <input id="password" type="password" name="oldpassword" required>
+                    <img class="showpassword" id="showpassword" src="{{ URL::asset('svg/showpassword.svg') }}">
                 </div>
                 <div class="container_children">
                     <label for="newpassword">New password</label>
-                    <input type="password" name="newpassword" required>
+                    <input id="password2" type="password" name="newpassword" required>
+                    <img class="showpassword" id="showpassword2" src="{{ URL::asset('svg/showpassword.svg') }}">
                 </div>
             </div>
             <button type="submit">Save changes</button>
@@ -51,3 +54,14 @@
 </div>
 </body>
 </html>
+
+<script>
+    document.getElementById("showpassword").addEventListener("click", (e) => {
+        document.getElementById("password").type = document.getElementById("password").type == "password" ? "text" : "password";
+    });
+    document.getElementById("showpassword2").addEventListener("click", (e) => {
+        document.getElementById("password2").type = document.getElementById("password2").type == "password" ? "text" : "password";
+    });
+</script>
+
+<script src="{{ asset('js/form.js')}}"></script>

@@ -11,6 +11,7 @@
     <title>Login</title>
 </head>
 <body>
+    @include("shared.nav")
     <div class="container">
         <p>Create a job advert</p>
         <form class="form_container">
