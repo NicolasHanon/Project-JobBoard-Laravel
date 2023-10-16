@@ -32,7 +32,7 @@ Route::get('/user', function () {
     return view('user');
 });
 
-Route::get('/index', [IndexController::class, 'index']);
+Route::get('/index', [IndexController::class, 'index'])->name('index');
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route  
 Route::post('/login', [AuthController::class, 'doLogin']);
