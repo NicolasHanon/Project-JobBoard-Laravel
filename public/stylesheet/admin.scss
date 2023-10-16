@@ -1,0 +1,110 @@
+main {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    transition: all ease-in-out 200ms;
+    background-color: white;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    display: flex;
+    margin: auto;
+    
+    @media screen and (max-width: 849px) {
+        width: 100vw;
+        gap: 15px;
+
+    }
+    @media screen and (min-width: 850px) {
+        width: 20%;
+        gap: 10px;
+    }
+
+    //Hide scroll bar for Chrome / Safari / Opera
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .table {
+        transition: all ease-in-out 200ms;
+        text-align: center;
+        color: #809bce;
+
+        @media screen and (max-width: 849px) {
+            font-size: 1em;
+        }
+
+        &:hover {
+            transition: all ease-in-out 200ms;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        span {
+            font-family: 'Kanit', sans-serif;
+            color: black;
+        }
+    }
+
+    .separator {
+        border: 2px solid #EAC4D5;
+        width: 20vw;
+    }
+}
+
+.content {
+    overflow: auto !important;
+
+    p {
+        text-align: center;
+        color: black;
+    }
+
+    table { 
+        width: 750px; 
+        border-collapse: collapse; 
+        margin: 20px auto;
+
+        th { 
+            background: #B8E0D2; 
+            color: white; 
+            font-weight: bold; 
+        }
+
+        td, th { 
+            padding: 10px; 
+            border: 1px solid black; 
+            text-align: center; 
+            font-size: 18px;
+
+            input {
+                font-family: 'Kanit', sans-serif;
+                text-align: center;
+                border: none;
+                background-color: white;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+
+    div {
+        display: flex;
+        justify-content: space-around;
+        
+        button {
+            font-family: 'Dela Gothic One', cursive;
+            background-color: white;
+            border-radius: 5px;
+            margin: 5px;
+            transition: all ease-in-out 200ms;
+    
+            &:hover {
+                background-color: #EAC4D5;
+                color: white;
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+        }
+    }
+}

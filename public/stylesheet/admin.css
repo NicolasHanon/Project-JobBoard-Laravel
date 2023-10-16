@@ -1,0 +1,99 @@
+main {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  transition: all ease-in-out 200ms;
+  background-color: white;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  display: flex;
+  margin: auto;
+}
+@media screen and (max-width: 849px) {
+  main {
+    width: 100vw;
+    gap: 15px;
+  }
+}
+@media screen and (min-width: 850px) {
+  main {
+    width: 20%;
+    gap: 10px;
+  }
+}
+main::-webkit-scrollbar {
+  display: none;
+}
+main .table {
+  transition: all ease-in-out 200ms;
+  text-align: center;
+  color: #809bce;
+}
+@media screen and (max-width: 849px) {
+  main .table {
+    font-size: 1em;
+  }
+}
+main .table:hover {
+  transition: all ease-in-out 200ms;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+main .table span {
+  font-family: "Kanit", sans-serif;
+  color: black;
+}
+main .separator {
+  border: 2px solid #EAC4D5;
+  width: 20vw;
+}
+
+.content {
+  overflow: auto !important;
+}
+.content p {
+  text-align: center;
+  color: black;
+}
+.content table {
+  width: 750px;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+.content table th {
+  background: #B8E0D2;
+  color: white;
+  font-weight: bold;
+}
+.content table td, .content table th {
+  padding: 10px;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 18px;
+}
+.content table td input, .content table th input {
+  font-family: "Kanit", sans-serif;
+  text-align: center;
+  border: none;
+  background-color: white;
+}
+.content table td input:focus, .content table th input:focus {
+  outline: none;
+}
+.content div {
+  display: flex;
+  justify-content: space-around;
+}
+.content div button {
+  font-family: "Dela Gothic One", cursive;
+  background-color: white;
+  border-radius: 5px;
+  margin: 5px;
+  transition: all ease-in-out 200ms;
+}
+.content div button:hover {
+  background-color: #EAC4D5;
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer;
+}/*# sourceMappingURL=admin.css.map */

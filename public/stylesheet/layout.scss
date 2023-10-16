@@ -1,0 +1,234 @@
+body {
+    font-family: 'Dela Gothic One', cursive;
+    flex-direction: column;
+    font-size: 1em;
+    height: 100vh;
+    display: flex;
+    margin: 0;
+
+    .nav {
+        border-bottom: 2px solid black;
+        justify-content: space-between;
+        background-color: #EAC4D5;
+        align-items: center;
+        overflow: hidden;
+        display: flex;
+        height: 8%;
+
+        .menu {
+            width: 50px;
+            z-index: 3;
+
+            @media screen and (max-width: 849px) {
+                background-color: #B8E0D2;
+                border: 2px solid black;
+                border-radius: 50%;
+                width: 35px;
+            }
+        }
+
+        .menu, p {
+            margin: 10px;
+        }
+
+        .option {
+            margin-left: 10px;
+            width: 25px;
+        }
+
+        .burger {
+            &-drill {
+                -webkit-overflow-scrolling: touch;
+                border-left: 4px solid black;
+                background-color: #EAC4D5;
+                flex-direction: column;
+                padding-top: 100px;
+                overflow-x: hidden;
+                transition: 450ms;
+                overflow-y: auto;
+                position: fixed;
+                display: flex;
+                height: 100vh;
+                z-index: 2;
+                right: 0;
+                top: 0;
+
+                @media screen and (max-width: 849px) {
+                    justify-content: center;
+                    align-items: center;
+                    padding-top: 0;
+                    width: 100vw;
+                }
+                @media screen and (min-width: 850px) and (max-width: 980px) {
+                    width: 35vw;
+                }
+                @media screen and (min-width: 980px) {
+                    width: 25vw;
+                }
+            }
+        }
+    }
+
+    .job_container {
+        transition: all ease-in-out 200ms;
+        overflow: hidden;
+        display: flex;
+        flex: 1;
+
+        .content-drill {
+            background-image: linear-gradient(135deg, #95b8d1 0%, #809bce 100%);
+            transition: all ease-in-out 200ms;
+            border-left: 4px solid black;
+            background-color: #8BC6EC;
+            justify-content: center;
+            overflow: auto;
+            display: flex;
+            height: 100%;
+            width: 100vw;
+
+            .content {
+                background-color: white;
+                border: 3px solid black;
+                flex-direction: column;
+                height: fit-content;
+                overflow: hidden;
+                display: flex;
+                padding: 10px;
+                width: 80%;
+                gap: 2px;
+            
+                .jobdata {
+                    font-family: 'Kanit', sans-serif;
+                    margin-left: 10px;
+                    font-size: 1em;
+                }
+            
+                .joblabel {
+                    font-family: 'Dela Gothic One', cursive;
+                    margin-left: 10px;
+                    font-size: 1em;
+                }
+            
+                div {
+                    flex-wrap: wrap;
+                    display: flex;
+                }
+            
+                form {
+                    justify-content: space-around;
+                    margin: 10px auto 10px auto;
+                    display: flex;
+                    width: 90%;
+                    gap: 10px;
+            
+                    textarea {
+                        font-family: 'Kanit', sans-serif;
+                        outline: none;
+                        width: 80%;
+                        height: 50%;
+                        resize: none;
+                    }
+            
+                    input {
+                        font-family: 'Dela Gothic One', cursive;
+                        transition: all ease-in-out 200ms;
+                        background-color: white;
+                        height: fit-content;
+                        border-radius: 5px;
+                        align-self: center;
+            
+                        &:hover {
+                            background-color: #B8E0D2;
+                            transform: scale(1.1);
+                            color: white;
+                        }
+                    }
+                }
+            }
+
+            @media screen and (max-width: 849px) {
+                transform: translateX(100%);
+                transition: 450ms;
+                position: fixed;
+                z-index: 1;
+                right: 0;
+                top: 0;
+            }
+            @media screen and (min-width: 850px) {
+                width: 60%;
+            }
+
+            .rightarrow {
+
+                @media screen and (max-width: 849px) {
+                    position: absolute;
+                    margin: 10px;
+                    width: 50px;
+                    left: 0;
+                    top: 0;
+                }
+                @media screen and (min-width: 850px) {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@keyframes gradient {
+    0% { background-position: 200% 50%; }
+    100% { background-position: -100% 50%; }
+}
+
+.burger-drill {
+	transform: translateX(100%);
+
+    div {
+        transition: all ease-in-out 200ms;
+        display: flex; 
+
+        @media screen and (max-width: 849px) {
+            transform: scale(1.5);
+        }
+
+        &:hover {
+            transition: all ease-in-out 200ms;
+
+            @media screen and (max-width: 850px) {
+                transform: scale(1.7);
+            }
+            @media screen and (min-width: 850px) {
+                transform: scale(1.1) translateX(20px);
+            }
+        }
+        
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+    }
+}
+.burger-is-toggled {
+
+	.burger-drill {
+		transform: translateX(0);
+	}
+
+	&::after {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.content-is-toggled {
+
+	.content-drill {
+		transform: translateX(0) !important;
+	}
+
+	&::after {
+		visibility: visible;
+		opacity: 1;
+	}
+}
