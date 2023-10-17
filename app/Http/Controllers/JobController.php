@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Job;
 use App\Models\Companie;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
 
 class JobController extends Controller
 {
@@ -54,13 +53,7 @@ class JobController extends Controller
     public function update(Request $request, $id)
     {
         // Find the job by its ID
-        $job = Job::find($id);
-
-        // Check if the job exists
-        if (!$job) {
-            return response()->json(["message" => "ça a pas marcher..."]);
-        }
-
+        $job = Job::findOrFail($id);
         $job->update($request->all());
         return response()->json(["message" => "ça marche"]);
     }

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,20 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/index', [IndexController::class, 'index'])->name('index');
 
-//_______________________________________ Jobs _____________________________________________________
+//_______________________________________ Jobs _______________________________________________________
 
-Route::post('/newjob/add', [JobController::class, 'store']);                                //Create
-Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');               //Read
-Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');            //Update
-Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id'); //Delete
+Route::post('/newjob/add', [JobController::class, 'store']);                                // Create
+Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');               // Read
+Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');            // Update
+Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id'); // Delete
 
-//__________________________________________________________________________________________________
+//____________________________________________________________________________________________________
+
+//_______________________________________ Users ______________________________________________________
+
+Route::post('/user/add', [UserController::class, 'store']);                                // Create
+Route::get('/user/{id}', [UserController::class, 'show'])->whereNumber('id');              // Read
+Route::put('/user/{id}', [UserController::class, 'update'])->whereNumber('id');            // Update
+Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id'); // Delete
+
+//____________________________________________________________________________________________________
