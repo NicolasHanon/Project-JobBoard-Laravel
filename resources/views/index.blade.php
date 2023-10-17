@@ -10,7 +10,7 @@
     <div class="separator"></div>
     <input id="input" type="hidden" value="{{ $job->id }}">
 @endforeach
-@endsection
+@endsection 
 
 @section('content')
     <div>

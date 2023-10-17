@@ -31,7 +31,7 @@ class IndexController extends Controller
                     ->join('companies', 'jobs.companies_id', '=', 'companies.id')
                     ->select('jobs.*', 'companies.name')
                     ->get();
-        dd(Auth::user());
+        // dd(Auth::user()->roleId);
         return view('index', compact('data'));
     }
 
