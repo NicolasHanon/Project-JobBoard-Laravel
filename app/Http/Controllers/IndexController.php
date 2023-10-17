@@ -5,12 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 use App\Models\Job;
 use App\Models\Companie;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 
 class IndexController extends Controller
@@ -31,7 +29,7 @@ class IndexController extends Controller
                     ->join('companies', 'jobs.companies_id', '=', 'companies.id')
                     ->select('jobs.*', 'companies.name')
                     ->get();
-        // dd(Auth::user()->roleId);
+        dd(Auth::user());
         return view('index', compact('data'));
     }
 

@@ -20,8 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });   
 
-Route::get('/index/{id}', [IndexController::class, 'show'])->whereNumber('id');
+Route::get('/index', [IndexController::class, 'index'])->name('index');
 
-Route::post('/newjob/add', [JobController::class, "store"]);
+//_______________________________________ Jobs _____________________________________________________
 
-Route::post('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id');
+Route::post('/newjob/add', [JobController::class, 'store']);                                //Create
+Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');               //Read
+Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');            //Update
+Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id'); //Delete
+
+//__________________________________________________________________________________________________
