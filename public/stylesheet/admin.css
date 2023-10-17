@@ -48,11 +48,15 @@ main .separator {
   width: 20vw;
 }
 
+.content-drill {
+  width: 100% !important;
+}
+
 .content {
   overflow: auto !important;
 }
 .content p {
-  text-align: center;
+  text-align: left;
   color: black;
 }
 .content table {
@@ -80,18 +84,17 @@ main .separator {
 .content table td input:focus, .content table th input:focus {
   outline: none;
 }
-.content div {
-  display: flex;
-  justify-content: space-around;
-}
-.content div button {
+.content button {
   font-family: "Dela Gothic One", cursive;
+  text-align: left;
+  width: -moz-fit-content;
+  width: fit-content;
   background-color: white;
   border-radius: 5px;
   margin: 5px;
   transition: all ease-in-out 200ms;
 }
-.content div button:hover {
+.content button:hover {
   background-color: #EAC4D5;
   color: white;
   transform: scale(1.1);

@@ -102,9 +102,10 @@ body {
             }
         
             .job {
+                font-family: 'Kanit', sans-serif;
+                color: black;
                 transition: all ease-in-out 200ms;
                 text-align: center;
-                color: #809bce;
 
                 @media screen and (max-width: 849px) {
                     font-size: 1em;
@@ -117,8 +118,8 @@ body {
                 }
 
                 span {
-                    font-family: 'Kanit', sans-serif;
-                    color: black;
+                    font-family: 'Dela Gothic One', cursive;
+                    color: #809bce;
                 }
             }
 
