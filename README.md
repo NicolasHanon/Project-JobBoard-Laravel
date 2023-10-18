@@ -16,6 +16,7 @@ Install all the dependencies using composer
 
     composer update
     composer install
+    composer require doctrine/dbal
 
 Run the database migrations (**Set the database connection in .env before migrating**)
 
