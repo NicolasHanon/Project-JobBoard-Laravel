@@ -7,7 +7,10 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   
   await initData();
   eventTables();
-  // addChangeDetection();
+
+  for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr')) {
+    addChangeDetection(tr);
+  }
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850)
@@ -168,14 +171,10 @@ function addRemoveEvent(removeRow) {
       try {
         const table = document.getElementById("tableName").textContent.split(" ")[0];
         const response = await fetch(`http://localhost:8000/api/admin/deleteRow/${e.srcElement.dataset.id}/${table}`);
-        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
-        const dataTable = await responseTable.json();
-        setData(dataTable);
+        reset();
         alert("Record removed.");
       } catch (e) {
-        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
-        const dataTable = await responseTable.json();
-        setData(dataTable);
+        reset();
         alert("Cannot delete record.");
       }
     }
@@ -199,18 +198,11 @@ function addCreateRowEvent(addRow) {
         addRow.classList.remove("addBtn");
         addRow.classList.add("removeBtn");
         addRow.removeEventListener("click", createRecord);
-        addRemoveEvent(addRow);
-
-        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
-        const dataTable = await responseTable.json();
-        setData(dataTable);
-
+        reset();
         alert("Record added.");
 
       } catch (e) {
-        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
-        const dataTable = await responseTable.json();
-        setData(dataTable);
+        reset();
         alert("Cannot add record.");
       }
     }
@@ -233,24 +225,46 @@ function getDataFromTable(index) {
   return dataRow;
 };
 
-//changer la méthode pour quelle accepte uniquement tr par tr (puis l'utiliser lorsqu'on rajoute un tr)
-// function addChangeDetection() {
-//   let rows = document.getElementById("table").querySelector("tbody").querySelectorAll('tr');
-
-//   for (let i = 0; i < rows.length; i++) {
-//     let inputs = rows[i].querySelectorAll('input');
-
-//     for (let j = 0; j < inputs.length; j++) {
-//       inputs[j].addEventListener("input", (e) => {
-//         rows[i].classList.add("change");
-//       });
-//     }
-//   }
-// }
+function addChangeDetection(row) {
+  let inputs = row.querySelectorAll('input');
+  for (let input of inputs) {
+    input.addEventListener("input", (e) => {
+      row.classList.add("change");
+    });
+  }
+}
 
 async function reset() {
   const table = document.getElementById("tableName").textContent.split(" ")[0];
   const response = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
   const data = await response.json();
   setData(data);
+
+  for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr')) {
+    addChangeDetection(tr);
+  }
+}
+
+async function updateData() {
+  
+  const table = document.getElementById("tableName").textContent.split(" ")[0];
+  try {
+    let updateTds = document.querySelectorAll(".change");
+    for (let updateTd of updateTds) {
+      const dataIdValue = updateTd.querySelector("td:last-child").getAttribute('data-id');
+      const data = getDataFromTable(dataIdValue);
+      const jsonData = JSON.stringify(data);
+
+      //fetch
+      // const response = await fetch(`http://localhost:8000/api/admin/addRow/${jsonData}/${table}`);
+    }
+    reset();
+    alert("Record updated.");
+
+  } catch (e) {
+    reset();
+    alert("Cannot update records.");
+  }
+
+
 }

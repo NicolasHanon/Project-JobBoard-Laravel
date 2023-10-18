@@ -131,4 +131,11 @@ img {
 }
 .addBtn:hover {
   background-color: #B8E0D2;
+}
+
+.change {
+  background-color: #809bce;
+}
+.change input {
+  background-color: #809bce !important;
 }/*# sourceMappingURL=admin.css.map */
