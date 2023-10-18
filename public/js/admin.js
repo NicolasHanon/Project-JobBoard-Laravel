@@ -148,6 +148,7 @@ function addRow() {
   rowLength += 1;
   td.setAttribute('data-id' , `${rowLength}`);
   removeRowImg.setAttribute('data-id' , `${rowLength}`);
+  
   addRemoveEvent(td);
 
   td.appendChild(removeRowImg);
@@ -160,7 +161,10 @@ function addRow() {
 function addRemoveEvent(removeRow) {
   removeRow.addEventListener("click", async (e) => {
     if (confirm("Are you sure to delete this record ? This action isn't reversible.")) {
-      const response = await fetch(`http://localhost:8000/api/admin/`);
+      const table = document.getElementById("tableName").textContent.split(" ")[0];
+      console.log(table);
+      // const response = await fetch(`http://localhost:8000/api/admin/getTableData/${table.textContent}`);
+      const response = await fetch(`http://localhost:8000/api/admin/deleteTable/${e.srcElement.dataset.id}/${table}`);
       const data = await response.json();
       alert(data);
     }
