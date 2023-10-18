@@ -1,7 +1,7 @@
 let main_MaxSize = document.querySelector('main').offsetHeight;
 let columnsLength = 0;
 let rowLength = 0;
-let hasId = false;
+let lastId = 0;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
   
@@ -101,8 +101,11 @@ function setData(tableData) {
     let removeRowImg = document.createElement("img");
     removeRowImg.src = "../svg/removing.svg";
     removeRowImg.style.marginTop = "5px";
-    td.setAttribute('data-id' , `${rowIndex + 1}`);
-    removeRowImg.setAttribute('data-id' , `${rowIndex + 1}`);
+
+    lastId = tableData.data[rowIndex].id;
+    td.setAttribute('data-id' , `${lastId}`);
+    removeRowImg.setAttribute('data-id' , `${lastId}`);
+
     addRemoveEvent(td);
 
     td.appendChild(removeRowImg);
@@ -135,7 +138,7 @@ function addRow() {
     let td = document.createElement("td");
     let input = document.createElement("input");
 
-    input.value = hasId && i == 0 ? rowLength + 1 : "";
+    input.value = i == 0 ? lastId + 1 : "";
 
     td.appendChild(input);
     tr.appendChild(td);
@@ -145,9 +148,10 @@ function addRow() {
   let removeRowImg = document.createElement("img");
   removeRowImg.src = "../svg/removing.svg";
   removeRowImg.style.marginTop = "5px";
-  rowLength += 1;
-  td.setAttribute('data-id' , `${rowLength}`);
-  removeRowImg.setAttribute('data-id' , `${rowLength}`);
+
+  lastId += 1;
+  td.setAttribute('data-id' , `${lastId}`);
+  removeRowImg.setAttribute('data-id' , `${lastId}`);
   
   addRemoveEvent(td);
 
@@ -161,12 +165,19 @@ function addRow() {
 function addRemoveEvent(removeRow) {
   removeRow.addEventListener("click", async (e) => {
     if (confirm("Are you sure to delete this record ? This action isn't reversible.")) {
-      const table = document.getElementById("tableName").textContent.split(" ")[0];
-      console.log(table);
-      // const response = await fetch(`http://localhost:8000/api/admin/getTableData/${table.textContent}`);
-      const response = await fetch(`http://localhost:8000/api/admin/deleteTable/${e.srcElement.dataset.id}/${table}`);
-      const data = await response.json();
-      alert(data);
+      try {
+        const table = document.getElementById("tableName").textContent.split(" ")[0];
+        const response = await fetch(`http://localhost:8000/api/admin/deleteTable/${e.srcElement.dataset.id}/${table}`);
+        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
+        const dataTable = await responseTable.json();
+        setData(dataTable);
+        alert("Record removed.");
+      } catch (e) {
+        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
+        const dataTable = await responseTable.json();
+        setData(dataTable);
+        alert("Cannot delete record.");
+      }
     }
   })
 }
