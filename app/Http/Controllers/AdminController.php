@@ -45,13 +45,9 @@ class AdminController extends Controller
     
     public function deleteTable($id, $table)
     {
-        try {
-            $data = DB::table($table)
-            ->where($table.'.id', '=', $id)
-            ->delete();
-            return response()->json($data);
-        } catch (Exception $e) {
-            return response()->json($e->getMessage());
-        }
+        $data = DB::table($table)
+        ->where($table.'.id', '=', $id)
+        ->delete();
+        return response()->json($data);
     }
 }
