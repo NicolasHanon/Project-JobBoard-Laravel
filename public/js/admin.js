@@ -86,7 +86,7 @@ function setData(tableData) {
   let tbody = document.createElement("tbody");
 
   // Iterate through data and create rows and cells
-  tableData.data.forEach(row => {
+  tableData.data.forEach((row, rowIndex) => {
     let tr = document.createElement("tr");
 
     tableData.columns.forEach(columnName => {
@@ -98,10 +98,14 @@ function setData(tableData) {
     });
     let td = document.createElement("td");
     td.classList.add("removeBtn");
-    let removeRow = document.createElement("img");
-    removeRow.src = "../svg/removing.svg";
-    removeRow.style.marginTop = "5px";
-    td.appendChild(removeRow);
+    let removeRowImg = document.createElement("img");
+    removeRowImg.src = "../svg/removing.svg";
+    removeRowImg.style.marginTop = "5px";
+    td.setAttribute('data-id' , `${rowIndex + 1}`);
+    removeRowImg.setAttribute('data-id' , `${rowIndex + 1}`);
+    addRemoveEvent(td);
+
+    td.appendChild(removeRowImg);
     tr.appendChild(td);
 
     tbody.appendChild(tr);
@@ -109,7 +113,6 @@ function setData(tableData) {
 
   table.appendChild(tbody);
 }
-
 
 document.querySelector(".rightarrow").addEventListener("click", (e) => {
   if (window.innerWidth < 850) {
@@ -137,6 +140,29 @@ function addRow() {
     td.appendChild(input);
     tr.appendChild(td);
   }
-    tbody.appendChild(tr);
-    table.appendChild(tbody);
+  let td = document.createElement("td");
+  td.classList.add("removeBtn");
+  let removeRowImg = document.createElement("img");
+  removeRowImg.src = "../svg/removing.svg";
+  removeRowImg.style.marginTop = "5px";
+  rowLength += 1;
+  td.setAttribute('data-id' , `${rowLength}`);
+  removeRowImg.setAttribute('data-id' , `${rowLength}`);
+  addRemoveEvent(td);
+
+  td.appendChild(removeRowImg);
+  tr.appendChild(td);
+
+  tbody.appendChild(tr);
+  table.appendChild(tbody);
+}
+
+function addRemoveEvent(removeRow) {
+  removeRow.addEventListener("click", async (e) => {
+    if (confirm("Are you sure to delete this record ? This action isn't reversible.")) {
+      const response = await fetch(`http://localhost:8000/api/admin/`);
+      const data = await response.json();
+      alert(data);
+    }
+  })
 }

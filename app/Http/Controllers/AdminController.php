@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function getTable()
     {
-        $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
+        $tables = ['applications', 'companies', 'jobs', 'migrations', 'roles', 'users'];
         $columnNames = $this->getColumnNames($tables[0]);
 
         $tableData = [
