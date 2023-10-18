@@ -19,27 +19,27 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/loginquimarche', function () {
     return view('login');
-});
+})->name('login');
 
 Route::get('/newjob', function () {
     return view('addjob');
-});
+})->name('newjob');
 
 Route::get('/register', function () {
     return view('signup');
-});
+})->name('register');
 
 Route::get('/user', function () {
     return view('user');
-});
+})->name('user');
 
 Route::get('/admin', function () {
     return view('admin');
-});
+})->name('admin');
 
 Route::get('/index', function () {
     return view('index');
-});
+})->name('index');
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
