@@ -51,11 +51,15 @@ class AdminController extends Controller
         return response()->json($data);
     }
 
-    public function addRow($data, $table)
+    public function addRow($jsonData, $table)
     {
-        // $data = DB::table($table)
-        // ->where($table.'.id', '=', $id)
-        // ->delete();
-        // return response()->json($data);
+        $data = json_decode($jsonData, true);
+        $columnNames = Schema::getColumnListing($table);
+        $insertData = [];
+
+        for ($i = 0; $i < count($columnNames); $i++) {
+            $insertData[$columnNames[$i]] = $data[$i];
+        }
+        DB::table($table)->insert($insertData);
     }
 }
