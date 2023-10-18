@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('salary');
             $table->timestamps();
 
-            $table->foreign('companies_id')->references('id')->on('companies');
+            $table->foreign('companies_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
         });
 
         Schema::create('applications', function (Blueprint $table) {
@@ -37,8 +37,8 @@ return new class extends Migration
             $table->text('message');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('jobs_id')->references('id')->on('jobs');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('jobs_id')->references('id')->on('jobs')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
