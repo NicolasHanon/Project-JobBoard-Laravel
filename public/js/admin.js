@@ -3,7 +3,7 @@ let main_MaxSize = document.querySelector('main').offsetHeight;
 window.addEventListener('DOMContentLoaded', async (e) => {
   
   await initData();
-  await eventTables();
+  eventTables();
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850)
@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   window.addEventListener('resize', adjustMargin);
 });
 
-async function eventTables() {
+function eventTables() {
   let tables = document.querySelectorAll(".table");
   for (const table of tables) {
     table.addEventListener("click", async (e) => {

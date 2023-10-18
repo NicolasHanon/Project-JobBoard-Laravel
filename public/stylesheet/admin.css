@@ -17,7 +17,7 @@ main {
 }
 @media screen and (min-width: 850px) {
   main {
-    width: 20%;
+    width: 40%;
     gap: 10px;
   }
 }
@@ -54,6 +54,7 @@ main .separator {
 
 .content {
   overflow: auto !important;
+  width: 90% !important;
 }
 .content p {
   text-align: left;

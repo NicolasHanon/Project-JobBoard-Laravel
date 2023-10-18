@@ -4,7 +4,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
   await initJobs();
   await initContent(1);
-  await eventJobs();
+  eventJobs();
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850) {
@@ -56,9 +56,10 @@ async function initContent(id) {
   document.querySelector(".joblocation").innerHTML = data[0].location;
 }
 
-async function eventJobs() {
+function eventJobs() {
   let jobs = document.querySelectorAll(".job");
   for (const job of jobs) {
+    console.log
     job.addEventListener("click", async (e) => {
       initContent(e.srcElement.dataset.id);
 

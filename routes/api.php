@@ -22,7 +22,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });   
 
-
 //_______________________________________ Jobs ____________________________________________________________
 
 Route::post('/newjob/add', [JobController::class, 'store']);                                      // Create
@@ -30,16 +29,14 @@ Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');   
 Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');                  // Update
 Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id');       // Delete
 
-//__________________________________________________________________________________________________
-
 // Index api
 Route::get('/index/{id}', [IndexController::class, 'show'])->whereNumber('id');
 Route::get('/index/getJobs', [IndexController::class, 'getJobs']);
 
 // Admin api
+
 Route::get('/admin/initTable', [AdminController::class, 'getTable']);
 Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
-//________________________________________________________________________________________________________
 
 //_______________________________________ Users __________________________________________________________
 
@@ -47,8 +44,6 @@ Route::post('/user/add', [UserController::class, 'store']);                     
 Route::get('/user/{id}', [UserController::class, 'show'])->whereNumber('id');                     // Read
 Route::put('/user/{id}', [UserController::class, 'update'])->whereNumber('id');              // Update
 Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id');        // Delete
-
-//________________________________________________________________________________________________________
 
 //_______________________________________ Companies ______________________________________________________
 
