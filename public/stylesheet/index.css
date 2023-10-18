@@ -101,9 +101,10 @@ body .job_container main::-webkit-scrollbar {
   display: none;
 }
 body .job_container main .job {
+  font-family: "Kanit", sans-serif;
+  color: black;
   transition: all ease-in-out 200ms;
   text-align: center;
-  color: #809bce;
 }
 @media screen and (max-width: 849px) {
   body .job_container main .job {
@@ -116,8 +117,8 @@ body .job_container main .job:hover {
   cursor: pointer;
 }
 body .job_container main .job span {
-  font-family: "Kanit", sans-serif;
-  color: black;
+  font-family: "Dela Gothic One", cursive;
+  color: #809bce;
 }
 body .job_container main .separator {
   border: 2px solid #EAC4D5;

@@ -2,15 +2,10 @@ let main_MaxSize = document.querySelector('main').offsetHeight;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
-  const response = await fetch(`http://localhost:8000/api/index/${1}`);
-  const data = await response.json();
-  
-  document.querySelector(".jobtitle").innerHTML = data[0].title;
-  document.querySelector(".jobcontract").innerHTML = data[0].contract;
-  document.querySelector(".jobcompany").innerHTML = data[0].name;
-  document.querySelector(".jobdescription").innerHTML = data[0].more;
-  document.querySelector(".joblocation").innerHTML = data[0].location;
-  
+  await initJobs();
+  await initContent(1);
+  await eventJobs();
+
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850) {
       main_MaxSize = document.querySelector('main').offsetHeight;
@@ -25,24 +20,53 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   window.addEventListener('resize', adjustMargin);
 });
 
-let jobs = document.querySelectorAll(".job");
-for (const job of jobs) {
-  job.addEventListener("click", async (e) => {
+async function initJobs() {
+  const main = document.querySelector("main");
 
-    const response = await fetch(`http://localhost:8000/api/index/${e.srcElement.dataset.id}`);
-    const data = await response.json();
-    
-    document.querySelector(".jobtitle").innerHTML = data[0].title;
-    document.querySelector(".jobcontract").innerHTML = data[0].contract;
-    document.querySelector(".jobcompany").innerHTML = data[0].name;
-    document.querySelector(".jobdescription").innerHTML = data[0].more;
-    document.querySelector(".joblocation").innerHTML = data[0].location;
+  const response = await fetch(`http://localhost:8000/api/index/getJobs`);
+  const data = await response.json();
 
-    document.querySelector('.content').style.margin = (window.innerHeight - 100 < document.querySelector('.content').offsetHeight) ? window.innerWidth < 850 ? '80px 0 20px 0' : '20px' : 'auto';
+  data.forEach(element => {
+    let title = document.createElement("p");
+    title.classList.add("job");
+    title.innerHTML = element.title;
+    title.setAttribute('data-id' , `${element.id}`);
 
-    if (window.innerWidth < 850)
-      document.body.classList.toggle('content-is-toggled');
-  });
+    let span = document.createElement("span");
+    span.innerHTML = " - " + element.name;
+    title.setAttribute('data-id' , `${element.id}`);
+
+    let sep = document.createElement("div")
+    sep.classList.add("separator");
+
+    title.appendChild(span);
+    main.appendChild(title);
+    main.appendChild(sep);
+  }); 
+}
+
+async function initContent(id) {
+  const response = await fetch(`http://localhost:8000/api/index/${id}`);
+  const data = await response.json();
+
+  document.querySelector(".jobtitle").innerHTML = data[0].title;
+  document.querySelector(".jobcontract").innerHTML = data[0].contract;
+  document.querySelector(".jobcompany").innerHTML = data[0].name;
+  document.querySelector(".jobdescription").innerHTML = data[0].more;
+  document.querySelector(".joblocation").innerHTML = data[0].location;
+}
+
+async function eventJobs() {
+  let jobs = document.querySelectorAll(".job");
+  for (const job of jobs) {
+    job.addEventListener("click", async (e) => {
+      initContent(e.srcElement.dataset.id);
+
+      document.querySelector('.content').style.margin = (window.innerHeight - 100 < document.querySelector('.content').offsetHeight) ? window.innerWidth < 850 ? '80px 0 20px 0' : '20px' : 'auto';
+      if (window.innerWidth < 850)
+        document.body.classList.toggle('content-is-toggled');
+    });
+  }
 }
 
 document.querySelector(".rightarrow").addEventListener("click", (e) => {

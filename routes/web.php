@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -36,7 +37,9 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
-Route::get('/index', [IndexController::class, 'index'])->name('index');
+Route::get('/index', function () {
+    return view('index');
+});
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

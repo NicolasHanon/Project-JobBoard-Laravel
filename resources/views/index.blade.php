@@ -4,14 +4,6 @@
     <link rel="stylesheet" href="{{ URL::asset('stylesheet/index.css') }}" />
 @endsection
 
-@section('maincontent')
-@foreach ($data as $job)
-    <p class="job" data-id="{{ $job->id }}"><span data-id="{{ $job->id }}">{{ $job->title }} - </span>{{ $job->name }}</p>
-    <div class="separator"></div>
-    <input id="input" type="hidden" value="{{ $job->id }}">
-@endforeach
-@endsection 
-
 @section('content')
     <div>
         <p class="joblabel">Job title : </p>

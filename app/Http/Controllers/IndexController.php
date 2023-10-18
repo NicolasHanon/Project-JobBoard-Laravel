@@ -14,31 +14,20 @@ use Illuminate\Support\Facades\Auth;
 class IndexController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        // User::create([
-        //     'lastname' => 'Garde',
-        //     'name' => 'John',
-        //     'email' => 'john@doe.fr',
-        //     'password' => Hash::make('0000'),
-        //     'roleId' => 1
-        // ]);
-        $data = DB::table('jobs')
-                    ->join('companies', 'jobs.companies_id', '=', 'companies.id')
-                    ->select('jobs.*', 'companies.name')
-                    ->get();
-        dd(Auth::user());
-        return view('index', compact('data'));
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         //
+    }
+
+    public function getJobs() {
+        $data = DB::table('jobs')
+            ->join('companies', 'jobs.companies_id', '=', 'companies.id')
+            ->select('jobs.id', 'jobs.title', 'companies.name')
+            ->get();
+        // dd(Auth::user());
+        return response()->json($data);
     }
 
     /**

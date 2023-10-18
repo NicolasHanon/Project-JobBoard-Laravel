@@ -51,11 +51,14 @@ main {
     }
 }
 
+.content-drill {
+        width: 100% !important;
+}
+
 .content {
     overflow: auto !important;
-
     p {
-        text-align: center;
+        text-align: left;
         color: black;
     }
 
@@ -87,24 +90,21 @@ main {
             }
         }
     }
-
-    div {
-        display: flex;
-        justify-content: space-around;
         
-        button {
-            font-family: 'Dela Gothic One', cursive;
-            background-color: white;
-            border-radius: 5px;
-            margin: 5px;
-            transition: all ease-in-out 200ms;
-    
-            &:hover {
-                background-color: #EAC4D5;
-                color: white;
-                transform: scale(1.1);
-                cursor: pointer;
-            }
+    button {
+        font-family: 'Dela Gothic One', cursive;
+        text-align: left;
+        width: fit-content;
+        background-color: white;
+        border-radius: 5px;
+        margin: 5px;
+        transition: all ease-in-out 200ms;
+
+        &:hover {
+            background-color: #EAC4D5;
+            color: white;
+            transform: scale(1.1);
+            cursor: pointer;
         }
     }
 }
