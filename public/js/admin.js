@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   
   await initData();
   eventTables();
+  // addChangeDetection();
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850)
@@ -188,10 +189,11 @@ function addCreateRowEvent(addRow) {
   const createRecord = async (e) => {
     
     if (confirm("Are you sure to create this record ?")) {
+      const table = document.getElementById("tableName").textContent.split(" ")[0];
       try {
-        const table = document.getElementById("tableName").textContent.split(" ")[0];
         const data = getDataFromTable(e.srcElement.dataset.id);
-        const response = await fetch(`http://localhost:8000/api/admin/addRow/${data}/${table}`);
+        const jsonData = JSON.stringify(data);
+        const response = await fetch(`http://localhost:8000/api/admin/addRow/${jsonData}/${table}`);
 
         addRow.querySelector("img").src = "../svg/removing.svg";
         addRow.classList.remove("addBtn");
@@ -223,10 +225,25 @@ function getDataFromTable(index) {
   let dataRow = [];
   let tds = trData.querySelectorAll('td');
 
-  for (let i = 1; i < tds.length - 1; i++) {
+  for (let i = 0; i < tds.length - 1; i++) {
       let inputElement = tds[i].querySelector('input');
       let data = inputElement ? inputElement.value : "";
       dataRow.push(data);
   }
   return dataRow;
 };
+
+//changer la méthode pour quelle accepte uniquement tr par tr (puis l'utiliser lorsqu'on rajoute un tr)
+// function addChangeDetection() {
+//   let rows = document.getElementById("table").querySelector("tbody").querySelectorAll('tr');
+
+//   for (let i = 0; i < rows.length; i++) {
+//     let inputs = rows[i].querySelectorAll('input');
+
+//     for (let j = 0; j < inputs.length; j++) {
+//       inputs[j].addEventListener("input", (e) => {
+//         rows[i].classList.add("change");
+//       });
+//     }
+//   }
+// }
