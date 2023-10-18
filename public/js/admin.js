@@ -85,7 +85,6 @@ function setData(tableData) {
 
   let tbody = document.createElement("tbody");
 
-  // Iterate through data and create rows and cells
   tableData.data.forEach((row, rowIndex) => {
     let tr = document.createElement("tr");
 
@@ -144,18 +143,18 @@ function addRow() {
     tr.appendChild(td);
   }
   let td = document.createElement("td");
-  td.classList.add("removeBtn");
-  let removeRowImg = document.createElement("img");
-  removeRowImg.src = "../svg/removing.svg";
-  removeRowImg.style.marginTop = "5px";
+  td.classList.add("addBtn");
+  let addRowImg = document.createElement("img");
+  addRowImg.src = "../svg/adding.svg";
+  addRowImg.style.marginTop = "5px";
 
   lastId += 1;
   td.setAttribute('data-id' , `${lastId}`);
-  removeRowImg.setAttribute('data-id' , `${lastId}`);
+  addRowImg.setAttribute('data-id' , `${lastId}`);
   
-  addRemoveEvent(td);
+  addCreateRowEvent(td);
 
-  td.appendChild(removeRowImg);
+  td.appendChild(addRowImg);
   tr.appendChild(td);
 
   tbody.appendChild(tr);
@@ -163,11 +162,11 @@ function addRow() {
 }
 
 function addRemoveEvent(removeRow) {
-  removeRow.addEventListener("click", async (e) => {
+  const removeRecord = async (e) => {
     if (confirm("Are you sure to delete this record ? This action isn't reversible.")) {
       try {
         const table = document.getElementById("tableName").textContent.split(" ")[0];
-        const response = await fetch(`http://localhost:8000/api/admin/deleteTable/${e.srcElement.dataset.id}/${table}`);
+        const response = await fetch(`http://localhost:8000/api/admin/deleteRow/${e.srcElement.dataset.id}/${table}`);
         const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
         const dataTable = await responseTable.json();
         setData(dataTable);
@@ -179,5 +178,55 @@ function addRemoveEvent(removeRow) {
         alert("Cannot delete record.");
       }
     }
-  })
+  }
+
+  removeRow.addEventListener("click", removeRecord);
 }
+
+function addCreateRowEvent(addRow) {
+
+  const createRecord = async (e) => {
+    
+    if (confirm("Are you sure to create this record ?")) {
+      try {
+        const table = document.getElementById("tableName").textContent.split(" ")[0];
+        const data = getDataFromTable(e.srcElement.dataset.id);
+        const response = await fetch(`http://localhost:8000/api/admin/addRow/${data}/${table}`);
+
+        addRow.querySelector("img").src = "../svg/removing.svg";
+        addRow.classList.remove("addBtn");
+        addRow.classList.add("removeBtn");
+        addRow.removeEventListener("click", createRecord);
+        addRemoveEvent(addRow);
+
+        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
+        const dataTable = await responseTable.json();
+        setData(dataTable);
+
+        alert("Record added.");
+
+      } catch (e) {
+        const responseTable = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
+        const dataTable = await responseTable.json();
+        setData(dataTable);
+        alert("Cannot add record.");
+      }
+    }
+  };
+
+  addRow.addEventListener("click", createRecord);
+}
+
+function getDataFromTable(index) {
+
+  let trData = document.querySelector("tbody").querySelector(`tr:nth-child(${index})`);
+  let dataRow = [];
+  let tds = trData.querySelectorAll('td');
+
+  for (let i = 1; i < tds.length - 1; i++) {
+      let inputElement = tds[i].querySelector('input');
+      let data = inputElement ? inputElement.value : "";
+      dataRow.push(data);
+  }
+  return dataRow;
+};

@@ -133,6 +133,14 @@ img {
     transition: all ease-in-out 200ms;
     
     &:hover {
-        background-color: #FF6961;
+        background-color: #f9827c;
+    }
+}
+
+.addBtn {
+    transition: all ease-in-out 200ms;
+    
+    &:hover {
+        background-color: #B8E0D2;
     }
 }
