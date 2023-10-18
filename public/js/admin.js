@@ -1,4 +1,7 @@
 let main_MaxSize = document.querySelector('main').offsetHeight;
+let columnsLength = 0;
+let rowLength = 0;
+let hasId = false;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
   
@@ -55,6 +58,10 @@ async function initData() {
 }
 
 function setData(tableData) {
+  rowLength = tableData.data.length;
+  columnsLength = tableData.columns.length;
+  hasId = tableData.columns[0] == "id" ? true : false;
+
   document.getElementById("tableName").innerHTML = tableData.name + ' table';
 
   let table = document.getElementById("table");
@@ -69,7 +76,10 @@ function setData(tableData) {
     th.textContent = columnName;
     tr.appendChild(th);
   });
-
+  let th = document.createElement("th");
+  th.textContent = "Remove row";
+  tr.appendChild(th);
+  
   thead.appendChild(tr);
   table.appendChild(thead);
 
@@ -86,6 +96,13 @@ function setData(tableData) {
       td.appendChild(input);
       tr.appendChild(td);
     });
+    let td = document.createElement("td");
+    td.classList.add("removeBtn");
+    let removeRow = document.createElement("img");
+    removeRow.src = "../svg/removing.svg";
+    removeRow.style.marginTop = "5px";
+    td.appendChild(removeRow);
+    tr.appendChild(td);
 
     tbody.appendChild(tr);
   });
@@ -105,4 +122,21 @@ document.querySelector(".rightarrow").addEventListener("click", (e) => {
 
 function showNav() {
   document.body.classList.toggle('burger-is-toggled');
+}
+
+function addRow() {
+  let tbody = document.querySelector("tbody");
+  let tr = document.createElement("tr");
+  
+  for (let i = 0; i < columnsLength; i++) {
+    let td = document.createElement("td");
+    let input = document.createElement("input");
+
+    input.value = hasId && i == 0 ? rowLength + 1 : "";
+
+    td.appendChild(input);
+    tr.appendChild(td);
+  }
+    tbody.appendChild(tr);
+    table.appendChild(tbody);
 }

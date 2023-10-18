@@ -108,4 +108,31 @@ main {
             cursor: pointer;
         }
     }
+
+    .addbutton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        transition: all ease-in-out 200ms;
+
+        &:hover {
+            background-color: #EAC4D5;
+            color: white;
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+}
+
+img {
+    width: 25px;
+}
+
+.removeBtn {
+    transition: all ease-in-out 200ms;
+    
+    &:hover {
+        background-color: #FF6961;
+    }
 }

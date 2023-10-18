@@ -8,6 +8,7 @@
 <p id='tableName'></p>
 <table id="table">
 </table>
+<button class="addbutton" onclick="addRow()"><img class="addrow" src="{{ URL::asset('svg/adding.svg') }}">Add row</button>
 <button>Save changes</button>
 <button>Reset</button>
 @endsection
