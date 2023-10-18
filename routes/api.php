@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,29 +33,38 @@ Route::get('/admin/initTable', [AdminController::class, 'getTable']);
 Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
 
 
-//_______________________________________ Jobs ____________________________________________________________
+//_______________________________________ Jobs ___________________________________________________________________
 
-Route::post('/newjob/add', [JobController::class, 'store']);                                      // Create
-Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');                     // Read
-Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');                  // Update
-Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id');       // Delete
+Route::post('/Newjob/add', [JobController::class, 'store']);                                             // Create
+Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');                            // Read
+Route::put('/Newjob/{id}', [JobController::class, 'update'])->whereNumber('id');                         // Update
+Route::delete('/Newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id');              // Delete
 
-//________________________________________________________________________________________________________
+//________________________________________________________________________________________________________________
 
-//_______________________________________ Users ___________________________________________________________
+//_______________________________________ Users __________________________________________________________________
 
-Route::post('/user/add', [UserController::class, 'store']);                                       // Create
-Route::get('/user/{id}', [UserController::class, 'show'])->whereNumber('id');                     // Read
-Route::put('/user/{id}', [UserController::class, 'update'])->whereNumber('id');                   // Update
-Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id');        // Delete
+Route::post('/User/add', [UserController::class, 'store']);                                              // Create
+Route::get('/User/{id}', [UserController::class, 'show'])->whereNumber('id');                            // Read
+Route::put('/User/{id}', [UserController::class, 'update'])->whereNumber('id');                          // Update
+Route::delete('/User/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id');               // Delete
 
-//________________________________________________________________________________________________________
+//________________________________________________________________________________________________________________
 
-//_______________________________________ Companies _______________________________________________________
+//_______________________________________ Companies ______________________________________________________________
 
-Route::post('/company/add', [CompanyController::class, 'store']);                                // Create
-Route::get('/company/{id}', [CompanyController::class, 'show'])->whereNumber('id');              // Read
-Route::put('/company/{id}', [CompanyController::class, 'update'])->whereNumber('id');            // Update
-Route::delete('/company/remove/{id}', [CompanyController::class, 'destroy'])->whereNumber('id'); // Delete
+Route::post('/Company/add', [CompanyController::class, 'store']);                                        // Create
+Route::get('/Company/{id}', [CompanyController::class, 'show'])->whereNumber('id');                      // Read
+Route::put('/Company/{id}', [CompanyController::class, 'update'])->whereNumber('id');                    // Update
+Route::delete('/Company/remove/{id}', [CompanyController::class, 'destroy'])->whereNumber('id');         // Delete
 
-//_________________________________________________________________________________________________________
+//________________________________________________________________________________________________________________
+
+//_______________________________________ Applications ___________________________________________________________
+
+Route::post('/Application/add', [ApplicationController::class, 'store']);                                // Create
+Route::get('/Application/{id}', [ApplicationController::class, 'show'])->whereNumber('id');              // Read
+Route::put('/Application/{id}', [ApplicationController::class, 'update'])->whereNumber('id');            // Update
+Route::delete('/Application/remove/{id}', [ApplicationController::class, 'destroy'])->whereNumber('id'); // Delete
+
+//________________________________________________________________________________________________________________

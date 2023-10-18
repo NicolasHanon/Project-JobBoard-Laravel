@@ -10,6 +10,14 @@ class Application extends Model
     use HasFactory;
 
     protected $table = 'applications';
+
+    protected $fillable = [
+        'user_id',
+        'jobs_id',
+        'message',
+        'title',
+        'name'
+    ];
   
     public function job(): BelongsTo
     {
