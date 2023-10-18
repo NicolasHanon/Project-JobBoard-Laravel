@@ -247,3 +247,10 @@ function getDataFromTable(index) {
 //     }
 //   }
 // }
+
+async function reset() {
+  const table = document.getElementById("tableName").textContent.split(" ")[0];
+  const response = await fetch(`http://localhost:8000/api/admin/getTableData/${table}`);
+  const data = await response.json();
+  setData(data);
+}
