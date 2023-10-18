@@ -23,20 +23,29 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/index', [IndexController::class, 'index'])->name('index');
 
-//_______________________________________ Jobs _______________________________________________________
+//_______________________________________ Jobs ____________________________________________________________
 
-Route::post('/newjob/add', [JobController::class, 'store']);                                // Create
-Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');               // Read
-Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');            // Update
-Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id'); // Delete
+Route::post('/newjob/add', [JobController::class, 'store']);                                      // Create
+Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');                     // Read
+Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');                  // Update
+Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id');       // Delete
 
-//____________________________________________________________________________________________________
+//________________________________________________________________________________________________________
 
-//_______________________________________ Users ______________________________________________________
+//_______________________________________ Users __________________________________________________________
 
-Route::post('/user/add', [UserController::class, 'store']);                                // Create
-Route::get('/user/{id}', [UserController::class, 'show'])->whereNumber('id');              // Read
-Route::put('/user/{id}', [UserController::class, 'update'])->whereNumber('id');            // Update
-Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id'); // Delete
+Route::post('/user/add', [UserController::class, 'store']);                                       // Create
+Route::get('/user/{id}', [UserController::class, 'show'])->whereNumber('id');                     // Read
+Route::put('/user/{id}', [UserController::class, 'update'])->whereNumber('id');              // Update
+Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id');        // Delete
 
-//____________________________________________________________________________________________________
+//________________________________________________________________________________________________________
+
+//_______________________________________ Companies ______________________________________________________
+
+Route::post('/company/add', [CompanyController::class, 'store']);                                // Create
+Route::get('/company/{id}', [CompanyController::class, 'show'])->whereNumber('id');              // Read
+Route::put('/company/{id}', [CompanyController::class, 'update'])->whereNumber('id');            // Update
+Route::delete('/company/remove/{id}', [CompanyController::class, 'destroy'])->whereNumber('id'); // Delete
+
+//________________________________________________________________________________________________________
