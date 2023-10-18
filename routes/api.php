@@ -31,6 +31,8 @@ Route::get('/index/getJobs', [IndexController::class, 'getJobs']);
 // Admin api
 Route::get('/admin/initTable', [AdminController::class, 'getTable']);
 Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
+Route::get('/admin/deleteTable/{id}/{table}', [AdminController::class, 'deleteTable']);
+
 
 
 //_______________________________________ Jobs ___________________________________________________________________
