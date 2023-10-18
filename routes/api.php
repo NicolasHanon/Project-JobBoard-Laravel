@@ -39,15 +39,6 @@ Route::get('/index/{id}', [JobController::class, 'show'])->whereNumber('id');   
 Route::put('/newjob/{id}', [JobController::class, 'update'])->whereNumber('id');                  // Update
 Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNumber('id');       // Delete
 
-//__________________________________________________________________________________________________
-
-// Index api
-Route::get('/index/{id}', [IndexController::class, 'show'])->whereNumber('id');
-Route::get('/index/getJobs', [IndexController::class, 'getJobs']);
-
-// Admin api
-Route::get('/admin/initTable', [AdminController::class, 'getTable']);
-Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
 //________________________________________________________________________________________________________
 
 //_______________________________________ Users ___________________________________________________________

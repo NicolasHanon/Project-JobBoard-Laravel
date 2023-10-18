@@ -12,11 +12,10 @@ class Companie extends Model
     protected $table = 'companies';
 
     protected $fillable = [
-        'title',
-        'contract',
-        'more',
-        'location',
-        'message',
+        'name',
+        'type',
+        'headquarter',
+        'about',
     ];
 
     public function jobs(): HasMany

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Companie;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\Job;
+use App\Models\Companie;
+use App\Models\User;
 
 class CompanyController extends Controller
 {
@@ -21,7 +25,7 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         try{
-            $companies = Job::create($request->all());
+            $companies = Companie::create($request->all());
             return response()->json($request, 201);
         }
         catch(\Illuminate\Database\QueryException $e) {
@@ -36,9 +40,8 @@ class CompanyController extends Controller
     public function show($id)
     {       
         $company = DB::table('companies')
-        ->join('companies', 'jobs.companies_id', '=', 'companies.id')
-        ->select('jobs.*', 'companies.name')
-        ->where('jobs.id', '=', $id)
+        ->select('companies.*')
+        ->where('companies.id', '=', $id)
         ->get();
         return response()->json($company);
     }
@@ -49,9 +52,9 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         // Find the job by its ID
-        $company = Job::findOrFail($id);
+        $company = Companie::findOrFail($id);
         $company->update($request->all());
-        return response()->json(["message" => "ça marche"]);
+        return response()->json($company);
     }
 
     /**
@@ -59,7 +62,7 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $company = Job::findOrFail($id);
+        $company = Companie::findOrFail($id);
         $company->delete();
         return response()->json($company, 201);
     }
