@@ -257,7 +257,11 @@ async function updateData() {
       let indexData = updateTr.querySelectorAll("td")[0].querySelector("input").value
       const data = getDataFromTable(indexData);
       const jsonData = JSON.stringify(data);
-      await fetch(`http://localhost:8000/api/admin/updateRow/${jsonData}/${table}`);
+      await fetch(`http://localhost:8000/api/admin/updateRow/${table}`, {
+        headers: { 'Content-Type': 'application/json', },
+        method: "POST",
+        body: jsonData
+      });
     }
     reset();
     alert("Record updated.");

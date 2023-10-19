@@ -34,7 +34,7 @@ Route::get('/index/getJobs', [IndexController::class, 'getJobs']);
     Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
     Route::get('/admin/deleteRow/{id}/{table}', [AdminController::class, 'deleteRow']);
     Route::get('/admin/addRow/{jsonData}/{table}', [AdminController::class, 'addRow']);
-    Route::get('/admin/updateRow/{jsonData}/{table}', [AdminController::class, 'updateRow']);
+    Route::post('/admin/updateRow/{table}', [AdminController::class, 'updateRow']);
 // });
 
 
