@@ -137,6 +137,7 @@ function showNav() {
 }
 
 function addRow() {
+  document.querySelector(".addbutton").style.display = "none";
   let tbody = document.querySelector("tbody");
   let tr = document.createElement("tr");
   
