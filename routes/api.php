@@ -47,10 +47,10 @@ Route::delete('/Newjob/remove/{id}', [JobController::class, 'destroy'])->whereNu
 
 //_______________________________________ Users __________________________________________________________________
 
-Route::post('/User/add', [UserController::class, 'store']);                                              // Create
-Route::get('/User/{id}', [UserController::class, 'show'])->whereNumber('id');                            // Read
-Route::put('/User/{id}', [UserController::class, 'update'])->whereNumber('id');                          // Update
-Route::delete('/User/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id');               // Delete
+Route::post('/user/add', [UserController::class, 'store']);                                              // Create
+Route::get('/user/{id}', [UserController::class, 'show'])->whereNumber('id');                            // Read
+Route::put('/user/{id}', [UserController::class, 'update'])->whereNumber('id');                          // Update
+Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id');               // Delete
 
 //________________________________________________________________________________________________________________
 

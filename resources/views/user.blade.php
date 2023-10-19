@@ -14,29 +14,29 @@
     @include("shared.nav")
     <div class="container">
         <p>Manage my profile</p>
-        <form class="form_container">
+        <form class="form_container" autocomplete="off">
             <div class="morespace">
                 <div class="container_children">
                     <label for="name">Name is</label>
-                    <input type="text" name="name" required>
+                    <input id="name" type="text" name="name" required>
                 </div>
                 <div class="container_children">
                     <label for="lastname">Last name is</label>
-                    <input type="text" name="lastname" required>
+                    <input id="lastname" type="text" name="lastname" required>
                 </div>
             </div>
             <div class="morespace">
                 <div class="container_children">
                     <label for="email">Email is</label>
-                    <input type="email" name="email" required>
+                    <input id="email" type="email" name="email" required>
                 </div>
                 <div class="container_children">
                     <label for="phone">Phone is</label>
-                    <input type="tel" name="phone" required>
+                    <input id="phone" type="tel" name="phone" required>
                 </div>
             </div>
             <label for="about">About me</label>
-            <textarea name="about"></textarea>
+            <textarea id="more" name="about"></textarea>
             <div class="morespace">
                 <div class="container_children">
                     <label for="oldpassword">Previous password</label>
@@ -54,6 +54,16 @@
 </div>
 </body>
 </html>
+
+@if (Auth::check())
+    <script>
+        var userId = {{ Auth::user()->id }};
+    </script>
+@else
+    <script>
+        var userId = null;
+    </script>
+@endif
 
 <script>
     document.getElementById("showpassword").addEventListener("click", (e) => {
