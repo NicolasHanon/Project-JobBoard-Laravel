@@ -37,18 +37,6 @@
             </div>
             <label for="about">About me</label>
             <textarea id="more" name="about"></textarea>
-            <div class="morespace">
-                <div class="container_children">
-                    <label for="oldpassword">Previous password</label>
-                    <input id="password" type="password" name="oldpassword">
-                    <img class="showpassword" id="showpassword" src="{{ URL::asset('svg/showpassword.svg') }}">
-                </div>
-                <div class="container_children">
-                    <label for="newpassword">New password</label>
-                    <input id="password2" type="password" name="newpassword">
-                    <img class="showpassword" id="showpassword2" src="{{ URL::asset('svg/showpassword.svg') }}">
-                </div>
-            </div>
             <button onclick="saveChanges()">Save changes</button>
         </div>
 </div>
@@ -65,13 +53,4 @@
     </script>
 @endif
 
-<script>
-    document.getElementById("showpassword").addEventListener("click", (e) => {
-        document.getElementById("password").type = document.getElementById("password").type == "password" ? "text" : "password";
-    });
-    document.getElementById("showpassword2").addEventListener("click", (e) => {
-        document.getElementById("password2").type = document.getElementById("password2").type == "password" ? "text" : "password";
-    });
-</script>
-
-<script src="{{ asset('js/form.js')}}"></script>
+<script src="{{ asset('js/user.js')}}"></script>
