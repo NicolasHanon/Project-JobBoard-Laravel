@@ -4,6 +4,10 @@
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/10.x/installation)
 
+You have to have mySQLServer installed (or MariaDB) : 
+
+    sudo apt install mysql-server
+
 Clone the repository
 
     git clone git@github.com:EpitechMscProPromo2026/T-WEB-501-LYO_20.git
