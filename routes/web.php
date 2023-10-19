@@ -17,8 +17,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/loginquimarche', function () {
-    return view('login');
+Route::get('/', function () {
+    return view('signin');
 })->name('login');
 
 Route::get('/newjob', function () {

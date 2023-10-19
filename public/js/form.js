@@ -1,15 +1,35 @@
+let inputNames = ['email', 'lastname', 'more', 'name', 'phone'];
+let currentData;
+
 window.addEventListener('DOMContentLoaded', async (e) => {
 
   if (userId == null)
     return;
   const response = await fetch(`http://localhost:8000/api/user/${userId}`);
   const data = await response.json();
+  currentData = data;
 
-  document.getElementById("name").value = data[0].name;
-  document.getElementById("lastname").value = data[0].lastname;
-  document.getElementById("email").value = data[0].email;
-  // document.getElementsByName("phone").value = data[0].phone;
-  // document.getElementsByName("about").value = data[0].more;
-
-  document.getElementById("password").value = "";
+for (let input of inputNames)
+  document.getElementById(input).value = data[0][input];
 });
+
+function saveChanges() {
+
+  let hasChanged = false;
+
+  for (let input of inputNames) {
+    if (currentData[input] !== document.getElementById(input).value) {
+      currentData[input] = inputValue;
+      hasChanged = true;
+    }
+  }
+
+  let jsonData = JSON.stringify(currentData);
+
+  console.log(jsonData);
+
+  // if (hasChanged)
+    //fetch
+
+  //get changes for password
+}

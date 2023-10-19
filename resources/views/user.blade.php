@@ -49,7 +49,7 @@
                     <img class="showpassword" id="showpassword2" src="{{ URL::asset('svg/showpassword.svg') }}">
                 </div>
             </div>
-            <button type="submit">Save changes</button>
+            <button onclick="saveChanges()" type="submit">Save changes</button>
         </form>
 </div>
 </body>
