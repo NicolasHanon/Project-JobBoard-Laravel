@@ -16,6 +16,10 @@ async function saveChanges() {
   let hasChanged = false;
 
   for (let input of inputNames) {
+    if (document.getElementById(input).value == "") {
+      alert("Please fill all your personnal informations.")
+      return;
+    }
     if (currentData[0][input] !== document.getElementById(input).value) {
       currentData[0][input] = document.getElementById(input).value;
       hasChanged = true;
