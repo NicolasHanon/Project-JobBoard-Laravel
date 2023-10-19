@@ -33,6 +33,7 @@ Route::get('/admin/initTable', [AdminController::class, 'getTable']);
 Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
 Route::get('/admin/deleteRow/{id}/{table}', [AdminController::class, 'deleteRow']);
 Route::get('/admin/addRow/{jsonData}/{table}', [AdminController::class, 'addRow']);
+Route::get('/admin/updateRow/{jsonData}/{table}', [AdminController::class, 'updateRow']);
 
 
 //_______________________________________ Jobs ___________________________________________________________________

@@ -33,6 +33,10 @@ function eventTables() {
       const data = await response.json();
       setData(data);
 
+      for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr')) {
+        addChangeDetection(tr);
+      }
+
       document.querySelector('.content').style.margin = (window.innerHeight - 100 < document.querySelector('.content').offsetHeight) ? window.innerWidth < 850 ? '80px 0 20px 0' : '20px' : 'auto';
 
       if (window.innerWidth < 850)
@@ -74,7 +78,6 @@ function setData(tableData) {
   let thead = document.createElement("thead");
   let tr = document.createElement("tr");
 
-  // Iterate through columns and create th elements
   tableData.columns.forEach(columnName => {
     let th = document.createElement("th");
     th.textContent = columnName;
@@ -170,7 +173,7 @@ function addRemoveEvent(removeRow) {
     if (confirm("Are you sure to delete this record ? This action isn't reversible.")) {
       try {
         const table = document.getElementById("tableName").textContent.split(" ")[0];
-        const response = await fetch(`http://localhost:8000/api/admin/deleteRow/${e.srcElement.dataset.id}/${table}`);
+        const response = await fetch(`http://localhost:8000/api/admin/deleteRow/${removeRow.getAttribute('data-id')}/${table}`);
         reset();
         alert("Record removed.");
       } catch (e) {
@@ -190,7 +193,7 @@ function addCreateRowEvent(addRow) {
     if (confirm("Are you sure to create this record ?")) {
       const table = document.getElementById("tableName").textContent.split(" ")[0];
       try {
-        const data = getDataFromTable(e.srcElement.dataset.id);
+        const data = getDataFromTable(addRow.getAttribute('data-id'));
         const jsonData = JSON.stringify(data);
         const response = await fetch(`http://localhost:8000/api/admin/addRow/${jsonData}/${table}`);
 
@@ -251,12 +254,10 @@ async function updateData() {
   try {
     let updateTds = document.querySelectorAll(".change");
     for (let updateTd of updateTds) {
-      const dataIdValue = updateTd.querySelector("td:last-child").getAttribute('data-id');
-      const data = getDataFromTable(dataIdValue);
+      const indexData = (document.querySelectorAll("tr")).length - 1;
+      const data = getDataFromTable(indexData);
       const jsonData = JSON.stringify(data);
-
-      //fetch
-      // const response = await fetch(`http://localhost:8000/api/admin/addRow/${jsonData}/${table}`);
+      const response = await fetch(`http://localhost:8000/api/admin/updateRow/${jsonData}/${table}`);
     }
     reset();
     alert("Record updated.");

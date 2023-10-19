@@ -72,6 +72,6 @@ class AdminController extends Controller
         for ($i = 0; $i < count($columnNames); $i++) {
             $updateData[$columnNames[$i]] = $data[$i];
         }
-        DB::table($table)->where('id', $id)->update($updateData);
+        DB::table($table)->where('id', $data[0])->update($updateData);
     }
 }
