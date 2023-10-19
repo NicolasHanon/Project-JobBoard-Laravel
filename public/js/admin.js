@@ -8,9 +8,8 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   await initData();
   eventTables();
 
-  for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr')) {
+  for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr'))
     addChangeDetection(tr);
-  }
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850)
@@ -33,9 +32,8 @@ function eventTables() {
       const data = await response.json();
       setData(data);
 
-      for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr')) {
+      for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr'))
         addChangeDetection(tr);
-      }
 
       document.querySelector('.content').style.margin = (window.innerHeight - 100 < document.querySelector('.content').offsetHeight) ? window.innerWidth < 850 ? '80px 0 20px 0' : '20px' : 'auto';
 
@@ -244,9 +242,10 @@ async function reset() {
   const data = await response.json();
   setData(data);
 
-  for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr')) {
+  for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr'))
     addChangeDetection(tr);
-  }
+
+  document.querySelector(".addbutton").style.display = "flex";
 }
 
 async function updateData() {
