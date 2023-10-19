@@ -17,10 +17,6 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('signin');
-})->name('login');
-
 Route::get('/newjob', function () {
     return view('addjob');
 })->name('newjob');
@@ -33,9 +29,11 @@ Route::get('/user', function () {
     return view('user');
 })->name('user');
 
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::get('/admin', function () {
+        return view('admin');
+    })->name('admin');
+});
 
 Route::get('/index', function () {
     return view('index');

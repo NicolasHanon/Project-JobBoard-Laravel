@@ -23,7 +23,7 @@
             <input type="email" name="email" value="john@doe.fr" required>
             <label for="password"><b>Password</b></label>
             <div>
-                <input id="password" type="password" value="0000" name="password" required>
+                <input id="password" type="password" value="password" name="password" required>
                 <img class="showpassword" id="showpassword" src="{{ URL::asset('svg/showpassword.svg') }}">
             </div>
             <button type="submit">Login</button>
