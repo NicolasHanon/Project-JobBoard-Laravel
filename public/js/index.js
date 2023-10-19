@@ -3,7 +3,7 @@ let main_MaxSize = document.querySelector('main').offsetHeight;
 window.addEventListener('DOMContentLoaded', async (e) => {
 
   await initJobs();
-  await initContent(1);
+  await initContent(document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id"));
   await eventJobs();
 
   function adjustMargin() {
