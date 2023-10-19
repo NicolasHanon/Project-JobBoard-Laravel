@@ -222,7 +222,6 @@ function getDataFromTable(index) {
   for (let i = 0; i < tds.length - 1; i++) {
       let inputElement = tds[i].querySelector('input');
       let data = i > tds.length - 4 ? formatedDate() : inputElement.value == "" ? "null" : inputElement.value;
-      // let data = inputElement ? inputElement.value : "";
       dataRow.push(data);
   }
   return dataRow;
@@ -253,12 +252,12 @@ async function updateData() {
 
   const table = document.getElementById("tableName").textContent.split(" ")[0];
   try {
-    let updateTds = document.querySelectorAll(".change");
-    for (let updateTd of updateTds) {
-      const indexData = (document.querySelectorAll("tr")).length - 1;
+    let updateTrs = document.querySelectorAll(".change");
+    for (let updateTr of updateTrs) {
+      let indexData = updateTr.querySelectorAll("td")[0].querySelector("input").value
       const data = getDataFromTable(indexData);
       const jsonData = JSON.stringify(data);
-      const response = await fetch(`http://localhost:8000/api/admin/updateRow/${jsonData}/${table}`);
+      await fetch(`http://localhost:8000/api/admin/updateRow/${jsonData}/${table}`);
     }
     reset();
     alert("Record updated.");
