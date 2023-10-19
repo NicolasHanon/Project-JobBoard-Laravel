@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-
 class AdminController extends Controller
 {
     /**
@@ -63,9 +62,9 @@ class AdminController extends Controller
         DB::table($table)->insert($insertData);
     }
 
-    public function updateRow($jsonData, $table)
+    public function updateRow(Request $request, $table)
     {
-        $data = json_decode($jsonData, true);
+        $data = $request->post();
         $columnNames = Schema::getColumnListing($table);
         $updateData = [];
         
