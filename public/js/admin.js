@@ -221,7 +221,8 @@ function getDataFromTable(index) {
 
   for (let i = 0; i < tds.length - 1; i++) {
       let inputElement = tds[i].querySelector('input');
-      let data = inputElement ? inputElement.value : "";
+      let data = i > tds.length - 4 ? formatedDate() : inputElement.value == "" ? "null" : inputElement.value;
+      // let data = inputElement ? inputElement.value : "";
       dataRow.push(data);
   }
   return dataRow;
@@ -265,4 +266,8 @@ async function updateData() {
     reset();
     alert("Cannot update records.");
   }
+}
+
+function formatedDate() {
+  return new Date().toISOString().replace('T', ' ').slice(0, 19);
 }
