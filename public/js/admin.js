@@ -246,7 +246,7 @@ async function reset() {
 }
 
 async function updateData() {
-  
+
   const table = document.getElementById("tableName").textContent.split(" ")[0];
   try {
     let updateTds = document.querySelectorAll(".change");
@@ -260,11 +260,8 @@ async function updateData() {
     }
     reset();
     alert("Record updated.");
-
   } catch (e) {
     reset();
     alert("Cannot update records.");
   }
-
-
 }
