@@ -41,7 +41,7 @@ class UserController extends Controller
     {
         $user = DB::table('users')
         ->join('roles', 'users.roleId', '=', 'roles.id')
-        ->select('users.*', 'roles.rolename')
+        ->select('users.name', 'users.lastname', 'users.email', 'users.phone', 'users.more')
         ->where('users.id', '=', $id)
         ->get();
         return response()->json($user);
@@ -50,8 +50,18 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update($jsonData, $id)
     {
+
+        $data = json_decode($jsonData, true);
+        $columnNames = Schema::getColumnListing('users');
+        $updateData = [];
+        
+        for ($i = 0; $i < count($columnNames); $i++) {
+            $updateData[$columnNames[$i]] = $data[$i];
+        }
+        DB::table('users')->where('id', $id)->update($updateData);
+
         // Find the job by its ID
         $user = User::findOrFail($id);
         $user->update($request->all());
