@@ -94,6 +94,7 @@ body .container .form_container input:focus, body .container .form_container sel
   outline: none;
 }
 body .container .form_container textarea {
+  font-family: "Kanit", sans-serif;
   width: 42vw;
   height: 20vh;
   resize: none;

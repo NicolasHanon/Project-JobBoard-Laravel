@@ -17,6 +17,10 @@ use App\Http\Controllers\AuthController;
 |
 */
 
+Route::get('/', function () {
+    return view('signin');
+})->name('login');
+
 Route::get('/newjob', function () {
     return view('addjob');
 })->name('newjob');

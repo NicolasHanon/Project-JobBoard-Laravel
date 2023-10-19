@@ -52,20 +52,9 @@ class UserController extends Controller
      */
     public function update($jsonData, $id)
     {
-
-        $data = json_decode($jsonData, true);
-        $columnNames = Schema::getColumnListing('users');
-        $updateData = [];
-        
-        for ($i = 0; $i < count($columnNames); $i++) {
-            $updateData[$columnNames[$i]] = $data[$i];
-        }
-        DB::table('users')->where('id', $id)->update($updateData);
-
-        // Find the job by its ID
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-        return response()->json($user, 201);
+        $data = json_decode($jsonData, true);        
+        DB::table('users')->where('id', $id)->update($jsonData);
+        return response()->json($data);
     }
 
     /**

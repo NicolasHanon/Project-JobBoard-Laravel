@@ -29,13 +29,13 @@ Route::get('/index/{id}', [IndexController::class, 'show'])->whereNumber('id');
 Route::get('/index/getJobs', [IndexController::class, 'getJobs']);
 
 // Admin api
-Route::group(['middleware' => ['auth', 'admin']], function() {
+// Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin/initTable', [AdminController::class, 'getTable']);
     Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
     Route::get('/admin/deleteRow/{id}/{table}', [AdminController::class, 'deleteRow']);
     Route::get('/admin/addRow/{jsonData}/{table}', [AdminController::class, 'addRow']);
     Route::get('/admin/updateRow/{jsonData}/{table}', [AdminController::class, 'updateRow']);
-});
+// });
 
 
 //_______________________________________ Jobs ___________________________________________________________________
@@ -51,7 +51,7 @@ Route::delete('/newjob/remove/{id}', [JobController::class, 'destroy'])->whereNu
 
 Route::post('/user/add', [UserController::class, 'store']);                                              // Create
 Route::get('/user/{id}', [UserController::class, 'show'])->whereNumber('id');                            // Read
-Route::put('/user/{id}', [UserController::class, 'update'])->whereNumber('id');                          // Update
+Route::get('/user/update/{jsonData}/{id}', [UserController::class, 'update']);                           // Update
 Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNumber('id');               // Delete
 
 //________________________________________________________________________________________________________________

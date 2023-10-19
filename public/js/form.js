@@ -13,23 +13,21 @@ for (let input of inputNames)
   document.getElementById(input).value = data[0][input];
 });
 
-function saveChanges() {
-
+async function saveChanges() {
   let hasChanged = false;
 
   for (let input of inputNames) {
     if (currentData[input] !== document.getElementById(input).value) {
-      currentData[input] = inputValue;
+      currentData[input] = document.getElementById(input).value;
       hasChanged = true;
     }
   }
-
   let jsonData = JSON.stringify(currentData);
 
-  console.log(jsonData);
+  if (hasChanged) {
+    const response = await fetch(`http://localhost:8000/api/user/update/${jsonData}/${userId}`);
+    const data = await response.json();
 
-  // if (hasChanged)
-    //fetch
-
-  //get changes for password
+    console.log(data);
+  }
 }
