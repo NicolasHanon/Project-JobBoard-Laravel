@@ -62,4 +62,16 @@ class AdminController extends Controller
         }
         DB::table($table)->insert($insertData);
     }
+
+    public function updateRow($jsonData, $table)
+    {
+        $data = json_decode($jsonData, true);
+        $columnNames = Schema::getColumnListing($table);
+        $updateData = [];
+        
+        for ($i = 0; $i < count($columnNames); $i++) {
+            $updateData[$columnNames[$i]] = $data[$i];
+        }
+        DB::table($table)->where('id', $id)->update($updateData);
+    }
 }
