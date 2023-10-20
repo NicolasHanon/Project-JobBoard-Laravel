@@ -277,4 +277,22 @@ body .job_container .content-drill .content .apply button:hover {
 .content-is-toggled::after {
   visibility: visible;
   opacity: 1;
+}
+
+.tosave {
+  animation: tosaveAnimation ease-in-out 1.2s infinite;
+}
+
+@keyframes tosaveAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: #EAC4D5;
+    color: white;
+  }
+  100% {
+    transform: scale(1);
+  }
 }/*# sourceMappingURL=index.css.map */
