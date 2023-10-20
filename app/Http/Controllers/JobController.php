@@ -67,4 +67,18 @@ class JobController extends Controller
         $job->delete();
         return response()->json($job, 201);
     }
+
+    public function getJobListing($companyId) {
+        $data = DB::table('jobs')
+            ->join('companies', 'jobs.companies_id', '=', 'companies.id')
+            ->select('jobs.id', 'jobs.title', 'companies.name')
+            ->where('jobs.companies_id', '=', $companyId)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function updateJob(Request $request, $jobId) {
+        $data = $request->post();
+        DB::table('jobs')->where('id', $jobId)->update($data);
+    }
 }
