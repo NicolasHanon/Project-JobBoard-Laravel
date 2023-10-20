@@ -38,6 +38,11 @@ Route::post('/admin/updateRow/{table}', [AdminController::class, 'updateRow']);
 //User
 Route::get('/user/getCompanyId/{userId}', [UserController::class, 'getCompanyId']);
 
+//jobApplications
+Route::get('/application/getApplyJob/{userId}', [ApplicationController::class, 'getApplyJob']);
+Route::get('/application/getMessage/{userId}/{jobId}', [ApplicationController::class, 'getMessage']);
+Route::post('/application/updateMessage/{userId}/{jobId}', [ApplicationController::class, 'updateMessage']);
+
 //_______________________________________ Jobs ___________________________________________________________________
 
 Route::post('/newjob/add', [JobController::class, 'store']);                                             // Create
