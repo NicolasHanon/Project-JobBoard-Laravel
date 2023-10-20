@@ -22,7 +22,7 @@ Install all the dependencies using composer
     composer install
     composer require doctrine/dbal
 
-(In mysql CLI as admin) : 
+Enter mySQL CLI as admin and create the user + db : 
 
     sudo mysql
     mysql> CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
