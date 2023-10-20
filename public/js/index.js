@@ -48,6 +48,7 @@ async function initJobs() {
 async function initContent(id) {
   const response = await fetch(`http://localhost:8000/api/index/${id}`);
   const data = await response.json();
+  console.log(data);
 
   document.querySelector(".jobtitle").innerHTML = data[0].title;
   document.querySelector(".jobcontract").innerHTML = data[0].contract;
@@ -80,4 +81,16 @@ document.querySelector(".rightarrow").addEventListener("click", (e) => {
 
 function showNav() {
   document.body.classList.toggle('burger-is-toggled');
+}
+
+async function applyJobs(){
+  const response = await fetch(`http://localhost:8000/api/application/add`);
+  const data = await response.json();
+  console.log(data);
+
+  document.querySelector(".jobtitle").innerHTML = data[0].title;
+  document.querySelector(".jobcontract").innerHTML = data[0].contract;
+  document.querySelector(".jobcompany").innerHTML = data[0].name;
+  document.querySelector(".jobdescription").innerHTML = data[0].more;
+  document.querySelector(".joblocation").innerHTML = data[0].location;
 }

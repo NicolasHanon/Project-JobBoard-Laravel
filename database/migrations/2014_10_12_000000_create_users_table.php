@@ -17,6 +17,15 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('companies', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('type')->nullable();
+            $table->string('headquarter')->nullable();
+            $table->text('about')->nullable();
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('lastname')->nullable();
@@ -25,12 +34,14 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('roleId');
+            $table->unsignedBigInteger('companyId')->nullable();
             $table->string('phone')->nullable();
             $table->string('more')->nullable();
             $table->rememberToken();
             $table->timestamps();
 
             $table->foreign('roleId')->references('id')->on('roles')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('companyId')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -60,7 +60,7 @@ Route::delete('/user/remove/{id}', [UserController::class, 'destroy'])->whereNum
 
 Route::post('/companie/add', [CompanyController::class, 'store']);                                        // Create
 Route::get('/companie/{id}', [CompanyController::class, 'show'])->whereNumber('id');                      // Read
-Route::put('/comanie/{id}', [CompanyController::class, 'update'])->whereNumber('id');                    // Update
+Route::put('/companie/{id}', [CompanyController::class, 'update'])->whereNumber('id');                    // Update
 Route::delete('/companie/remove/{id}', [CompanyController::class, 'destroy'])->whereNumber('id');         // Delete
 
 //________________________________________________________________________________________________________________
