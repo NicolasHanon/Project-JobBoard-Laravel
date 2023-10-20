@@ -21,8 +21,8 @@ Create a .env file at the project's root by copy-pasting .env.example's content 
     DB_HOST=127.0.0.1
     DB_PORT=3306
     DB_DATABASE=JobBoard_DB
-    DB_USERNAME=username #
-    DB_PASSWORD=password #
+    DB_USERNAME=username # the one created in the previous step
+    DB_PASSWORD=password # same
 
 Clone the repository
 
