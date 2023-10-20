@@ -23,7 +23,8 @@ class AdminMiddleware
     public function handle($request, Closure $next)
     {
         if ($this->auth->user()->roleId !== 1) {
-            abort(403, 'Unauthorized action.');
+            // abort(403, 'Unauthorized action.');
+            return redirect()->route('index');
         }
         return $next($request);
     }
