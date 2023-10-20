@@ -22,7 +22,7 @@ class CompanyMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->user()->roleId == 2) {
+        if ($this->auth->user()->roleId == 2) { // Si role de l'utilisateur connécté est une entreprise
             return redirect()->route('newjob');
         }
         return $next($request);
