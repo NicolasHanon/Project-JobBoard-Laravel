@@ -189,21 +189,21 @@ body .job_container .content-drill .content div {
   flex-wrap: wrap;
   display: flex;
 }
-body .job_container .content-drill .content form {
+body .job_container .content-drill .content .apply {
   justify-content: space-around;
   margin: 10px auto 10px auto;
   display: flex;
   width: 90%;
   gap: 10px;
 }
-body .job_container .content-drill .content form textarea {
+body .job_container .content-drill .content .apply textarea {
   font-family: "Kanit", sans-serif;
   outline: none;
   width: 80%;
   height: 50%;
   resize: none;
 }
-body .job_container .content-drill .content form input {
+body .job_container .content-drill .content .apply button {
   font-family: "Dela Gothic One", cursive;
   transition: all ease-in-out 200ms;
   background-color: white;
@@ -212,7 +212,7 @@ body .job_container .content-drill .content form input {
   border-radius: 5px;
   align-self: center;
 }
-body .job_container .content-drill .content form input:hover {
+body .job_container .content-drill .content .apply button:hover {
   background-color: #B8E0D2;
   transform: scale(1.1);
   color: white;

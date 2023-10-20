@@ -193,7 +193,7 @@ body {
                     display: flex;
                 }
 
-                form {
+                .apply {
                     justify-content: space-around;
                     margin: 10px auto 10px auto;
                     display: flex;
@@ -208,7 +208,7 @@ body {
                         resize: none;
                     }
 
-                    input {
+                    button {
                         font-family: 'Dela Gothic One', cursive;
                         transition: all ease-in-out 200ms;
                         background-color: white;

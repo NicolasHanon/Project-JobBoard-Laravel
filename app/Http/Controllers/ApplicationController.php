@@ -29,7 +29,7 @@ class ApplicationController extends Controller
         }
         catch(\Illuminate\Database\QueryException $e) {
             return response()->json([
-                'message' => 'ça marche pas'], 500);
+                'message' => 'error'], 500);
         }
     }
 
@@ -67,4 +67,5 @@ class ApplicationController extends Controller
         $application->delete();
         return response()->json($application, 201);
     }
+
 }
