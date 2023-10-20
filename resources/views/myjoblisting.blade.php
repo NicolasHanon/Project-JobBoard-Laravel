@@ -22,7 +22,7 @@
         <input id="location" class="jobdata"/>
     </div>
     <div class="apply">
-        <button onclick="updateJobs()">Update jobs</button>
+        <button id="updateBtn" onclick="updateJobs()">Update jobs</button>
     </div>
 @endsection
 

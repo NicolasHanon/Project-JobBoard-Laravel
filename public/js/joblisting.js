@@ -60,6 +60,17 @@ async function initContent(jobId) {
 
     for (let input of inputs)
         document.getElementById(input).value = currentData[input];
+
+    addInputEvent();
+}
+
+function addInputEvent() {
+    let inputs = document.querySelectorAll("input");
+    for (let input of inputs) {
+        input.addEventListener("input", (e) => {
+            document.getElementById("updateBtn").classList.add('tosave');
+        })
+    }
 }
 
 async function eventJobs() {
