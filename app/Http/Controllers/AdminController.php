@@ -50,9 +50,9 @@ class AdminController extends Controller
         return response()->json($data);
     }
 
-    public function addRow($jsonData, $table)
+    public function addRow(Request $request, $table)
     {
-        $data = json_decode($jsonData, true);
+        $data = $request->post();
         $columnNames = Schema::getColumnListing($table);
         $insertData = [];
 

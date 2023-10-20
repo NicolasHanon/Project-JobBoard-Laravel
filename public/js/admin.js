@@ -195,7 +195,11 @@ function addCreateRowEvent(addRow) {
         const indexData = Array.from(document.querySelectorAll("tr")).length - 1;
         const data = getDataFromTable(indexData);
         const jsonData = JSON.stringify(data);
-        await fetch(`http://localhost:8000/api/admin/addRow/${jsonData}/${table}`);
+        await fetch(`http://localhost:8000/api/admin/addRow/${table}`, {
+          headers: { 'Content-Type': 'application/json', },
+          method: "POST",
+          body: jsonData
+        });
 
         addRow.querySelector("img").src = "../svg/removing.svg";
         addRow.classList.remove("addBtn");
