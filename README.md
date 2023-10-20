@@ -7,22 +7,6 @@ Please check the official laravel installation guide for server requirements bef
 You have to have mySQLServer installed and configured (or MariaDB) : 
 
     sudo apt install mysql-server
-    
-(In mysql CLI as admin) : 
-    
-    CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-    GRANT ALL PRIVILEGES ON JobBoard_DB.*;
-    FLUSH PRIVILEGES;
-    CREATE DATABASE JobBoard_DB;
-
-Create a .env file at the project's root by copy-pasting .env.example's content and edit : 
-
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=JobBoard_DB
-    DB_USERNAME=username # the one created in the previous step
-    DB_PASSWORD=password # same
 
 Clone the repository
 
@@ -37,6 +21,23 @@ Install all the dependencies using composer
     composer update
     composer install
     composer require doctrine/dbal
+
+(In mysql CLI as admin) : 
+
+    sudo mysql
+    mysql> CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+    mysql> GRANT ALL PRIVILEGES ON JobBoard_DB.*;
+    mysql> FLUSH PRIVILEGES;
+    mysql> CREATE DATABASE JobBoard_DB;
+
+Create a .env file at the project's root by copy-pasting .env.example's content and edit : 
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=JobBoard_DB
+    DB_USERNAME=username # the one created in the previous step
+    DB_PASSWORD=password # same
 
 Run the database migrations (**Set the database connection in .env before migrating**)
 
