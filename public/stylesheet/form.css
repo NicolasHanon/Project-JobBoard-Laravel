@@ -18,6 +18,7 @@ body {
   align-items: center;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   margin: 0;
 }
 body .container {
@@ -118,6 +119,32 @@ body .container .form_container button:hover {
   color: white;
   transform: scale(1.1);
   cursor: pointer;
+}
+body .signup {
+  border: 4px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  margin: 10px;
+}
+@media screen and (max-width: 849px) {
+  body .signup {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 850px) {
+  body .signup {
+    width: 60%;
+  }
+}
+body .signup a {
+  color: black;
+}
+body .signup a:hover {
+  color: #EAC4D5;
+  text-decoration: none;
 }
 
 @keyframes gradient {
