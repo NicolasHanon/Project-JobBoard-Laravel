@@ -11,6 +11,10 @@ class Application extends Model
 
     protected $table = 'applications';
 
+    public static $rules = [
+        'accepted' => 'required|integer|between:0,2',
+    ];
+
     protected $fillable = [
         'user_id',
         'jobs_id',

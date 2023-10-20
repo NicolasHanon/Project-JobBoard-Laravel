@@ -26,7 +26,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('jobs_id');
             $table->text('message');
-            $table->boolean('accepted')->default(false);
+            $table->unsignedTinyInteger('is_accepted')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
