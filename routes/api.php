@@ -35,6 +35,8 @@ Route::get('/admin/deleteRow/{id}/{table}', [AdminController::class, 'deleteRow'
 Route::get('/admin/addRow/{jsonData}/{table}', [AdminController::class, 'addRow']);
 Route::post('/admin/updateRow/{table}', [AdminController::class, 'updateRow']);
 
+//User
+Route::get('/user/getCompanyId/{userId}', [UserController::class, 'getCompanyId']);
 
 //_______________________________________ Jobs ___________________________________________________________________
 

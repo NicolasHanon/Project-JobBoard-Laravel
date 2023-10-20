@@ -6,15 +6,16 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   if (userId == null)
     return;
 
-// get compoanyId
-//   const response = await fetch(`http://localhost:8000/api/user/${userId}`);
-//   companyId = await response.json();
+  const response = await fetch(`http://localhost:8000/api/user/getCompanyId/${userId}`);
+  data = await response.json();
+  companyId = data[0]['id'];
 });
 
 async function postJob() {
     
     let data = {};
 
+    data['companies_id'] = companyId;
     for (let input of inputNames) {
         let tmp = document.getElementById(input).value;
         if (tmp == "") {
@@ -44,5 +45,3 @@ async function postJob() {
     }
   }
 }
-
-//prevent from submit form if all input are not fill. for user too.

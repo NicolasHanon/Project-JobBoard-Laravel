@@ -65,4 +65,13 @@ class UserController extends Controller
         $user->delete();
         return response()->json($user, 201);
     }
+
+    public function getCompanyId($userId) {
+        $companyId = DB::table('users')
+        ->join('companies', 'users.companyId', '=', 'companies.id')
+        ->select('companies.id')
+        ->where('users.id', '=', $userId)
+        ->get();
+        return response()->json($companyId);
+    }
 }
