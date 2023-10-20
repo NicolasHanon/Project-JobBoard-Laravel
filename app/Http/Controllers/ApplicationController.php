@@ -68,4 +68,32 @@ class ApplicationController extends Controller
         return response()->json($application, 201);
     }
 
+    public function getApplyJob($userId) {
+        $data = DB::table('applications')
+            ->join('jobs', 'jobs.id', '=', 'applications.jobs_id')
+            ->join('companies', 'jobs.companies_id', '=', 'companies.id')
+            ->select('jobs.id', 'jobs.title', 'companies.name')
+            ->where('applications.user_id', '=', $userId)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function getMessage($userId, $jobId) {
+        $data = DB::table('applications')
+            ->select('applications.message')
+            ->where('applications.user_id', '=', $userId)
+            ->where('applications.jobs_id', '=', $jobId)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function updateMessage(Request $request, $userId, $jobId) {
+        $data = $request->post();
+        $data = DB::table('applications')
+            ->select('applications.message')
+            ->where('applications.user_id', '=', $userId)
+            ->where('applications.jobs_id', '=', $jobId)
+            ->update($data);
+    }
+
 }

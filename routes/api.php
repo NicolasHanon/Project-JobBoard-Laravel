@@ -32,11 +32,19 @@ Route::get('/index/getJobs', [IndexController::class, 'getJobs']);
 Route::get('/admin/initTable', [AdminController::class, 'getTable']);
 Route::get('/admin/getTableData/{tableName}', [AdminController::class, 'showTableData']);
 Route::get('/admin/deleteRow/{id}/{table}', [AdminController::class, 'deleteRow']);
-Route::get('/admin/addRow/{jsonData}/{table}', [AdminController::class, 'addRow']);
+Route::post('/admin/addRow/{table}', [AdminController::class, 'addRow']);
 Route::post('/admin/updateRow/{table}', [AdminController::class, 'updateRow']);
 
 //User
 Route::get('/user/getCompanyId/{userId}', [UserController::class, 'getCompanyId']);
+
+//Job / Applications
+Route::get('/application/getApplyJob/{userId}', [ApplicationController::class, 'getApplyJob']);
+Route::get('/application/getMessage/{userId}/{jobId}', [ApplicationController::class, 'getMessage']);
+Route::post('/application/updateMessage/{userId}/{jobId}', [ApplicationController::class, 'updateMessage']);
+
+Route::get('/job/getJobListing/{companyId}', [JobController::class, 'getJobListing']);
+Route::post('/job/updateJob/{jobId}', [JobController::class, 'updateJob']);
 
 //_______________________________________ Jobs ___________________________________________________________________
 

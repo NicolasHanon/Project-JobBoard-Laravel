@@ -175,6 +175,13 @@ body .job_container .content-drill .content {
   width: 80%;
   gap: 2px;
 }
+body .job_container .content-drill .content input {
+  border: none;
+  background-color: white;
+}
+body .job_container .content-drill .content input:focus {
+  outline: none;
+}
 body .job_container .content-drill .content .jobdata {
   font-family: "Kanit", sans-serif;
   margin-left: 10px;

@@ -37,6 +37,22 @@
             @endif
             @endif
             @if(Auth::check())
+            @if(Auth::user()->roleId == 3 || Auth::user()->roleId == 1) 
+            <div>
+                <img class="option" src="{{ URL::asset('svg/myapplication.svg') }}">
+                <a href="/myjobapplications"><p class="optiontext">My job applications</p></a>
+            </div>
+            @endif
+            @endif
+            @if(Auth::check())
+            @if(Auth::user()->roleId == 2 || Auth::user()->roleId == 1) 
+            <div>
+                <img class="option" src="{{ URL::asset('svg/myjob.svg') }}">
+                <a href="/myjoblisting"><p class="optiontext">My job listing</p></a>
+            </div>
+            @endif
+            @endif
+            @if(Auth::check())
             <div>
                 <img class="option" src="{{ URL::asset('svg/profile.svg') }}">
                 <a href="/user"><p class="optiontext">Profile</p></a>

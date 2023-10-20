@@ -33,6 +33,14 @@ Route::get('/user', function () {
     return view('user');
 })->name('user');
 
+Route::get('/myjobapplications', function () {
+    return view('myjobapplications');
+})->name('myjobapplications');
+
+Route::get('/myjoblisting', function () {
+    return view('myjoblisting');
+})->name('myjoblisting');
+
 Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin', function () {
         return view('admin');
