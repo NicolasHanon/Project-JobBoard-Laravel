@@ -43,10 +43,13 @@ Route::get('/index', function () {
     return view('index');
 })->name('index');
 
-Route::get('/signup', function () {
-    return view('signup');
-})->name('signup');
-
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::post('/login', [AuthController::class, 'doLogin']);
+
+// Route::get('/signup', function () {
+//     return view('signup');
+// })->name('signup');
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('auth.register');
+
+Route::post('/register', [AuthController::class, 'register']);

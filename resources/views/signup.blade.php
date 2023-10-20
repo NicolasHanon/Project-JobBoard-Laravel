@@ -14,8 +14,11 @@
     @include("shared.nav")
     <div class="container">
         <p>Create a new user</p>
-        <form class="form_container">
+        <form class="form_container" method="post" action="{{ route('auth.register') }}">
+            @csrf
             <div class="morespace">
+                <input type="hidden" name="roleId" value="3">
+                <input type="hidden" name="companyId" value="1">
                 <div class="div_children">
                     <label for="name">Name</label>
                     <input type="text" name="name" required>
@@ -35,17 +38,17 @@
                     <input type="tel" name="phone" required>
                 </div>
             </div class="morespace">
-            <label for="about">About me</label>
-            <textarea name="about"></textarea>
+            <label for="more">About me</label>
+            <input type="text" name="more">
             <div class="morespace">
                 <div class="div_children">
-                    <label for="oldpassword">Password</label>
-                    <input id="password" type="password" name="oldpassword" required>
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required>
                     <img class="showpassword" id="showpassword" src="{{ URL::asset('svg/showpassword.svg') }}">
                 </div>
                 <div class="div_children">
-                    <label for="newpassword">Confirm password</label>
-                    <input id="password2" type="password" name="newpassword" required>
+                    <label for="password2">Confirm password</label>
+                    <input id="password2" type="password" name="password2" required>
                     <img class="showpassword" id="showpassword2" src="{{ URL::asset('svg/showpassword.svg') }}">
                 </div>
             </div>
