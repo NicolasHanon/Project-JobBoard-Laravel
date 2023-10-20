@@ -138,4 +138,22 @@ img {
 }
 .change input {
   background-color: #809bce !important;
+}
+
+.tosave {
+  animation: tosaveAnimation ease-in-out 1.2s infinite;
+}
+
+@keyframes tosaveAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: #EAC4D5;
+    color: white;
+  }
+  100% {
+    transform: scale(1);
+  }
 }/*# sourceMappingURL=admin.css.map */

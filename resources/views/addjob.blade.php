@@ -14,15 +14,15 @@
     @include("shared.nav")
     <div class="container">
         <p>Create a job advert</p>
-        <form class="form_container">
+        <div class="form_container">
             <div class="morespace">
                 <div class="container_children">
                     <label for="title">Job Title</label>
-                    <input type="text" name="title" required>
+                    <input id="title" type="text" name="title">
                 </div>
                 <div class="container_children">
                     <label for="contract">Contract Type</label>
-                    <select name="contract" required>
+                    <select id="contract" name="contract">
                         <option value="" selected disabled hidden>-- Choose here --</option>
                         <option value="Full-time">Full-time</option>
                         <option value="Part-time">Part-time</option>
@@ -33,13 +33,31 @@
                 </div>
             </div>
             <label for="description">Description of the position</label>
-            <textarea name="description"></textarea>
+            <textarea id="more" name="description"></textarea>
+            <div class="morespace">
+                <label for="salary">Average salary</label>
+                <input id="salary" style="width: 20%;" type="text" name="salary">
+                <label for="salary">-</label>
+                <input id="salary2" style="width: 20%;" type="text" name="salary">
+            </div>
             <div class="morespace">
                 <label for="location">Location</label>
-                <input type="text" name="location" required>
+                <input id="location" type="text" name="location">
             </div>
-            <button type="submit">Post job</button>
-        </form>
+            <button onclick="postJob()">Post job</button>
+        </div>
 </div>
 </body>
 </html>
+
+@if (Auth::check())
+    <script>
+        var userId = {{ Auth::user()->id }};
+    </script>
+@else
+    <script>
+        var userId = null;
+    </script>
+@endif
+
+<script src="{{ asset('js/addjob.js')}}"></script>

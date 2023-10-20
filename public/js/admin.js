@@ -192,9 +192,10 @@ function addCreateRowEvent(addRow) {
     if (confirm("Are you sure to create this record ?")) {
       const table = document.getElementById("tableName").textContent.split(" ")[0];
       try {
-        const data = getDataFromTable(addRow.getAttribute('data-id'));
+        const indexData = Array.from(document.querySelectorAll("tr")).length - 1;
+        const data = getDataFromTable(indexData);
         const jsonData = JSON.stringify(data);
-        const response = await fetch(`http://localhost:8000/api/admin/addRow/${jsonData}/${table}`);
+        await fetch(`http://localhost:8000/api/admin/addRow/${jsonData}/${table}`);
 
         addRow.querySelector("img").src = "../svg/removing.svg";
         addRow.classList.remove("addBtn");
@@ -232,6 +233,8 @@ function addChangeDetection(row) {
   for (let input of inputs) {
     input.addEventListener("input", (e) => {
       row.classList.add("change");
+      if (!document.getElementById("updateBtn").classList.contains("tosave"))
+        document.getElementById("updateBtn").classList.add("tosave");
     });
   }
 }
@@ -245,6 +248,9 @@ async function reset() {
   for (let tr of document.getElementById("table").querySelector("tbody").querySelectorAll('tr'))
     addChangeDetection(tr);
 
+  if (document.getElementById("updateBtn").classList.contains("tosave"))
+    document.getElementById("updateBtn").classList.remove("tosave");
+
   document.querySelector(".addbutton").style.display = "flex";
 }
 
@@ -254,7 +260,7 @@ async function updateData() {
   try {
     let updateTrs = document.querySelectorAll(".change");
     for (let updateTr of updateTrs) {
-      let indexData = updateTr.querySelectorAll("td")[0].querySelector("input").value
+      const indexData = Array.from(document.querySelectorAll("tr")).indexOf(updateTr);
       const data = getDataFromTable(indexData);
       const jsonData = JSON.stringify(data);
       await fetch(`http://localhost:8000/api/admin/updateRow/${table}`, {

@@ -50,11 +50,10 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($jsonData, $id)
+    public function update(Request $request, $userId)
     {
-        $data = json_decode($jsonData, true);        
-        DB::table('users')->where('id', $id)->update($jsonData);
-        return response()->json($data);
+        $data = $request->post();
+        DB::table('users')->where('id', $userId)->update($data[0]);
     }
 
     /**

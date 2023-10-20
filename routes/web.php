@@ -33,11 +33,11 @@ Route::get('/user', function () {
     return view('user');
 })->name('user');
 
-// Route::group(['middleware' => ['auth', 'admin']], function() {
+Route::group(['middleware' => ['auth', 'admin']], function() {
     Route::get('/admin', function () {
         return view('admin');
     })->name('admin');
-// });
+});
 
 Route::get('/index', function () {
     return view('index');

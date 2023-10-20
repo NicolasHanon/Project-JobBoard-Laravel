@@ -4,6 +4,10 @@
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/10.x/installation)
 
+You have to have mySQLServer installed (or MariaDB) : 
+
+    sudo apt install mysql-server
+
 Clone the repository
 
     git clone git@github.com:EpitechMscProPromo2026/T-WEB-501-LYO_20.git
@@ -25,8 +29,8 @@ Run the database migrations (**Set the database connection in .env before migrat
 Seed the Database (in that order)
 
     php artisan db:seed --class=RoleSeeder
-    php artisan db:seed --class=UserSeeder
     php artisan db:seed --class=CompanieSeeder
+    php artisan db:seed --class=UserSeeder
     php artisan db:seed --class=JobSeeder
     php artisan db:seed --class=ApplicationSeeder
 
