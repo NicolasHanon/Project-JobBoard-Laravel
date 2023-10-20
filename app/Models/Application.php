@@ -15,6 +15,7 @@ class Application extends Model
         'user_id',
         'jobs_id',
         'message',
+        'accepted',
         'title',
         'name'
     ];
