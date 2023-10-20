@@ -1,9 +1,11 @@
 let main_MaxSize = document.querySelector('main').offsetHeight;
+let jobId;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
   await initJobs();
-  await initContent(document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id"));
+  jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
+  await initContent(jobId);
   await eventJobs();
 
   function adjustMargin() {
@@ -48,7 +50,6 @@ async function initJobs() {
 async function initContent(id) {
   const response = await fetch(`http://localhost:8000/api/index/${id}`);
   const data = await response.json();
-  console.log(data);
 
   document.querySelector(".jobtitle").innerHTML = data[0].title;
   document.querySelector(".jobcontract").innerHTML = data[0].contract;
@@ -61,7 +62,8 @@ async function eventJobs() {
   let jobs = document.querySelectorAll(".job");
   for (const job of jobs) {
     job.addEventListener("click", async (e) => {
-      await initContent(job.getAttribute('data-id'));
+      jobId = job.getAttribute('data-id')
+      await initContent(jobId);
 
       document.querySelector('.content').style.margin = (window.innerHeight - 100 < document.querySelector('.content').offsetHeight) ? window.innerWidth < 850 ? '80px 0 20px 0' : '20px' : 'auto';
       if (window.innerWidth < 850)
@@ -84,13 +86,25 @@ function showNav() {
 }
 
 async function applyJobs(){
-  const response = await fetch(`http://localhost:8000/api/application/add`);
-  const data = await response.json();
-  console.log(data);
 
-  document.querySelector(".jobtitle").innerHTML = data[0].title;
-  document.querySelector(".jobcontract").innerHTML = data[0].contract;
-  document.querySelector(".jobcompany").innerHTML = data[0].name;
-  document.querySelector(".jobdescription").innerHTML = data[0].more;
-  document.querySelector(".joblocation").innerHTML = data[0].location;
+  let data = {};
+
+  data['user_id'] = userId;
+  data['jobs_id'] = jobId;
+  data['message'] = document.getElementById("textarea").value;
+
+  let jsonData = JSON.stringify(data);
+
+  if (confirm("Are you sure to apply to this job ?")) {
+    try {
+      await fetch(`http://localhost:8000/api/application/add`, {
+        headers: { 'Content-Type': 'application/json', },
+        method: "POST",
+        body: jsonData
+      });
+      alert("Application sent.");
+    } catch (e) {
+      alert("Cannot apply to this job.");
+    }
+  }
 }

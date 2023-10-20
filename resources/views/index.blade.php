@@ -25,11 +25,21 @@
         <p class="joblabel">Job location : </p>
         <p class="joblocation jobdata"></p>
     </div>
-    <form>
-        <textarea placeholder="Why should we hire you ?"></textarea>
-        <input type="submit" value="Apply">
-    </form>
+    <div class="apply">
+        <textarea id="textarea" placeholder="Why should we hire you ?"></textarea>
+        <button onclick="applyJobs()">Apply</button>
+    </div>
 @endsection
+
+@if (Auth::check())
+    <script>
+        var userId = {{ Auth::user()->id }};
+    </script>
+@else
+    <script>
+        var userId = null;
+    </script>
+@endif
         
 @section('script')
     <script src="{{ asset('js/index.js')}}"></script>

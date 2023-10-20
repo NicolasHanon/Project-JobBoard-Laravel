@@ -29,6 +29,9 @@
             <button type="submit">Login</button>
         </form>
     </div>
+    <div class="container">
+    <b>Don't have an account ?<a href="{{ route('auth.register') }}"> Sign Up</a></b>
+    </div>
 </body>
 </html>
 
