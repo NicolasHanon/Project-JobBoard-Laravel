@@ -4,9 +4,25 @@
 
 Please check the official laravel installation guide for server requirements before you start. [Official Documentation](https://laravel.com/docs/10.x/installation)
 
-You have to have mySQLServer installed (or MariaDB) : 
+You have to have mySQLServer installed and configured (or MariaDB) : 
 
     sudo apt install mysql-server
+    
+(In mysql CLI as admin) : 
+    
+    CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+    GRANT ALL PRIVILEGES ON JobBoard_DB.*;
+    FLUSH PRIVILEGES;
+    CREATE DATABASE JobBoard_DB;
+
+Create a .env file at the project's root by copy-pasting .env.example's content and edit : 
+
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=JobBoard_DB
+    DB_USERNAME=username #
+    DB_PASSWORD=password #
 
 Clone the repository
 
