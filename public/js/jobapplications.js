@@ -47,8 +47,9 @@ async function initJobs() {
 }
 
 async function initContent(jobId) {
-    const response = await fetch(`http://localhost:8000/api/index/${jobId}`);
-    const data = await response.json();
+  
+  let response = await fetch(`http://localhost:8000/api/index/${jobId}`);
+  let data = await response.json();
 
   document.querySelector(".jobtitle").innerHTML = data[0].title;
   document.querySelector(".jobcontract").innerHTML = data[0].contract;
@@ -56,9 +57,19 @@ async function initContent(jobId) {
   document.querySelector(".jobdescription").innerHTML = data[0].more;
   document.querySelector(".joblocation").innerHTML = data[0].location;
 
-  const response2 = await fetch(`http://localhost:8000/api/application/getMessage/${userId}/${jobId}`);
-  const message = await response2.json();
-  document.getElementById("textarea").value = message[0]['message'];
+  response = await fetch(`http://localhost:8000/api/application/getApplyData/${userId}/${jobId}`);
+  data = await response.json();
+
+  document.getElementById("textarea").value = data[0]['message'];
+  setResponse(data[0]['is_accepted']);
+}
+
+function setResponse(index) {
+  let input = ['Waiting for a reply', 'Application rejected', 'Application accepted'];
+  let background = ['#b5b2b2', '#f9827c', '#b8e0d2']
+  document.getElementById("response").innerHTML = input[index];
+  document.getElementById("response").style.backgroundColor = background[index];
+
 }
 
 async function eventJobs() {

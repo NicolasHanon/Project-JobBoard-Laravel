@@ -40,7 +40,7 @@ Route::get('/user/getCompanyId/{userId}', [UserController::class, 'getCompanyId'
 
 //Job / Applications
 Route::get('/application/getApplyJob/{userId}', [ApplicationController::class, 'getApplyJob']);
-Route::get('/application/getMessage/{userId}/{jobId}', [ApplicationController::class, 'getMessage']);
+Route::get('/application/getApplyData/{userId}/{jobId}', [ApplicationController::class, 'getApplyData']);
 Route::post('/application/updateMessage/{userId}/{jobId}', [ApplicationController::class, 'updateMessage']);
 
 Route::get('/job/getJobListing/{companyId}', [JobController::class, 'getJobListing']);

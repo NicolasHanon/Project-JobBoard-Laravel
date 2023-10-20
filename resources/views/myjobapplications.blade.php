@@ -29,6 +29,7 @@
         <textarea id="textarea" placeholder="Why should we hire you ?"></textarea>
         <button onclick="updateApply()">Update apply</button>
     </div>
+    <p id="response" class="response"></p>
 @endsection
 
 @if (Auth::check())

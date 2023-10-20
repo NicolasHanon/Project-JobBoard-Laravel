@@ -21,6 +21,10 @@
         <p class="joblabel">Job location : </p>
         <input id="location" class="jobdata"/>
     </div>
+    <div>
+        <img id="candidates" src="{{ URL::asset('svg/candidates.svg') }}">
+        <a href="/newjob">View candidates</a>
+    </div>
     <div class="apply">
         <button id="updateBtn" onclick="updateJobs()">Update jobs</button>
     </div>

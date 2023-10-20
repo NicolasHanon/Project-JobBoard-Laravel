@@ -78,9 +78,9 @@ class ApplicationController extends Controller
         return response()->json($data);
     }
 
-    public function getMessage($userId, $jobId) {
+    public function getApplyData($userId, $jobId) {
         $data = DB::table('applications')
-            ->select('applications.message')
+            ->select('applications.message', 'applications.is_accepted')
             ->where('applications.user_id', '=', $userId)
             ->where('applications.jobs_id', '=', $jobId)
             ->get();
