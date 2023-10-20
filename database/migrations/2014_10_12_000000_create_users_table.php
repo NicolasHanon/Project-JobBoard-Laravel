@@ -34,7 +34,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('roleId');
-            $table->unsignedBigInteger('companyId')->nullable();
+            $table->unsignedBigInteger('companyId');
             $table->string('phone')->nullable();
             $table->string('more')->nullable();
             $table->rememberToken();
