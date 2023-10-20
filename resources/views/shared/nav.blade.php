@@ -3,10 +3,14 @@
 <div class="nav">
     <img class="menu" onClick="showNav()" src="{{ URL::asset('svg/menu.svg') }}">
     <nav class="burger-drill">
-    <div>
-        <img class="option" src="{{ URL::asset('svg/home.svg') }}">
-            <a href="/index"><p class="optiontext">Home</p></a>
+            @if(Auth::check())
+            @if(Auth::user()->roleId !== 2) 
+            <div>
+                <img class="option" src="{{ URL::asset('svg/home.svg') }}">
+                <a href="/index"><p class="optiontext">Home</p></a>
             </div>
+            @endif
+            @endif
             @if(Auth::check())
             @if(Auth::user()->roleId == 1 || Auth::user()->roleId == 2 ) 
             <div>
@@ -20,6 +24,22 @@
             <div>
                 <img class="option" src="{{ URL::asset('svg/admin.svg') }}">
                 <a href="/admin"><p class="optiontext">Admin panel</p></a>
+            </div>
+            @endif
+            @endif
+            @if(Auth::check())
+            @if(Auth::user()->roleId == 3 || Auth::user()->roleId == 1) 
+            <div>
+                <img class="option" src="{{ URL::asset('svg/myapplication.svg') }}">
+                <a href="/myjobapplications"><p class="optiontext">My job applications</p></a>
+            </div>
+            @endif
+            @endif
+            @if(Auth::check())
+            @if(Auth::user()->roleId == 2 || Auth::user()->roleId == 1) 
+            <div>
+                <img class="option" src="{{ URL::asset('svg/myjob.svg') }}">
+                <a href="/myjoblisting"><p class="optiontext">My job listing</p></a>
             </div>
             @endif
             @endif
@@ -41,7 +61,7 @@
                 <a href="/logout"><p class="optiontext">Log Out</p></a>
             </div>
             @endif
-    </nav>
+        </nav>
 </div>
 
 <script>

@@ -21,9 +21,11 @@ Route::get('/', function () {
     return view('signin');
 })->name('login');
 
-Route::get('/newjob', function () {
-    return view('addjob');
-})->name('newjob');
+Route::group(['middleware' => ['auth', 'user']], function() {
+    Route::get('/newjob', function () {
+        return view('addjob');
+    })->name('newjob');
+});
 
 Route::get('/register', function () {
     return view('signup');
@@ -47,9 +49,11 @@ Route::group(['middleware' => ['auth', 'admin']], function() {
     })->name('admin');
 });
 
-Route::get('/index', function () {
-    return view('index');
-})->name('index');
+Route::group(['middleware' => ['auth', 'company']], function() {
+    Route::get('/index', function () {
+        return view('index');
+    })->name('index');
+});
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');

@@ -16,10 +16,14 @@
         <p>JobBoard</p>
         <img class="menu" onClick="showNav()" src="{{ URL::asset('svg/menu.svg') }}">
         <nav class="burger-drill">
+            @if(Auth::check())
+            @if(Auth::user()->roleId !== 2) 
             <div>
                 <img class="option" src="{{ URL::asset('svg/home.svg') }}">
                 <a href="/index"><p class="optiontext">Home</p></a>
             </div>
+            @endif
+            @endif
             @if(Auth::check())
             @if(Auth::user()->roleId == 1 || Auth::user()->roleId == 2 ) 
             <div>

@@ -8,7 +8,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class CompanyMiddleware
 {
     protected $auth;
     public function __construct(Guard $auth)
@@ -22,9 +22,8 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->user()->roleId !== 1) { // Si role de l'utilisateur connécté != admin
-            // abort(403, 'Unauthorized action.');
-            return redirect()->route('index');
+        if ($this->auth->user()->roleId == 2) {
+            return redirect()->route('newjob');
         }
         return $next($request);
     }
