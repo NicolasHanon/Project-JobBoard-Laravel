@@ -33,8 +33,8 @@ class JobSeeder extends Seeder
             [
                 'companies_id' => 4,
                 'title' => 'Accountant',
-                'contract' => 'Contract',
-                'more' => 'We need an accountant for a 6-month contract assignment.',
+                'contract' => 'Freelance',
+                'more' => 'We need an freelance for a 6-month contract assignment.',
                 'location' => 'Los Angeles, CA',
                 'salary' => '$60,000 - $70,000',
             ],
