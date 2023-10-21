@@ -18,9 +18,9 @@ class UserSeeder extends Seeder
         // \App\Models\User::factory(5)->create();
         $customData = [
             [
-                'lastname' => 'Doe',
-                'name' => 'John1',
-                'email' => 'john1@doe.com',
+                'lastname' => 'Smith',
+                'name' => 'Emma',
+                'email' => 'emma.smith@email.com',
                 'password' => bcrypt('password123'),
                 'roleId' => 1,
                 'companyId' => 1,
@@ -33,9 +33,9 @@ class UserSeeder extends Seeder
                     software development.'
             ],
             [
-                'lastname' => 'Doe',
-                'name' => 'John2',
-                'email' => 'john2@doe.com',
+                'lastname' => 'Williams',
+                'name' => 'Alexander',
+                'email' => 'alex.williams@email.com',
                 'password' => bcrypt('password123'),
                 'roleId' => 2,
                 'companyId' => 3,
@@ -47,8 +47,8 @@ class UserSeeder extends Seeder
             ],
             [
                 'lastname' => 'Doe',
-                'name' => 'John3',
-                'email' => 'john3@doe.com',
+                'name' => 'John',
+                'email' => 'john@doe.com',
                 'password' => bcrypt('password123'),
                 'roleId' => 3,
                 'companyId' => 1,

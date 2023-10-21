@@ -35,10 +35,10 @@ class CompanieSeeder extends Seeder
                 'about' => 'Sunrise Medical provides medical equipment and healthcare solutions worldwide.',
             ],
             [
-                'name' => 'Sunrise Medical 2',
-                'type' => 'Healthcare',
-                'headquarter' => 'Fresno, CA',
-                'about' => 'Sunrise Medical provides medical equipment and healthcare solutions worldwide.',
+                'name' => 'Quantum Innovations Tech',
+                'type' => 'Technology and Artificial Intelligence',
+                'headquarter' => 'Silicon Valley, California',
+                'about' => 'Pioneering Tomorrow\'s Intelligence.',
             ],
         ];
 
