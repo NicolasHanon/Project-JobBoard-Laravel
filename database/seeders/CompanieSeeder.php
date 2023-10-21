@@ -14,10 +14,36 @@ class CompanieSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('companies')->insert([
-            'name' => "Pas d'entreprise"
-        ]);
+        DB::table("companies")->insert(['name' => "No companies"]);
+        $companies = [
+            [
+                'name' => 'Acme Inc.',
+                'type' => 'Technology',
+                'headquarter' => 'San Francisco, CA',
+                'about' => 'Acme Inc. is a leading technology company specializing in software development and innovation.',
+            ],
+            [
+                'name' => 'Globex Corporation',
+                'type' => 'Finance',
+                'headquarter' => 'New York, NY',
+                'about' => 'Globex Corporation is a global financial institution with a wide range of financial services.',
+            ],
+            [
+                'name' => 'Sunrise Medical',
+                'type' => 'Healthcare',
+                'headquarter' => 'Fresno, CA',
+                'about' => 'Sunrise Medical provides medical equipment and healthcare solutions worldwide.',
+            ],
+            [
+                'name' => 'Sunrise Medical 2',
+                'type' => 'Healthcare',
+                'headquarter' => 'Fresno, CA',
+                'about' => 'Sunrise Medical provides medical equipment and healthcare solutions worldwide.',
+            ],
+        ];
+
+        DB::table('companies')->insert($companies);
         //Création de 10 Entreprises fictives
-        \App\Models\Companie::factory(9)->create();
+        //\App\Models\Companie::factory(9)->create();
     }
 }
