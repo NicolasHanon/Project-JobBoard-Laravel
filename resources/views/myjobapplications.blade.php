@@ -6,25 +6,30 @@
 
 @section('content')
     <div>
-        <p class="joblabel">Job title : </p>
-        <p class="jobtitle jobdata"></p>
+        <p class="joblabel">Job title :</p>
+        <p id="title" class="jobdata"></p>
     </div>
     <div>
-        <p class="joblabel">Contract type : </p>
-        <p class="jobcontract jobdata"></p>
+        <p class="joblabel">Contract type :</p>
+        <p id="contract" class="jobdata"></p>
     </div>
     <div>
         <p class="joblabel">Company : </p>
-        <p class="jobcompany jobdata"></p>
+        <p id="name" class="jobdata"></p>
     </div>
     <div>
-        <p class="joblabel">Job description : </p>
-        <p class="jobdescription jobdata"></p>
+        <p class="joblabel">Job description :</p>
+        <p id="more" class="jobdata"></p>
     </div>
     <div>
         <p class="joblabel">Job location : </p>
-        <p class="joblocation jobdata"></p>
+        <p id="location" class="jobdata"></p>
     </div>
+    <div>
+        <p class="joblabel">Job salary : </p>
+        <p id="salary" class="jobdata"></p>
+    </div>
+
     <div class="apply">
         <textarea id="textarea" placeholder="Why should we hire you ?"></textarea>
         <button onclick="updateApply()">Update apply</button>

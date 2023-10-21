@@ -288,6 +288,15 @@ body .job_container .content-drill .content .accepted_container .disabled {
   background-color: white;
   color: black;
 }
+body .job_container .content-drill .content select {
+  font-family: "Kanit", sans-serif;
+  border: none;
+  text-align: center;
+  font-size: 1em;
+}
+body .job_container .content-drill .content select:focus {
+  outline: none;
+}
 
 @keyframes gradient {
   0% {
@@ -349,6 +358,16 @@ body .job_container .content-drill .content .accepted_container .disabled {
 
 .candidates {
   font-family: "Dela Gothic One", cursive !important;
+}
+
+.trash {
+  margin-top: -10px;
+  transition: all ease-in-out 200ms;
+  width: 25px;
+}
+.trash:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 @keyframes tosaveAnimation {

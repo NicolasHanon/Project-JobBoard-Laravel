@@ -1,14 +1,11 @@
 let main_MaxSize = document.querySelector('main').offsetHeight;
+let inputs = ['title', 'contract', 'name', 'more', 'location', 'salary'];
 let empty = false;
+let applicationId;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
-  await initJobs();
-  if (!empty) {
-    jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
-    await initContent(jobId);
-    await eventJobs();
-  }
+  await reset();
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850) {
@@ -24,8 +21,22 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   window.addEventListener('resize', adjustMargin);
 });
 
+async function reset() {
+  await initJobs();
+  if (!empty) {
+    jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
+    await initContent(jobId);
+    await eventJobs();
+  }
+}
+
 async function initJobs() {
   const main = document.querySelector("main");
+  main.innerHTML = "";
+
+  let sep = document.createElement("div")
+  sep.classList.add("separator");
+  main.appendChild(sep);
 
   const response = await fetch(`http://localhost:8000/api/application/getApplyJob/${userId}`);
   const data = await response.json();
@@ -52,12 +63,18 @@ async function initJobs() {
       let span = document.createElement("span");
       span.innerHTML = " - " + element.name;
       title.setAttribute('data-id' , `${element.id}`);
+
+      let svg = document.createElement("img");
+      svg.src = "../svg/trash.svg";
+      svg.classList.add("trash");
+      svg.addEventListener("click", async (e) => { await removeApply(); });
   
       let sep = document.createElement("div")
       sep.classList.add("separator");
   
       title.appendChild(span);
       main.appendChild(title);
+      main.appendChild(svg);
       main.appendChild(sep);
     }); 
   }
@@ -68,11 +85,8 @@ async function initContent(jobId) {
   let response = await fetch(`http://localhost:8000/api/index/${jobId}`);
   let data = await response.json();
 
-  document.querySelector(".jobtitle").innerHTML = data[0].title;
-  document.querySelector(".jobcontract").innerHTML = data[0].contract;
-  document.querySelector(".jobcompany").innerHTML = data[0].name;
-  document.querySelector(".jobdescription").innerHTML = data[0].more;
-  document.querySelector(".joblocation").innerHTML = data[0].location;
+  for (let input of inputs)
+    document.getElementById(input).innerHTML = data[0][input];
 
   response = await fetch(`http://localhost:8000/api/application/getApplyData/${userId}/${jobId}`);
   data = await response.json();
@@ -134,5 +148,20 @@ async function updateApply(){
     } catch (e) {
       alert("Cannot update your applications.");
     }
+  }
+}
+
+async function removeApply() {
+  if (confirm("Are you sure to delete this application ?")) {
+      try {
+        await fetch(`http://localhost:8000/api/application/removeApply/${userId}/${jobId}`);
+        for (let input of inputs)
+          document.getElementById(input).innerHTML = "";
+        document.getElementById("textarea").value = "";
+        reset();
+        alert("Application deleted.");
+      } catch (e) {
+        alert("Cannot delete your application.");
+      }
   }
 }

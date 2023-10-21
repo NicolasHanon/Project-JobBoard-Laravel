@@ -311,6 +311,17 @@ body {
                         color: black;
                     }
                 }
+
+                select {
+                    font-family: 'Kanit', sans-serif;
+                    border: none;
+                    text-align: center;
+                    font-size: 1em;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
             }
         }
     }
@@ -380,6 +391,17 @@ body {
 
 .candidates {
     font-family: 'Dela Gothic One', cursive !important;
+}
+
+.trash {
+    margin-top: -10px;
+    transition: all ease-in-out 200ms;
+    width: 25px;
+    
+    &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
 }
 
 @keyframes tosaveAnimation {
