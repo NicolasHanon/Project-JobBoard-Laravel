@@ -244,6 +244,50 @@ body .job_container .content-drill .content .response {
   border-radius: 5px;
   padding: 10px;
 }
+body .job_container .content-drill .content .accepted_container {
+  display: flex;
+  margin-top: 10px;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+body .job_container .content-drill .content .accepted_container button {
+  font-family: "Dela Gothic One", cursive;
+  transition: all ease-in-out 200ms;
+  border-radius: 5px;
+  padding: 10px;
+  transform: scale(1);
+}
+body .job_container .content-drill .content .accepted_container button:hover {
+  transform: scale(1.1);
+}
+body .job_container .content-drill .content .accepted_container .accepted {
+  background-color: #B8E0D2;
+  color: white;
+}
+body .job_container .content-drill .content .accepted_container .accepted:hover {
+  background-color: #B8E0D2;
+  color: white;
+}
+body .job_container .content-drill .content .accepted_container .waiting {
+  background-color: #b5b2b2;
+  color: white;
+}
+body .job_container .content-drill .content .accepted_container .waiting:hover {
+  background-color: #b5b2b2;
+  color: white;
+}
+body .job_container .content-drill .content .accepted_container .rejected {
+  background-color: #f9827c;
+  color: white;
+}
+body .job_container .content-drill .content .accepted_container .rejected:hover {
+  background-color: #f9827c;
+  color: white;
+}
+body .job_container .content-drill .content .accepted_container .disabled {
+  background-color: white;
+  color: black;
+}
 
 @keyframes gradient {
   0% {
@@ -301,6 +345,10 @@ body .job_container .content-drill .content .response {
 
 .tosave {
   animation: tosaveAnimation ease-in-out 1.2s infinite;
+}
+
+.candidates {
+  font-family: "Dela Gothic One", cursive !important;
 }
 
 @keyframes tosaveAnimation {

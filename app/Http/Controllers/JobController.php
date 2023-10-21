@@ -82,13 +82,7 @@ class JobController extends Controller
         DB::table('jobs')->where('id', $jobId)->update($data);
     }
 
-    public function viewCandidates($id)
-{
-    // Use $id to fetch data or perform any logic
-    // For example, fetch candidates based on $id
-    $candidates = Candidate::where('job_id', $id)->get();
-
-    // Pass data to the view
-    return view('candidates.index', ['candidates' => $candidates]);
-}
+    public function viewCandidates($job_id){
+        return view('candidates', ['job_id' => $job_id]);
+    }
 }

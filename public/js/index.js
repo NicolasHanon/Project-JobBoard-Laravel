@@ -1,12 +1,15 @@
 let main_MaxSize = document.querySelector('main').offsetHeight;
 let jobId;
+let empty = false;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
   await initJobs();
-  jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
-  await initContent(jobId);
-  await eventJobs();
+  if (!empty) {
+    jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
+    await initContent(jobId);
+    await eventJobs();
+  }
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850) {
@@ -28,23 +31,38 @@ async function initJobs() {
   const response = await fetch(`http://localhost:8000/api/index/getJobs`);
   const data = await response.json();
 
-  data.forEach(element => {
+  if (data.length < 1) {
+    empty = true;
     let title = document.createElement("p");
     title.classList.add("job");
-    title.innerHTML = element.title;
-    title.setAttribute('data-id' , `${element.id}`);
-
-    let span = document.createElement("span");
-    span.innerHTML = " - " + element.name;
-    title.setAttribute('data-id' , `${element.id}`);
+    title.classList.add("candidates");
+    title.innerHTML = "No job posted yet. Come back later !";
 
     let sep = document.createElement("div")
     sep.classList.add("separator");
 
-    title.appendChild(span);
     main.appendChild(title);
     main.appendChild(sep);
-  }); 
+  }
+  else {
+    data.forEach(element => {
+      let title = document.createElement("p");
+      title.classList.add("job");
+      title.innerHTML = element.title;
+      title.setAttribute('data-id' , `${element.id}`);
+  
+      let span = document.createElement("span");
+      span.innerHTML = " - " + element.name;
+      title.setAttribute('data-id' , `${element.id}`);
+  
+      let sep = document.createElement("div")
+      sep.classList.add("separator");
+  
+      title.appendChild(span);
+      main.appendChild(title);
+      main.appendChild(sep);
+    }); 
+  }
 }
 
 async function initContent(id) {
@@ -56,6 +74,8 @@ async function initContent(id) {
   document.querySelector(".jobcompany").innerHTML = data[0].name;
   document.querySelector(".jobdescription").innerHTML = data[0].more;
   document.querySelector(".joblocation").innerHTML = data[0].location;
+  document.querySelector(".jobsalary").innerHTML = data[0].salary + " $";
+
 }
 
 async function eventJobs() {

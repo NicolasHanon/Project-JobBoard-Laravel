@@ -38,11 +38,14 @@ Route::post('/admin/updateRow/{table}', [AdminController::class, 'updateRow']);
 //User
 Route::get('/user/getCompanyId/{userId}', [UserController::class, 'getCompanyId']);
 
-//Job / Applications
+//Applications
 Route::get('/application/getApplyJob/{userId}', [ApplicationController::class, 'getApplyJob']);
+Route::get('/application/getApplicants/{jobId}', [ApplicationController::class, 'getApplicants']);
 Route::get('/application/getApplyData/{userId}/{jobId}', [ApplicationController::class, 'getApplyData']);
+Route::post('/application/updateResponse/{userId}/{jobId}', [ApplicationController::class, 'updateResponse']);
 Route::post('/application/updateMessage/{userId}/{jobId}', [ApplicationController::class, 'updateMessage']);
 
+//Job
 Route::get('/job/getJobListing/{companyId}', [JobController::class, 'getJobListing']);
 Route::post('/job/updateJob/{jobId}', [JobController::class, 'updateJob']);
 
