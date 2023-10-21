@@ -7,13 +7,7 @@ let empty = false;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
-  await initJobs();
-  if (!empty) {
-    job_id = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
-    setUrl(job_id);
-    await initContent(job_id);
-    await eventJobs();
-  }
+  await reset();
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850) {
@@ -29,8 +23,23 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   window.addEventListener('resize', adjustMargin);
 });
 
+async function reset() {
+  await initJobs();
+  if (!empty) {
+    job_id = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
+    setUrl(job_id);
+    await initContent(job_id);
+    await eventJobs();
+  }
+}
+
 async function initJobs() {
   const main = document.querySelector("main");
+  main.innerHTML = "";
+
+  let sep = document.createElement("div")
+  sep.classList.add("separator");
+  main.appendChild(sep);
 
   let response = await fetch(`http://localhost:8000/api/user/getCompanyId/${userId}`);
   const data = await response.json();
@@ -61,12 +70,18 @@ async function initJobs() {
       let span = document.createElement("span");
       span.innerHTML = " - " + element.name;
       title.setAttribute('data-id' , `${element.id}`);
+
+      let svg = document.createElement("img");
+      svg.src = "../svg/trash.svg";
+      svg.classList.add("trash");
+      svg.addEventListener("click", async (e) => { await removeJobs(); });
   
       let sep = document.createElement("div")
       sep.classList.add("separator");
   
       title.appendChild(span);
       main.appendChild(title);
+      main.appendChild(svg);
       main.appendChild(sep);
     });
   }
@@ -78,7 +93,7 @@ async function initContent(job_id) {
     currentData = data[0];
 
     for (let input of inputs)
-        document.getElementById(input).value = currentData[input];
+      document.getElementById(input).value = currentData[input];
 
     addInputEvent();
 }
@@ -124,9 +139,15 @@ async function updateJobs(){
     document.getElementById("updateBtn").classList.remove('tosave');
     let hasChanged = false;
     let data = {};
+
     for (let input of inputs) {
+        let tmp = document.getElementById(input).value;
+        if (tmp == "") {
+            alert("Please fill all the informations.")
+            return;
+        }
         if (currentData[input] != document.getElementById(input).value) {
-            data[input] = document.getElementById(input).value;
+            data[input] = tmp;
             hasChanged = true;
         }
     }
@@ -134,14 +155,28 @@ async function updateJobs(){
 
     if (confirm("Are you sure to update your job ad ?") && hasChanged) {
         try {
-        const response = await fetch(`http://localhost:8000/api/job/updateJob/${job_id}`, {
-            headers: { 'Content-Type': 'application/json', },
-            method: "POST",
-            body: jsonData
-        });
-        alert("Job updated.");
+          const response = await fetch(`http://localhost:8000/api/job/updateJob/${job_id}`, {
+              headers: { 'Content-Type': 'application/json', },
+              method: "POST",
+              body: jsonData
+          });
+          alert("Job updated.");
         } catch (e) {
-        alert("Cannot update your job.");
+          alert("Cannot update your job.");
+        }
+    }
+}
+
+async function removeJobs() {
+    if (confirm("Are you sure to delete this job ad ?")) {
+        try {
+          await fetch(`http://localhost:8000/api/job/remove/${job_id}`);
+          for (let input of inputs)
+            document.getElementById(input).value = "";
+          reset();
+          alert("Job deleted.");
+        } catch (e) {
+          alert("Cannot delete your job ad.");
         }
     }
 }

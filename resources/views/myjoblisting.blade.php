@@ -7,15 +7,22 @@
 @section('content')
     <div>
         <p class="joblabel">Job title :</p>
-        <input id="title" class="jobdata"/>
+        <input style="width: 40%;" id="title" class="jobdata"/>
     </div>
     <div>
         <p class="joblabel">Contract type :</p>
-        <input id="contract" class="jobdata"/>
+        <select id="contract" name="contract">
+            <option value="" selected disabled hidden>-- Choose here --</option>
+            <option value="Full-time">Full-time</option>
+            <option value="Part-time">Part-time</option>
+            <option value="Freelance">Freelance</option>
+            <option value="Apprenticeship">Apprenticeship</option>
+            <option value="Internship">Internship</option>
+        </select>
     </div>
     <div>
         <p class="joblabel">Job description :</p>
-        <input id="more" class="jobdata"/>
+        <input style="width: 90%;" id="more" class="jobdata"/>
     </div>
     <div>
         <p class="joblabel">Job location : </p>

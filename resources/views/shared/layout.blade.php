@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="nav">
-        <p>JobBoard</p>
+        <p>Ni & Co</p>
         <img class="menu" onClick="showNav()" src="{{ URL::asset('svg/menu.svg') }}">
         <nav class="burger-drill">
             @if(Auth::check())
