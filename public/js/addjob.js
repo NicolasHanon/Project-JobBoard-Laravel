@@ -23,7 +23,7 @@ async function postJob() {
             return;
         }
         if (input == "salary") {
-            tmp = document.getElementById("salary").value + "-" + document.getElementById("salary2").value;
+            tmp = "$" + document.getElementById("salary").value + " - " + "$" + document.getElementById("salary2").value;
             document.getElementById("salary2").value = "";
         }
         document.getElementById(input).value = "";

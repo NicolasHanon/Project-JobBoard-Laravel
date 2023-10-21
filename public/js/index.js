@@ -83,7 +83,7 @@ async function initContent(id) {
   document.querySelector(".jobcompany").innerHTML = data[0].name;
   document.querySelector(".jobdescription").innerHTML = data[0].more;
   document.querySelector(".joblocation").innerHTML = data[0].location;
-  document.querySelector(".jobsalary").innerHTML = data[0].salary + " $";
+  document.querySelector(".jobsalary").innerHTML = data[0].salary;
 
 }
 
