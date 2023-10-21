@@ -6,29 +6,35 @@
 
 @section('content')
     <input id="job_id" type="hidden" name="job_id" value="{{ $job_id }}" />
-    <!-- <div>
-        <p class="joblabel">Job title :</p>
-        <input id="title" class="jobdata"/>
+    <div>
+        <p class="joblabel">Name : </p>
+        <p id="name" class="jobdata"></p>
     </div>
     <div>
-        <p class="joblabel">Contract type :</p>
-        <input id="contract" class="jobdata"/>
+        <p class="joblabel">Last name : </p>
+        <p id="lastname" class="jobdata"></p>
     </div>
     <div>
-        <p class="joblabel">Job description :</p>
-        <input id="more" class="jobdata"/>
+        <p class="joblabel">Email : </p>
+        <p id="email" class="jobdata"></p>
     </div>
     <div>
-        <p class="joblabel">Job location : </p>
-        <input id="location" class="jobdata"/>
+        <p class="joblabel">Phone : </p>
+        <p id="phone" class="jobdata"></p>
     </div>
     <div>
-        <img id="candidates" src="{{ URL::asset('svg/candidates.svg') }}">
-        <a href="/newjob">View candidates</a>
+        <p class="joblabel">More : </p>
+        <p id="more" class="jobdata"></p>
     </div>
-    <div class="apply">
-        <button id="updateBtn" onclick="updateJobs()">Update jobs</button>
-    </div> -->
+    <div>
+        <p class="joblabel">Why should you hire me ? </p>
+        <p id="message" class="jobdata"></p>
+    </div>
+    <div class="accepted_container">
+        <button onclick="updateAccepted(2)" id="accepted" class="accepted disabled">Accepted</button>
+        <button onclick="updateAccepted(0)" id="waiting" class="waiting disabled">Waiting</button>
+        <button onclick="updateAccepted(1)" id="rejected" class="rejected disabled">Rejected</button>
+    </div>
 @endsection
 
 @if (Auth::check())

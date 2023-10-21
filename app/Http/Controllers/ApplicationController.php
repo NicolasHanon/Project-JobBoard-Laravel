@@ -68,7 +68,8 @@ class ApplicationController extends Controller
         return response()->json($application, 201);
     }
 
-    public function getApplyJob($userId) {
+    public function getApplyJob($userId)
+    {
         $data = DB::table('applications')
             ->join('jobs', 'jobs.id', '=', 'applications.jobs_id')
             ->join('companies', 'jobs.companies_id', '=', 'companies.id')
@@ -78,7 +79,8 @@ class ApplicationController extends Controller
         return response()->json($data);
     }
 
-    public function getApplyData($userId, $jobId) {
+    public function getApplyData($userId, $jobId)
+    {
         $data = DB::table('applications')
             ->select('applications.message', 'applications.is_accepted')
             ->where('applications.user_id', '=', $userId)
@@ -87,10 +89,31 @@ class ApplicationController extends Controller
         return response()->json($data);
     }
 
-    public function updateMessage(Request $request, $userId, $jobId) {
+    public function updateMessage(Request $request, $userId, $jobId)
+    {
         $data = $request->post();
         $data = DB::table('applications')
             ->select('applications.message')
+            ->where('applications.user_id', '=', $userId)
+            ->where('applications.jobs_id', '=', $jobId)
+            ->update($data);
+    }
+
+    public function getApplicants($jobId)
+    {
+        $data = DB::table('applications')
+            ->join('users', 'users.id', '=', 'applications.user_id')
+            ->select('users.*')
+            ->where('applications.jobs_id', '=', $jobId)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function updateResponse(Request $request, $userId, $jobId)
+    {
+        $data = $request->post();
+        $data = DB::table('applications')
+            ->select('applications.is_accepted')
             ->where('applications.user_id', '=', $userId)
             ->where('applications.jobs_id', '=', $jobId)
             ->update($data);

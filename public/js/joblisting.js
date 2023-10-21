@@ -3,14 +3,17 @@ let inputs = ['title', 'contract', 'more', 'location', 'salary'];
 let companyId;
 let currentData;
 let job_id;
+let empty = false;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
   await initJobs();
-  job_id = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
-  setUrl(job_id);
-  await initContent(job_id);
-  await eventJobs();
+  if (!empty) {
+    job_id = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
+    setUrl(job_id);
+    await initContent(job_id);
+    await eventJobs();
+  }
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850) {
@@ -36,23 +39,37 @@ async function initJobs() {
   response = await fetch(`http://localhost:8000/api/job/getJobListing/${companyId}`);
   currentData = await response.json();
 
-  currentData.forEach(element => {
+  if (currentData.length < 1) {
+    empty = true;
     let title = document.createElement("p");
     title.classList.add("job");
-    title.innerHTML = element.title;
-    title.setAttribute('data-id' , `${element.id}`);
-
-    let span = document.createElement("span");
-    span.innerHTML = " - " + element.name;
-    title.setAttribute('data-id' , `${element.id}`);
-
+    title.classList.add("candidates");
+    title.innerHTML = "You haven't posted any job ads.";
     let sep = document.createElement("div")
     sep.classList.add("separator");
 
-    title.appendChild(span);
     main.appendChild(title);
     main.appendChild(sep);
-  }); 
+  }
+  else {
+    currentData.forEach(element => {
+      let title = document.createElement("p");
+      title.classList.add("job");
+      title.innerHTML = element.title;
+      title.setAttribute('data-id' , `${element.id}`);
+  
+      let span = document.createElement("span");
+      span.innerHTML = " - " + element.name;
+      title.setAttribute('data-id' , `${element.id}`);
+  
+      let sep = document.createElement("div")
+      sep.classList.add("separator");
+  
+      title.appendChild(span);
+      main.appendChild(title);
+      main.appendChild(sep);
+    });
+  }
 }
 
 async function initContent(job_id) {
@@ -104,6 +121,7 @@ function showNav() {
 }
 
 async function updateJobs(){
+    document.getElementById("updateBtn").classList.remove('tosave');
     let hasChanged = false;
     let data = {};
     for (let input of inputs) {
