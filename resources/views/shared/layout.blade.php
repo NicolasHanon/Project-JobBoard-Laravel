@@ -19,8 +19,8 @@
             @if(Auth::check())
             @if(Auth::user()->roleId !== 2) 
             <div>
-                <img class="option" src="{{ URL::asset('svg/home.svg') }}">
-                <a href="/index"><p class="optiontext">Home</p></a>
+                <img class="option" src="{{ URL::asset('svg/jobad.svg') }}">
+                <a href="/index"><p class="optiontext">View job ads</p></a>
             </div>
             @endif
             @endif
@@ -28,15 +28,7 @@
             @if(Auth::user()->roleId == 1 || Auth::user()->roleId == 2 ) 
             <div>
                 <img class="option" src="{{ URL::asset('svg/add.svg') }}">
-                <a href="/newjob"><p class="optiontext">Post an ad</p></a>
-            </div>
-            @endif
-            @endif
-            @if(Auth::check())
-            @if(Auth::user()->roleId == 1) 
-            <div>
-                <img class="option" src="{{ URL::asset('svg/admin.svg') }}">
-                <a href="/admin"><p class="optiontext">Admin panel</p></a>
+                <a href="/newjob"><p class="optiontext">Post a job ad</p></a>
             </div>
             @endif
             @endif
@@ -61,6 +53,14 @@
                 <img class="option" src="{{ URL::asset('svg/profile.svg') }}">
                 <a href="/user"><p class="optiontext">Profile</p></a>
             </div>
+            @endif
+            @if(Auth::check())
+            @if(Auth::user()->roleId == 1) 
+            <div>
+                <img class="option" src="{{ URL::asset('svg/admin.svg') }}">
+                <a href="/admin"><p class="optiontext">Admin panel</p></a>
+            </div>
+            @endif
             @endif
             @if(Auth::check() == false)
             <div>

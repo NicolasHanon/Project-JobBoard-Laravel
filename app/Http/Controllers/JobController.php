@@ -68,7 +68,8 @@ class JobController extends Controller
         return response()->json($job, 201);
     }
 
-    public function getJobListing($companyId) {
+    public function getJobListing($companyId)
+    {
         $data = DB::table('jobs')
             ->join('companies', 'jobs.companies_id', '=', 'companies.id')
             ->select('jobs.id', 'jobs.title', 'companies.name')
@@ -77,12 +78,30 @@ class JobController extends Controller
         return response()->json($data);
     }
 
-    public function updateJob(Request $request, $jobId) {
+    public function updateJob(Request $request, $jobId)
+    {
         $data = $request->post();
         DB::table('jobs')->where('id', $jobId)->update($data);
     }
 
-    public function viewCandidates($job_id){
+    public function viewCandidates($job_id)
+    {
         return view('candidates', ['job_id' => $job_id]);
+    }
+
+    public function getJobsToApply($user_id)
+    {
+        $data = DB::table('jobs')
+            ->join('companies', 'jobs.companies_id', '=', 'companies.id')
+            ->leftJoin('applications', function ($join) use ($user_id) {
+                $join->on('jobs.id', '=', 'applications.jobs_id')
+                    ->where('applications.user_id', '=', $user_id);
+            })
+            ->whereNull('applications.jobs_id')
+            ->orWhere('applications.user_id', '!=', $user_id)
+            ->select('jobs.id', 'jobs.title', 'companies.name')
+            ->get();
+    
+        return response()->json($data);
     }
 }
