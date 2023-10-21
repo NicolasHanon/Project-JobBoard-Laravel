@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div>
+    <!-- <div>
         <p class="joblabel">Job title :</p>
         <input id="title" class="jobdata"/>
     </div>
@@ -23,11 +23,11 @@
     </div>
     <div>
         <img id="candidates" src="{{ URL::asset('svg/candidates.svg') }}">
-        <a href="{{ route('view.candidates', ['job_id' => $job_id]) }}">View candidates</a>
+        <a href="/newjob">View candidates</a>
     </div>
     <div class="apply">
         <button id="updateBtn" onclick="updateJobs()">Update jobs</button>
-    </div>
+    </div> -->
 @endsection
 
 @if (Auth::check())
@@ -41,5 +41,5 @@
 @endif
         
 @section('script')
-    <script src="{{ asset('js/joblisting.js')}}"></script>
+    <!-- <script src="{{ asset('js/joblisting.js')}}"></script> -->
 @endsection

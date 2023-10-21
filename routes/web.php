@@ -59,9 +59,8 @@ Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // p
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::post('/login', [AuthController::class, 'doLogin']);
 
-// Route::get('/signup', function () {
-//     return view('signup');
-// })->name('signup');
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('auth.register');
 
 Route::post('/register', [AuthController::class, 'register']);
+
+Route::get('/candidates/{id}', JobController::class, 'viewCandidates');

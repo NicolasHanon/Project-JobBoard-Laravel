@@ -2,6 +2,7 @@ let main_MaxSize = document.querySelector('main').offsetHeight;
 let inputs = ['title', 'contract', 'more', 'location'];
 let companyId;
 let currentData;
+let jobId;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
