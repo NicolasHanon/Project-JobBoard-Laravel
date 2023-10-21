@@ -39,7 +39,7 @@
                 </div>
             </div class="morespace">
             <label for="more">About me</label>
-            <input type="text" name="more">
+            <textarea type="text" name="more" require></textarea>
             <div class="morespace">
                 <div class="div_children">
                     <label for="password">Password</label>
@@ -64,5 +64,12 @@
     });
     document.getElementById("showpassword2").addEventListener("click", (e) => {
         document.getElementById("password2").type = document.getElementById("password2").type == "password" ? "text" : "password";
+    });
+
+    document.querySelector("form").addEventListener("submit", (e) => {
+        if (document.getElementById("password").value !== document.getElementById("password2").value) {
+            e.preventDefault();
+            alert("Passwords do not match. Please make sure both passwords are the same.");
+        }
     });
 </script>
