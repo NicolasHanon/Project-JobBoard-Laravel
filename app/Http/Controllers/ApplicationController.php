@@ -119,4 +119,12 @@ class ApplicationController extends Controller
             ->update($data);
     }
 
+    public function removeApply($userId, $jobId)
+    {
+        $data = DB::table("applications")
+            ->where('applications.user_id', '=', $userId)
+            ->where('applications.jobs_id', '=', $jobId)
+            ->delete();
+    }
+
 }

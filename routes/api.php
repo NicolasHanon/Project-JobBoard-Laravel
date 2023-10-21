@@ -44,11 +44,15 @@ Route::get('/application/getApplicants/{jobId}', [ApplicationController::class, 
 Route::get('/application/getApplyData/{userId}/{jobId}', [ApplicationController::class, 'getApplyData']);
 Route::post('/application/updateResponse/{userId}/{jobId}', [ApplicationController::class, 'updateResponse']);
 Route::post('/application/updateMessage/{userId}/{jobId}', [ApplicationController::class, 'updateMessage']);
+Route::get('/application/removeApply/{userId}/{jobId}', [ApplicationController::class, 'removeApply']);
+
 
 //Job
 Route::get('/job/getJobListing/{companyId}', [JobController::class, 'getJobListing']);
 Route::get('/job/getJobsToApply/{userId}', [JobController::class, 'getJobsToApply']);
 Route::post('/job/updateJob/{jobId}', [JobController::class, 'updateJob']);
+Route::get('/job/remove/{id}', [JobController::class, 'destroy']);
+
 
 //_______________________________________ Jobs ___________________________________________________________________
 
