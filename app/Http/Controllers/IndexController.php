@@ -26,7 +26,6 @@ class IndexController extends Controller
             ->join('companies', 'jobs.companies_id', '=', 'companies.id')
             ->select('jobs.id', 'jobs.title', 'companies.name')
             ->get();
-        // dd(Auth::user());
         return response()->json($data);
     }
 

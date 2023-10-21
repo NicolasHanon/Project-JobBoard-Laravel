@@ -4,12 +4,7 @@ let empty = false;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
-  await initJobs();
-  if (!empty) {
-    jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
-    await initContent(jobId);
-    await eventJobs();
-  }
+  await reset();
 
   function adjustMargin() {
     if (main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth < 850 || main_MaxSize < document.querySelector('main').offsetHeight && window.innerWidth > 850) {
@@ -25,10 +20,24 @@ window.addEventListener('DOMContentLoaded', async (e) => {
   window.addEventListener('resize', adjustMargin);
 });
 
+async function reset() {
+  await initJobs();
+  if (!empty) {
+    jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
+    await initContent(jobId);
+    await eventJobs();
+  }
+}
+
 async function initJobs() {
   const main = document.querySelector("main");
+  main.innerHTML = "";
 
-  const response = await fetch(`http://localhost:8000/api/index/getJobs`);
+  let sep = document.createElement("div")
+  sep.classList.add("separator");
+  main.appendChild(sep);
+
+  const response = await fetch(`http://localhost:8000/api/job/getJobsToApply/${userId}`);
   const data = await response.json();
 
   if (data.length < 1) {
@@ -122,7 +131,10 @@ async function applyJobs(){
         method: "POST",
         body: jsonData
       });
+      document.getElementById("textarea").value = "";
+      reset();
       alert("Application sent.");
+      
     } catch (e) {
       alert("Cannot apply to this job.");
     }

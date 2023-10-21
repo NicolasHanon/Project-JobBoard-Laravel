@@ -47,6 +47,7 @@ Route::post('/application/updateMessage/{userId}/{jobId}', [ApplicationControlle
 
 //Job
 Route::get('/job/getJobListing/{companyId}', [JobController::class, 'getJobListing']);
+Route::get('/job/getJobsToApply/{userId}', [JobController::class, 'getJobsToApply']);
 Route::post('/job/updateJob/{jobId}', [JobController::class, 'updateJob']);
 
 //_______________________________________ Jobs ___________________________________________________________________
