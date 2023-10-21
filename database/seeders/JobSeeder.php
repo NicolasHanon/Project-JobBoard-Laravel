@@ -34,7 +34,7 @@ class JobSeeder extends Seeder
                 'companies_id' => 4,
                 'title' => 'Accountant',
                 'contract' => 'Freelance',
-                'more' => 'We need an freelance for a 6-month contract assignment.',
+                'more' => 'We need a freelance for a 6-month contract assignment.',
                 'location' => 'Los Angeles, CA',
                 'salary' => '$60,000 - $70,000',
             ],
@@ -49,7 +49,7 @@ class JobSeeder extends Seeder
             [
                 'companies_id' => 3,
                 'title' => 'Customer Support Representative',
-                'contract' => 'Full-time',
+                'contract' => 'Internship',
                 'more' => 'Provide exceptional customer support for our clients.',
                 'location' => 'Houston, TX',
                 'salary' => '$50,000 - $60,000',
@@ -57,7 +57,7 @@ class JobSeeder extends Seeder
             [
                 'companies_id' => 4,
                 'title' => 'Project Manager',
-                'contract' => 'Full-time',
+                'contract' => 'Apprenticeship',
                 'more' => 'Manage and coordinate project activities for our organization.',
                 'location' => 'Miami, FL',
                 'salary' => '$85,000 - $100,000',
@@ -65,7 +65,7 @@ class JobSeeder extends Seeder
             [
                 'companies_id' => 2,
                 'title' => 'Sales Representative',
-                'contract' => 'Full-time',
+                'contract' => 'Freelance',
                 'more' => 'Join our sales team and drive revenue growth.',
                 'location' => 'Dallas, TX',
                 'salary' => '$60,000 - $75,000',
