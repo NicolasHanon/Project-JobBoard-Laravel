@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+    <input id="job_id" type="hidden" name="job_id" value="{{ $job_id }}" />
     <!-- <div>
         <p class="joblabel">Job title :</p>
         <input id="title" class="jobdata"/>
@@ -41,5 +42,5 @@
 @endif
         
 @section('script')
-    <!-- <script src="{{ asset('js/joblisting.js')}}"></script> -->
+    <script src="{{ asset('js/candidates.js')}}"></script>
 @endsection

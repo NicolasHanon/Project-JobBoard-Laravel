@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,12 @@ Route::group(['middleware' => ['auth', 'company']], function() {
     })->name('index');
 });
 
+// Route::group(['middleware' => ['auth', 'user']], function() {
+    Route::get('/candidates/{job_id}', [JobController::class, 'viewCandidates'])->name('candidates');
+// });
+
+
+
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login'); // pour nommé la route
 Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
 Route::post('/login', [AuthController::class, 'doLogin']);
@@ -63,4 +70,3 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 
 Route::post('/register', [AuthController::class, 'register']);
 
-Route::get('/candidates/{id}', JobController::class, 'viewCandidates');

@@ -1,14 +1,15 @@
 let main_MaxSize = document.querySelector('main').offsetHeight;
-let inputs = ['title', 'contract', 'more', 'location'];
+let inputs = ['title', 'contract', 'more', 'location', 'salary'];
 let companyId;
 let currentData;
-let jobId;
+let job_id;
 
 window.addEventListener('DOMContentLoaded', async (e) => {
 
   await initJobs();
-  jobId = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
-  await initContent(jobId);
+  job_id = document.querySelector("main").querySelectorAll("p")[0].getAttribute("data-id");
+  setUrl(job_id);
+  await initContent(job_id);
   await eventJobs();
 
   function adjustMargin() {
@@ -54,8 +55,8 @@ async function initJobs() {
   }); 
 }
 
-async function initContent(jobId) {
-    const response = await fetch(`http://localhost:8000/api/index/${jobId}`);
+async function initContent(job_id) {
+    const response = await fetch(`http://localhost:8000/api/index/${job_id}`);
     let data = await response.json();
     currentData = data[0];
 
@@ -78,8 +79,9 @@ async function eventJobs() {
   let jobs = document.querySelectorAll(".job");
   for (const job of jobs) {
     job.addEventListener("click", async (e) => {
-      jobId = job.getAttribute('data-id')
-      await initContent(jobId);
+      job_id = job.getAttribute('data-id')
+      setUrl(job_id);
+      await initContent(job_id);
 
       document.querySelector('.content').style.margin = (window.innerHeight - 100 < document.querySelector('.content').offsetHeight) ? window.innerWidth < 850 ? '80px 0 20px 0' : '20px' : 'auto';
       if (window.innerWidth < 850)
@@ -114,7 +116,7 @@ async function updateJobs(){
 
     if (confirm("Are you sure to update your job ad ?") && hasChanged) {
         try {
-        const response = await fetch(`http://localhost:8000/api/job/updateJob/${jobId}`, {
+        const response = await fetch(`http://localhost:8000/api/job/updateJob/${job_id}`, {
             headers: { 'Content-Type': 'application/json', },
             method: "POST",
             body: jsonData
@@ -124,4 +126,9 @@ async function updateJobs(){
         alert("Cannot update your job.");
         }
     }
+}
+
+function setUrl(job_id) { 
+  var baseUrl = document.getElementById('candidatesLink').getAttribute('data-base-url');
+  document.getElementById('candidatesLink').href = baseUrl + '/' + job_id;
 }

@@ -25,6 +25,10 @@
         <p class="joblabel">Job location : </p>
         <p class="joblocation jobdata"></p>
     </div>
+    <div>
+        <p class="joblabel">Job salary : </p>
+        <p class="jobsalary jobdata"></p>
+    </div>
     <div class="apply">
         <textarea id="textarea" placeholder="Why should we hire you ?"></textarea>
         <button onclick="applyJobs()">Apply</button>

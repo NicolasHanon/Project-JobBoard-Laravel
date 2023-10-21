@@ -22,8 +22,12 @@
         <input id="location" class="jobdata"/>
     </div>
     <div>
+        <p class="joblabel">Job salary : </p>
+        <input id="salary" class="jobdata"/>
+    </div>
+    <div>
         <img id="candidates" src="{{ URL::asset('svg/candidates.svg') }}">
-        <a href="{{ route('view.candidates', ['job_id' => $job_id]) }}">View candidates</a>
+        <a id="candidatesLink" href="#" data-base-url="{{ url('/candidates') }}">View candidates</a>
     </div>
     <div class="apply">
         <button id="updateBtn" onclick="updateJobs()">Update jobs</button>
