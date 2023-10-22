@@ -30,11 +30,11 @@ Enter mySQL CLI as admin and create the user + db :
     mysql> FLUSH PRIVILEGES;
     mysql> CREATE DATABASE JobBoard_DB;
 
-Copy the .env file and configure environment variables
+Copy the .env file : 
 
     cp .env.example .env
 
-Edit the .env file as follows : 
+Configure environment variables : 
 
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -157,6 +157,6 @@ Candidate's route :
     localhost:8000/index/
     localhost:8000/login/
     localhost:8000/logout/
-    localhost:8000/myjobapplications/
+    localhost:8000/myjobappl    ications/
     localhost:8000/register/
     localhost:8000/user/
