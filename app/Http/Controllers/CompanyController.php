@@ -66,4 +66,19 @@ class CompanyController extends Controller
         $company->delete();
         return response()->json($company, 201);
     }
+
+    public function getCompany($companyId)
+    {
+        $data = DB::table('companies')
+            ->select('companies.*')
+            ->where('companies.id', '=', $companyId)
+            ->get();
+        return response()->json($data);
+    }
+
+    public function updateCompany(Request $request, $companyId)
+    {
+        $data = $request->post();
+        DB::table('companies')->where('id', $companyId)->update($data);
+    }
 }

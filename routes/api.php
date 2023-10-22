@@ -53,6 +53,9 @@ Route::get('/job/getJobsToApply/{userId}', [JobController::class, 'getJobsToAppl
 Route::post('/job/updateJob/{jobId}', [JobController::class, 'updateJob']);
 Route::get('/job/remove/{id}', [JobController::class, 'destroy']);
 
+// Companies
+Route::get('/companie/getCompany/{companyId}', [CompanyController::class, 'getCompany']);
+Route::post('/companie/updateCompany/{companyId}', [CompanyController::class, 'updateCompany']);
 
 //_______________________________________ Jobs ___________________________________________________________________
 
