@@ -63,7 +63,7 @@ Start the local development server
 
     php artisan serve
 
-You can now access the server at [http://localhost:8000/index](http://localhost:8000/index)
+You can now access the server at [http://localhost:8000/login](http://localhost:8000/login)
 
     /newjob
     /login
