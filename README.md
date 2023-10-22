@@ -26,9 +26,9 @@ Enter mySQL CLI as admin and create the user + db :
 
     sudo mysql
     mysql> CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+    mysql> CREATE DATABASE JobBoard_DB;
     mysql> GRANT ALL PRIVILEGES ON JobBoard_DB.*;
     mysql> FLUSH PRIVILEGES;
-    mysql> CREATE DATABASE JobBoard_DB;
 
 Copy the .env file : 
 
