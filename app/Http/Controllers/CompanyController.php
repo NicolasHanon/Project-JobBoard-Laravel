@@ -26,7 +26,7 @@ class CompanyController extends Controller
     {
         try{
             $companies = Companie::create($request->all());
-            return response()->json($request, 201);
+            return response()->json($companies['id']);
         }
         catch(\Illuminate\Database\QueryException $e) {
             return response()->json([
