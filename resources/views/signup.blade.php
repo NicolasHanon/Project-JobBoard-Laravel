@@ -17,8 +17,8 @@
         <form class="form_container" method="post" action="{{ route('auth.register') }}">
             @csrf
             <div class="morespace">
-                <input type="hidden" name="roleId" value="3">
-                <input type="hidden" name="companyId" value="1">
+                <input id="roleId" type="hidden" name="roleId" value="3">
+                <input id="companyId" type="hidden" name="companyId" value="1">
                 <div class="div_children">
                     <label for="name">Name</label>
                     <input type="text" name="name" required>
@@ -52,24 +52,38 @@
                     <img class="showpassword" id="showpassword2" src="{{ URL::asset('svg/showpassword.svg') }}">
                 </div>
             </div>
+            <div class="morespace">
+                <input id="isCompany" type="checkbox" name="iscompany"/>
+                <label for="isCompany">Register as company</label>
+            </div>
+
+            <div style="display: none;" id="company_form">
+                <div class="morespace">
+                    <div class="div_children">
+                        <label for="companyname">Company Name</label>
+                        <input id="name" type="text" name="companyname">
+                    </div>
+                    <div class="div_children">
+                        <label for="headquarter">Headquarter</label>
+                        <input id="headquarter" type="text" name="headquarter" >
+                    </div>
+                    <div class="div_children">
+                        <label for="type">Sector type</label>
+                        <input id="type" type="text" name="type" >
+                    </div>
+                </div>
+                <div>
+                    <label for="about">About the company</label>
+                </div>
+                <div>
+                    <textarea id="about" type="text" name="about"></textarea>
+                </div>
+            </div>
+
             <button type="submit">Sign up</button>
         </form>
-</div>
+    </div>
 </body>
 </html>
 
-<script>
-    document.getElementById("showpassword").addEventListener("click", (e) => {
-        document.getElementById("password").type = document.getElementById("password").type == "password" ? "text" : "password";
-    });
-    document.getElementById("showpassword2").addEventListener("click", (e) => {
-        document.getElementById("password2").type = document.getElementById("password2").type == "password" ? "text" : "password";
-    });
-
-    document.querySelector("form").addEventListener("submit", (e) => {
-        if (document.getElementById("password").value !== document.getElementById("password2").value) {
-            e.preventDefault();
-            alert("Passwords do not match. Please make sure both passwords are the same.");
-        }
-    });
-</script>
+<script src="{{ asset('js/signup.js')}}"></script>

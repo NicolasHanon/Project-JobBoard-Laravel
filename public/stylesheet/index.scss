@@ -393,6 +393,24 @@ body {
     font-family: 'Dela Gothic One', cursive !important;
 }
 
+.return {
+    font-family: 'Dela Gothic One', cursive !important;
+    text-decoration: none;
+    color: #809bce;
+    transition: all ease-in-out 200ms;
+    text-align: center;
+
+    @media screen and (max-width: 849px) {
+        font-size: 1em;
+    }
+
+    &:hover {
+        text-decoration: underline;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+}
+
 .trash {
     margin-top: -10px;
     transition: all ease-in-out 200ms;

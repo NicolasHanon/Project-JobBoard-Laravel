@@ -30,9 +30,20 @@ window.addEventListener('DOMContentLoaded', async (e) => {
 
 async function initJobs() {
   const main = document.querySelector("main");
+  main.innerHTML = "";
 
   const response = await fetch(`http://localhost:8000/api/application/getApplicants/${job_id}`);
   const data = await response.json();
+
+  let prev = document.createElement("a");
+  prev.classList.add("return");
+  prev.href = "http://127.0.0.1:8000/myjoblisting";
+  prev.innerHTML = "Return to your job listing.";
+  let sep = document.createElement("div")
+  sep.classList.add("separator");
+
+  main.appendChild(prev);
+  main.appendChild(sep);
 
   if (data.length < 1) {
     empty = true;
