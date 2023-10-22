@@ -72,10 +72,10 @@
                         <input id="type" type="text" name="type" >
                     </div>
                 </div>
-                <div>
+                <div class="morespace">
                     <label for="about">About the company</label>
                 </div>
-                <div>
+                <div class="morespace">
                     <textarea id="about" type="text" name="about"></textarea>
                 </div>
             </div>
