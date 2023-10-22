@@ -157,6 +157,6 @@ Candidate's route :
     localhost:8000/index/
     localhost:8000/login/
     localhost:8000/logout/
-    localhost:8000/myjobappl    ications/
+    localhost:8000/myjobapplications/
     localhost:8000/register/
     localhost:8000/user/
