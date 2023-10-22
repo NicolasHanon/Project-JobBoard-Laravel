@@ -37,15 +37,15 @@ Route::get('/user', function () {
 })->name('user');
 
 Route::group(['middleware' => ['auth', 'company']], function() {
-Route::get('/myjobapplications', function () {
-    return view('myjobapplications');
-})->name('myjobapplications');
+    Route::get('/myjobapplications', function () {
+        return view('myjobapplications');
+    })->name('myjobapplications');
 });
 
 Route::group(['middleware' => ['auth', 'user']], function() {
-Route::get('/myjoblisting', function () {
-    return view('myjoblisting');
-})->name('myjoblisting');
+    Route::get('/myjoblisting', function () {
+        return view('myjoblisting');
+    })->name('myjoblisting');
 });
 
 Route::group(['middleware' => ['auth', 'admin']], function() {
@@ -58,6 +58,12 @@ Route::group(['middleware' => ['auth', 'company']], function() {
     Route::get('/index', function () {
         return view('index');
     })->name('index');
+});
+
+Route::group(['middleware' => ['auth', 'user']], function() {
+    Route::get('/company', function () {
+        return view('company');
+    })->name('company');
 });
 
 // Route::group(['middleware' => ['auth', 'user']], function() {
