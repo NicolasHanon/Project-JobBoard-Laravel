@@ -100,49 +100,63 @@ routes
 - `routes/api.php` - Contains all CRUD operations
 - `routes/web.php` - Every page we need to load are here
 
-# Testing API
+# Testing the application
 
 Run the laravel development server
 
     php artisan serve
 
-The api can be accessed at
+The application can be accessed at
 
-    http://localhost:8000/api
+    http://localhost:8000/index
 
-    POST      api/admin/addRow/{table} ................................ AdminController@addRow
-    GET|HEAD  api/admin/deleteRow/{id}/{table} ..................... AdminController@deleteRow
-    GET|HEAD  api/admin/getTableData/{tableName} ............... AdminController@showTableData
-    GET|HEAD  api/admin/initTable ................................... AdminController@getTable
-    POST      api/admin/updateRow/{table} .......................... AdminController@updateRow
-    POST      api/application/add ................................ ApplicationController@store
-    GET|HEAD  api/application/getApplicants/{jobId} ...... ApplicationController@getApplicants
-    GET|HEAD  api/application/getApplyData/{userId}/{jobId} ApplicationController@getApplyData
-    GET|HEAD  api/application/getApplyJob/{userId} ......... ApplicationController@getApplyJob
-    DELETE    api/application/remove/{id} ...................... ApplicationController@destroy
-    GET|HEAD  api/application/removeApply/{userId}/{jobId} . ApplicationController@removeApply
-    POST      api/application/updateMessage/{userId}/{jobId} ApplicationController@updateMess…
-    POST      api/application/updateResponse/{userId}/{jobId} ApplicationController@updateRes…
-    GET|HEAD  api/application/{id} ................................ ApplicationController@show
-    PUT       api/application/{id} .............................. ApplicationController@update
-    POST      api/companie/add ....................................... CompanyController@store
-    GET|HEAD  api/companie/getCompany/{companyId} ............... CompanyController@getCompany
-    DELETE    api/companie/remove/{id} ............................. CompanyController@destroy
-    POST      api/companie/updateCompany/{companyId} ......... CompanyController@updateCompany
-    GET|HEAD  api/companie/{id} ....................................... CompanyController@show
-    PUT       api/companie/{id} ..................................... CompanyController@update
-    GET|HEAD  api/index/getJobs ...................................... IndexController@getJobs
-    GET|HEAD  api/index/{id} .............................................. JobController@show
-    GET|HEAD  api/job/getJobListing/{companyId} .................. JobController@getJobListing
-    GET|HEAD  api/job/getJobsToApply/{userId} ................... JobController@getJobsToApply
-    GET|HEAD  api/job/remove/{id} ...................................... JobController@destroy
-    POST      api/job/updateJob/{jobId} .............................. JobController@updateJob
-    POST      api/newjob/add ............................................. JobController@store
-    DELETE    api/newjob/remove/{id} ................................... JobController@destroy
-    PUT       api/newjob/{id} ........................................... JobController@update
-    POST      api/user/add .............................................. UserController@store
-    GET|HEAD  api/user/getCompanyId/{userId} ..................... UserController@getCompanyId
-    DELETE    api/user/remove/{id} .................................... UserController@destroy
-    POST      api/user/update/{userId} ................................. UserController@update
-    GET|HEAD  api/user/{id} .............................................. UserController@show
+Here are the users available to you : 
 
+# Admin user (role n°1) :
+
+    Email : emma.smith@email.com
+    Password : password123
+
+Admin's routes : 
+
+    localhost:8000/admin/
+    localhost:8000/index/
+    localhost:8000/candidates/{job_id}/
+    localhost:8000/company/
+    localhost:8000/login/
+    localhost:8000/logout/
+    localhost:8000/myjobapplications/
+    localhost:8000/myjoblisting/
+    localhost:8000/newjob/
+    localhost:8000/register/
+    localhost:8000/user/
+
+# Recruiter user (role n°2) :
+
+    Email : alex.williams@email.com
+    Password : password123
+
+Recruiter's route : 
+
+    localhost:8000/candidates/{job_id}/
+    localhost:8000/company/
+    localhost:8000/login/
+    localhost:8000/logout/
+    localhost:8000/myjoblisting/
+    localhost:8000/newjob/
+    localhost:8000/register/
+    localhost:8000/user/
+
+# Candidate user (role n°3) : 
+
+    Email : john@doe.com
+    Password : password123
+
+Candidate's route : 
+
+    localhost:8000/index/
+    localhost:8000/login/
+    localhost:8000/logout/
+    localhost:8000/myjobapplications/
+    localhost:8000/register/
+    localhost:8000/user/
