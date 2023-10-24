@@ -27,7 +27,7 @@ Enter mySQL CLI as admin and create the user + db :
     sudo mysql
     mysql> CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
     mysql> CREATE DATABASE JobBoard_DB;
-    mysql> GRANT ALL PRIVILEGES ON JobBoard_DB.*;
+    mysql> GRANT ALL PRIVILEGES ON JobBoard_DB.* TO 'username'@'localhost';
     mysql> FLUSH PRIVILEGES;
 
 Copy the .env file : 
@@ -49,7 +49,9 @@ Run the database migrations (**Set the database connection in .env before migrat
 
 Change the data type of Users 'more' :
 
-    alter table users modify more text
+    sudo mysql
+    mysql> use JobBoard_DB;
+    mysql> alter table users modify more text;
 
 Seed the Database (in that order)
 
