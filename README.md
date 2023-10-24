@@ -51,6 +51,7 @@ Seed the Database (in that order)
 
     php artisan db:seed --class=RoleSeeder
     php artisan db:seed --class=CompanieSeeder
+    alter table users modify more text
     php artisan db:seed --class=UserSeeder
     php artisan db:seed --class=JobSeeder
     php artisan db:seed --class=ApplicationSeeder
